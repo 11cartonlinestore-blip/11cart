@@ -1,0 +1,65 @@
+<script>
+
+const csvUrl =
+"https://docs.google.com/spreadsheets/d/1J7pd72gHhLKuFoYMjzWoSPUjuSDUYdVqUaTDaml8eyA/export?format=csv";
+
+Papa.parse(csvUrl, {
+
+download: true,
+header: true,
+
+complete: function(results){
+
+console.log(results.data);
+
+const data = results.data;
+
+data.forEach(product => {
+
+const name = product["Name"];
+const price = product["Price"];
+const image = product["Thumbnail"];
+const description = product["Description"];
+
+if(name && image){
+
+document.getElementById("products").innerHTML += `
+
+<div class="card">
+
+<img src="${image}">
+
+<div class="info">
+
+<h2>${name}</h2>
+
+<div class="price">
+Rs. ${price}
+</div>
+
+<p>${description}</p>
+
+<a
+class="whatsapp"
+target="_blank"
+href="https://wa.me/94786802323?text=I'm interested in ${name}">
+
+Order on WhatsApp
+
+</a>
+
+</div>
+
+</div>
+
+`;
+
+}
+
+});
+
+}
+
+});
+
+</script>
