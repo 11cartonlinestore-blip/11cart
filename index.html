@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
 <meta charset="UTF-8">
@@ -12,6 +13,8 @@
 <meta name="description"
 content="Buy kids toys, hoverboards, ride on jeeps, baby products and swimming pools in Sri Lanka with islandwide delivery.">
 
+<script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+
 <style>
 
 *{
@@ -19,6 +22,10 @@ content="Buy kids toys, hoverboards, ride on jeeps, baby products and swimming p
   padding:0;
   box-sizing:border-box;
   font-family:Arial,sans-serif;
+}
+
+html{
+  scroll-behavior:smooth;
 }
 
 body{
@@ -45,7 +52,7 @@ nav{
 }
 
 .logo{
-  font-size:30px;
+  font-size:32px;
   font-weight:900;
   color:#ff3b00;
 }
@@ -53,7 +60,7 @@ nav{
 .whatsapp-btn{
   background:#25D366;
   color:white;
-  padding:12px 22px;
+  padding:12px 24px;
   border-radius:14px;
   font-weight:bold;
 }
@@ -71,13 +78,13 @@ nav{
 }
 
 .hero h1{
-  font-size:58px;
+  font-size:60px;
   line-height:1.1;
   margin-bottom:25px;
 }
 
 .hero p{
-  font-size:19px;
+  font-size:20px;
   line-height:1.8;
   margin-bottom:35px;
 }
@@ -108,7 +115,8 @@ nav{
   width:100%;
   height:500px;
   object-fit:cover;
-  border-radius:28px;
+  border-radius:30px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.2);
 }
 
 /* SECTION */
@@ -123,16 +131,16 @@ nav{
 }
 
 .section-title h2{
-  font-size:42px;
-  margin-bottom:10px;
+  font-size:48px;
+  margin-bottom:15px;
 }
 
 /* SEARCH */
 
 #searchInput{
   width:100%;
-  padding:16px;
-  border-radius:14px;
+  padding:18px;
+  border-radius:16px;
   border:1px solid #ccc;
   margin-bottom:40px;
   font-size:16px;
@@ -162,6 +170,7 @@ nav{
   width:100%;
   height:300px;
   object-fit:cover;
+  background:#eee;
 }
 
 .product-info{
@@ -170,19 +179,19 @@ nav{
 
 .product-info h3{
   font-size:24px;
-  margin-bottom:12px;
+  margin-bottom:10px;
 }
 
 .category{
   color:#777;
-  margin-bottom:10px;
+  margin-bottom:12px;
 }
 
 .price{
   color:#ff3b00;
   font-size:28px;
   font-weight:bold;
-  margin-bottom:22px;
+  margin-bottom:20px;
 }
 
 .product-buttons{
@@ -213,7 +222,7 @@ nav{
 .trust{
   background:#111;
   color:white;
-  border-radius:28px;
+  border-radius:30px;
   padding:60px;
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
@@ -258,6 +267,14 @@ footer p{
   color:#777;
 }
 
+/* LOADING */
+
+.loading{
+  text-align:center;
+  font-size:22px;
+  padding:40px;
+}
+
 /* MOBILE */
 
 @media(max-width:900px){
@@ -268,6 +285,10 @@ footer p{
 
   .hero h1{
     font-size:42px;
+  }
+
+  .section-title h2{
+    font-size:38px;
   }
 
 }
@@ -341,7 +362,10 @@ footer p{
 
 <!-- PRODUCTS -->
 
-<section class="section" id="products">
+<section
+class="section"
+id="products"
+>
 
   <div class="section-title">
 
@@ -364,7 +388,13 @@ footer p{
   <div
     class="products"
     id="productsContainer"
-  ></div>
+  >
+
+    <div class="loading">
+      Loading products...
+    </div>
+
+  </div>
 
 </section>
 
@@ -389,7 +419,7 @@ footer p{
     <div>
       ⭐
       <h3>Trusted Seller</h3>
-      <p>High quality products.</p>
+      <p>Premium quality products.</p>
     </div>
 
     <div>
@@ -445,61 +475,21 @@ const sheetURL =
 
 let allProducts = [];
 
-async function loadProducts(){
-
-  const response =
-  await fetch(sheetURL);
-
-  const csvText =
-  await response.text();
-
-  const rows =
-  csvText.split('\\n').slice(1);
-
-  allProducts = [];
-
-  rows.forEach(row => {
-
-    const cols =
-    row.split(/,(?=(?:(?:[^\"]*\"){2})*[^\"]*$)/);
-
-    const name =
-    cols[0]?.replace(/\"/g,'').trim();
-
-    const category =
-    cols[1]?.replace(/\"/g,'').trim();
-
-    const price =
-    cols[2]?.replace(/\"/g,'').trim();
-
-    const image =
-    cols[10]?.replace(/\"/g,'').trim();
-
-    if(name && image){
-
-      allProducts.push({
-        name,
-        category,
-        price,
-        image
-      });
-
-    }
-
-  });
-
-  displayProducts(allProducts);
-
-}
-
 function displayProducts(products){
 
   const container =
-  document.getElementById(
-    "productsContainer"
-  );
+  document.getElementById("productsContainer");
 
   container.innerHTML = "";
+
+  if(products.length === 0){
+
+    container.innerHTML =
+    "<div class='loading'>No products found.</div>";
+
+    return;
+
+  }
 
   products.forEach(product => {
 
@@ -550,6 +540,56 @@ function displayProducts(products){
       </div>
 
     `;
+
+  });
+
+}
+
+function loadProducts(){
+
+  Papa.parse(sheetURL, {
+
+    download:true,
+    header:true,
+
+    complete:function(results){
+
+      const data = results.data;
+
+      allProducts = [];
+
+      data.forEach(item => {
+
+        const name =
+        item.Name || "";
+
+        const category =
+        item.Category || "General";
+
+        const price =
+        item.Price || "0";
+
+        const image =
+        item.Thumbnail || "";
+
+        if(name){
+
+          allProducts.push({
+
+            name:name,
+            category:category,
+            price:price,
+            image:image
+
+          });
+
+        }
+
+      });
+
+      displayProducts(allProducts);
+
+    }
 
   });
 
