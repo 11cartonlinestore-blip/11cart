@@ -161,6 +161,56 @@ Order on WhatsApp
 </script>
 
 </body>
+</html>products.forEach(product => {
+
+const name = product["Name"];
+const price = product["Price"];
+const image = product["Thumbnail"];
+const description = product["Description"];
+
+if(name && image){
+
+document.getElementById("products").innerHTML += `
+
+<div class="card">
+
+<img src="${image}">
+
+<div class="info">
+
+<h2>${name}</h2>
+
+<div class="price">
+Rs. ${price}
+</div>
+
+<div class="desc">
+${description}
+</div>
+
+<a class="btn"
+target="_blank"
+href="https://wa.me/94786802323?text=I'm interested in ${name}">
+Order on WhatsApp
+</a>
+
+</div>
+
+</div>
+
+`;
+
+}
+
+});
+
+}
+
+});
+
+</script>
+
+</body>
 </html>          currentCategory = cat;
           filterProducts();
         };
