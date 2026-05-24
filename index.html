@@ -1,192 +1,207 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>11_Cart</title>
-
-<script src="https://cdn.jsdelivr.net/npm/papaparse@5.3.2/papaparse.min.js"></script>
-
-<style>
-
-body{
-margin:0;
-font-family:Arial;
-background:#f2f2f2;
-}
-
-.header{
-background:black;
-color:white;
-padding:30px;
-text-align:center;
-}
-
-.header h1{
-color:orange;
-font-size:45px;
-margin:0;
-}
-
-.products{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:20px;
-padding:20px;
-}
-
-.card{
-background:white;
-border-radius:15px;
-overflow:hidden;
-box-shadow:0 4px 10px rgba(0,0,0,0.1);
-}
-
-.card img{
-width:100%;
-height:250px;
-object-fit:cover;
-}
-
-.info{
-padding:15px;
-}
-
-.info h2{
-font-size:20px;
-margin:0 0 10px;
-}
-
-.price{
-font-size:24px;
-font-weight:bold;
-color:green;
-margin-bottom:10px;
-}
-
-.desc{
-font-size:14px;
-color:#555;
-margin-bottom:15px;
-}
-
-.btn{
-display:block;
-background:#25D366;
-color:white;
-text-decoration:none;
-text-align:center;
-padding:12px;
-border-radius:10px;
-font-weight:bold;
-}
-
-</style>
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>11Cart Sri Lanka - Intex Products</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    .hero-bg { 
+      background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)), 
+                  url('https://i.imgur.com/faB3Ip4.jpeg') center/cover; 
+    }
+    .product-card { transition: all 0.3s ease; }
+    .product-card:hover { transform: translateY(-10px); box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25); }
+    .tab-active { background-color: #22c55e; color: white; border: none; }
+    .search-input {
+      transition: all 0.3s;
+    }
+    .search-input:focus {
+      box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.2);
+    }
+  </style>
 </head>
+<body class="bg-gray-50">
 
-<body>
+  <!-- Navbar -->
+  <nav class="bg-white shadow sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-6 py-5 flex justify-between items-center">
+      <div class="flex items-center gap-3">
+        <i class="fa-solid fa-bed text-4xl text-blue-600"></i>
+        <h1 class="text-3xl font-bold text-gray-800">11Cart</h1>
+      </div>
+      <a href="https://wa.me/94786802323" target="_blank"
+         class="bg-green-500 hover:bg-green-600 text-white px-8 py-4 rounded-full font-semibold flex items-center gap-3 text-lg">
+        <i class="fa-brands fa-whatsapp text-2xl"></i> WhatsApp
+      </a>
+    </div>
+  </nav>
 
-<div class="header">
-<h1>11_Cart</h1>
-<p>Kids & Baby Store</p>
-</div>
+  <!-- Hero -->
+  <section class="hero-bg text-white py-32 text-center">
+    <div class="max-w-4xl mx-auto px-6">
+      <h2 class="text-5xl md:text-6xl font-bold mb-6">Quality Intex Products</h2>
+      <p class="text-2xl">Air Mattresses • Pools • Pumps • Baby Items</p>
+    </div>
+  </section>
 
-<div class="products" id="products">
+  <!-- Tabs + Search -->
+  <section class="bg-white py-8 border-b">
+    <div class="max-w-6xl mx-auto px-6">
+      <!-- Search Bar -->
+      <div class="mb-8 max-w-xl mx-auto">
+        <div class="relative">
+          <input type="text" id="search-input" 
+                 class="search-input w-full bg-gray-100 border border-gray-300 rounded-full py-4 px-6 pl-14 text-lg focus:outline-none"
+                 placeholder="Search products... (e.g. Small, Medium, Pool, Pump)">
+          <i class="fa-solid fa-magnifying-glass absolute left-6 top-1/2 -translate-y-1/2 text-gray-400 text-xl"></i>
+        </div>
+      </div>
 
-</div>
+      <!-- Category Tabs -->
+      <div class="flex flex-wrap justify-center gap-4" id="category-tabs"></div>
+    </div>
+  </section>
 
-<script>
+  <!-- Products -->
+  <section class="py-12">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="grid md:grid-cols-3 lg:grid-cols-4 gap-8" id="products-grid"></div>
+    </div>
+  </section>
 
-const sheetURL =
-"https://docs.google.com/spreadsheets/d/1J7pd72gHhLKuFoYMjzWoSPUjuSDUYdVqUaTDaml8eyA/export?format=csv";
+  <!-- CTA -->
+  <section class="bg-green-600 text-white py-20 text-center">
+    <div class="max-w-4xl mx-auto px-6">
+      <h2 class="text-4xl font-bold mb-4">Ready to Buy?</h2>
+      <p class="text-xl mb-8">Message us for best price & fast delivery across Sri Lanka</p>
+      <a href="https://wa.me/94786802323?text=Hi%2C%20I%20saw%20your%20website%20and%20want%20to%20buy" 
+         class="inline-flex items-center gap-4 bg-white text-green-600 px-10 py-5 rounded-full text-2xl font-bold">
+        <i class="fa-brands fa-whatsapp text-4xl"></i> Order Now
+      </a>
+    </div>
+  </section>
 
-Papa.parse(sheetURL, {
+  <footer class="bg-gray-900 text-gray-400 py-10 text-center">
+    <p class="text-2xl font-bold text-white">11Cart Sri Lanka</p>
+    <p class="mt-2">Premium Intex Air Mattresses & Baby Products</p>
+    <p class="mt-6">Colombo, Sri Lanka | +94 78 680 2323</p>
+  </footer>
 
-download:true,
-header:true,
+  <script>
+    const SHEET_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vReVFFfTdnBOMgVF15qLDxBxyqbUKedALbb1_tFHpIEKWTD61_cVGqmuSY1Tn20VoqNd1nCyEp-Y1ur/pub?output=csv";
 
-complete:function(results){
+    let allProducts = [];
+    let currentCategory = 'All Products';
 
-const products = results.data;
+    async function loadProducts() {
+      try {
+        const response = await fetch(SHEET_URL);
+        const csvText = await response.text();
+        allProducts = parseCSV(csvText);
+        
+        renderCategories();
+        renderProducts(allProducts);
+      } catch (error) {
+        console.error(error);
+        document.getElementById("products-grid").innerHTML = `
+          <p class="col-span-full text-center text-red-500 py-12">Failed to load products. Please refresh the page.</p>`;
+      }
+    }
 
-products.forEach(product => {
+    function parseCSV(csv) {
+      const rows = csv.trim().split('\n');
+      const headers = rows[0].split(',').map(h => h.trim().replace(/"/g, ''));
+      
+      return rows.slice(1).map(row => {
+        const values = row.split(',').map(v => v.trim().replace(/"/g, ''));
+        let obj = {};
+        headers.forEach((header, i) => {
+          obj[header] = values[i] || '';
+        });
+        return obj;
+      }).filter(p => p.Name);
+    }
 
-const name = product["Name"];
-const price = product["Price"];
-const image = product["Thumbnail"];
-const description = product["Description"];
+    function renderCategories() {
+      const cats = ['All Products', ...new Set(allProducts.map(p => p.Category).filter(Boolean))];
+      const container = document.getElementById('category-tabs');
+      container.innerHTML = '';
 
-if(name && image){
+      cats.forEach(cat => {
+        const btn = document.createElement('button');
+        btn.className = `px-7 py-3 rounded-full font-medium border transition-all ${cat === 'All Products' ? 'tab-active' : 'hover:bg-gray-100'}`;
+        btn.textContent = cat;
+        btn.onclick = () => {
+          currentCategory = cat;
+          filterProducts();
+        };
+        container.appendChild(btn);
+      });
+    }
 
-document.getElementById("products").innerHTML += `
+    function filterProducts() {
+      let filtered = allProducts;
 
-<div class="card">
+      // Apply category filter
+      if (currentCategory !== 'All Products') {
+        filtered = filtered.filter(p => p.Category === currentCategory);
+      }
 
-<img src="${image}">
+      // Apply search filter
+      const searchTerm = document.getElementById('search-input').value.toLowerCase().trim();
+      if (searchTerm) {
+        filtered = filtered.filter(p => 
+          (p.Name && p.Name.toLowerCase().includes(searchTerm)) ||
+          (p.Description && p.Description.toLowerCase().includes(searchTerm))
+        );
+      }
 
-<div class="info">
+      renderProducts(filtered);
+    }
 
-<h2>${name}</h2>
+    function renderProducts(products) {
+      const container = document.getElementById('products-grid');
+      container.innerHTML = '';
 
-<div class="price">
-Rs. ${price}
-</div>
+      if (products.length === 0) {
+        container.innerHTML = `<p class="col-span-full text-center text-gray-500 py-12 text-xl">No products found. Try different search terms.</p>`;
+        return;
+      }
 
-<div class="desc">
-${description}
-</div>
+      products.forEach(p => {
+        const price = p['Discounted Price'] || p.Price || 'Contact';
+        const img = p.Thumbnail || p.Image1 || p.Image || 'https://via.placeholder.com/400x300';
 
-<a class="btn"
-target="_blank"
-href="https://wa.me/94786802323?text=I'm interested in ${name}">
-Order on WhatsApp
-</a>
+        const div = document.createElement('div');
+        div.className = 'product-card bg-white rounded-3xl overflow-hidden shadow-md';
+        div.innerHTML = `
+          <img src="\( {img}" class="w-full h-64 object-cover" alt=" \){p.Name}">
+          <div class="p-6">
+            <h3 class="font-bold text-lg leading-tight">${p.Name}</h3>
+            <p class="text-green-600 font-bold text-3xl mt-3">Rs. ${price}</p>
+            <p class="text-sm text-gray-600 mt-4 line-clamp-3">${p.Description || ''}</p>
+            <button onclick="orderNow('\( {p.Name.replace(/'/g, '')} - Rs. \){price}')" 
+                    class="mt-6 w-full bg-green-500 hover:bg-green-600 text-white py-4 rounded-2xl font-semibold">
+              Order via WhatsApp
+            </button>
+          </div>
+        `;
+        container.appendChild(div);
+      });
+    }
 
-</div>
+    function orderNow(text) {
+      const message = `Hi! I'm interested in ${text}. Please send more details.`;
+      window.open(`https://wa.me/94786802323?text=${encodeURIComponent(message)}`, '_blank');
+    }
 
-</div>
+    // Event Listeners
+    document.getElementById('search-input').addEventListener('input', filterProducts);
 
-`;
-
-}
-
-});
-
-}
-
-});
-
-</script>
-
+    // Load data when page loads
+    window.onload = loadProducts;
+  </script>
 </body>
-</html>Rs. ${price}
-</div>
-
-<p>${description}</p>
-
-<a
-class="whatsapp"
-target="_blank"
-href="https://wa.me/94786802323?text=I'm interested in ${name}">
-
-Order on WhatsApp
-
-</a>
-
-</div>
-
-</div>
-
-`;
-
-}
-
-});
-
-}
-
-});
-
-</script>
+</html>
