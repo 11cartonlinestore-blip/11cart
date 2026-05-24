@@ -14,7 +14,6 @@
     .product-card { transition: all 0.3s ease; }
     .product-card:hover { transform: translateY(-10px); box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25); }
     .tab-active { background-color: #22c55e; color: white; border: none; }
-    .search-input:focus { box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.2); }
   </style>
 </head>
 <body class="bg-gray-50">
@@ -47,7 +46,7 @@
       <div class="mb-8 max-w-xl mx-auto">
         <div class="relative">
           <input type="text" id="search-input" 
-                 class="search-input w-full bg-gray-100 border border-gray-300 rounded-full py-4 px-6 pl-14 text-lg focus:outline-none"
+                 class="w-full bg-gray-100 border border-gray-300 rounded-full py-4 px-6 pl-14 text-lg focus:outline-none"
                  placeholder="Search products...">
           <i class="fa-solid fa-magnifying-glass absolute left-6 top-1/2 -translate-y-1/2 text-gray-400 text-xl"></i>
         </div>
@@ -56,7 +55,7 @@
     </div>
   </section>
 
-  <!-- Products -->
+  <!-- Products Grid -->
   <section class="py-12">
     <div class="max-w-6xl mx-auto px-6">
       <div class="grid md:grid-cols-3 lg:grid-cols-4 gap-8" id="products-grid"></div>
@@ -67,7 +66,7 @@
   <section class="bg-green-600 text-white py-20 text-center">
     <div class="max-w-4xl mx-auto px-6">
       <h2 class="text-4xl font-bold mb-4">Ready to Buy?</h2>
-      <p class="text-xl mb-8">Message us for best price & fast delivery</p>
+      <p class="text-xl mb-8">Fast Delivery • Cash on Delivery Islandwide</p>
       <a href="https://wa.me/94786802323?text=Hi%2C%20I%20want%20to%20buy" 
          class="inline-flex items-center gap-4 bg-white text-green-600 px-10 py-5 rounded-full text-2xl font-bold">
         <i class="fa-brands fa-whatsapp text-4xl"></i> Order Now
@@ -77,12 +76,11 @@
 
   <footer class="bg-gray-900 text-gray-400 py-10 text-center">
     <p class="text-2xl font-bold text-white">11Cart Sri Lanka</p>
-    <p class="mt-2">Premium Intex Products</p>
     <p class="mt-6">Colombo | +94 78 680 2323</p>
   </footer>
 
   <script>
-    const SHEET_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vReVFFfTdnBOMgVF15qLDxBxyqbUKedALbb1_tFHpIEKWTD61_cVGqmuSY1Tn20VoqNd1nCyEp-Y1ur/pub?output=csv";
+    const SHEET_URL = "https://script.google.com/macros/s/AKfycbx25aomTXBYddLo0sMFf9fVYRTtF62PC0a2AhnFBoo5ezgY2jREN_Rg_zElbD2TR9M/exec";
 
     let allProducts = [];
     let currentCategory = 'All Products';
@@ -90,52 +88,17 @@
     async function loadProducts() {
       try {
         const response = await fetch(SHEET_URL);
-        const csvText = await response.text();
-        allProducts = parseCSV(csvText);
+        allProducts = await response.json();
         
         renderCategories();
         renderProducts(allProducts);
       } catch (error) {
         console.error(error);
-        document.getElementById("products-grid").innerHTML = `<p class="col-span-full text-center text-red-500 py-12">Failed to load products. Please refresh.</p>`;
+        document.getElementById("products-grid").innerHTML = `
+          <p class="col-span-full text-center text-red-500 py-12 text-xl">
+            Unable to load products. Please refresh the page.
+          </p>`;
       }
-    }
-
-    // Improved CSV Parser
-    function parseCSV(csv) {
-      const lines = csv.trim().split('\n');
-      const headers = parseCSVLine(lines[0]);
-      
-      const products = [];
-      for (let i = 1; i < lines.length; i++) {
-        if (!lines[i].trim()) continue;
-        const values = parseCSVLine(lines[i]);
-        let product = {};
-        headers.forEach((header, index) => {
-          product[header] = values[index] || '';
-        });
-        if (product.Name) products.push(product);
-      }
-      return products;
-    }
-
-    function parseCSVLine(line) {
-      const result = [];
-      let current = '';
-      let inQuotes = false;
-      for (let i = 0; i < line.length; i++) {
-        const char = line[i];
-        if (char === '"') {
-          inQuotes = !inQuotes;
-        } else if (char === ',' && !inQuotes) {
-          result.push(current.trim());
-          current = '';
-        } else {
-          current += char;
-        }
-      }
-      result.push(current.trim());
-      return result;
     }
 
     function renderCategories() {
@@ -191,7 +154,7 @@
         div.innerHTML = `
           <img src="\( {img}" class="w-full h-64 object-cover" alt=" \){p.Name}">
           <div class="p-6">
-            <h3 class="font-bold text-lg leading-tight">${p.Name || 'Product'}</h3>
+            <h3 class="font-bold text-lg leading-tight">${p.Name}</h3>
             <p class="text-green-600 font-bold text-3xl mt-3">Rs. ${price}</p>
             <p class="text-sm text-gray-600 mt-4 line-clamp-3">${p.Description ? p.Description.substring(0, 130) : ''}...</p>
             <button onclick="orderNow('\( {(p.Name || '').replace(/'/g, '')} - Rs. \){price}')" 
@@ -212,7 +175,7 @@
     // Event Listeners
     document.getElementById('search-input').addEventListener('input', filterProducts);
 
-    // Load on start
+    // Load products
     window.onload = loadProducts;
   </script>
 </body>
