@@ -589,5 +589,75 @@
 
   </footer>
 
+  <script>
+const sheetURL =
+"https://docs.google.com/spreadsheets/d/e/2PACX-1vReVFFfTdnBOMgVF15qLDxBxyqbUKedALbb1_tFHpIEKWTD61_cVGqmuSY1Tn20VoqNd1nCyEp-Y1ur/pub?output=csv";
+
+async function loadProducts() {
+
+  const response = await fetch(sheetURL);
+  const data = await response.text();
+
+  const rows = data.split("\n").slice(1);
+
+  const productsContainer =
+  document.querySelector(".products");
+
+  productsContainer.innerHTML = "";
+
+  rows.forEach(row => {
+
+    const cols = row.split(",");
+
+    const name = cols[0];
+    const category = cols[1];
+    const price = cols[2];
+    const image = cols[10];
+
+    if(name && image){
+
+      productsContainer.innerHTML += `
+
+      <div class="product-card">
+
+        <img src="${image}" alt="${name}">
+
+        <div class="product-info">
+
+          <h3>${name}</h3>
+
+          <div class="price">
+            Rs ${price}
+          </div>
+
+          <div class="product-buttons">
+
+            <a class="details-btn" href="#">
+              View Details
+            </a>
+
+            <a class="wa-btn"
+            href="https://wa.me/94786802323?text=I want to order ${name}"
+            target="_blank">
+              WhatsApp
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      `;
+
+    }
+
+  });
+
+}
+
+loadProducts();
+  </script>
+  
 </body>
 </html>
