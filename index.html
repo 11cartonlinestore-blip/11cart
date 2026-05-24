@@ -1,282 +1,265 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-<title>11_Cart</title>
+<title>11_Cart | Kids & Baby Store</title>
 
-<script src="https://cdn.jsdelivr.net/npm/papaparse@5.3.2/papaparse.min.js"></script>
+<script src="https://cdn.tailwindcss.com"></script>
 
 <style>
-
 body{
-margin:0;
-font-family:Arial;
-background:#f2f2f2;
+    background:#f5f5f5;
+    font-family:Arial, sans-serif;
 }
 
-.header{
-background:black;
-color:white;
-padding:30px;
-text-align:center;
+.product-card img{
+    height:220px;
+    object-fit:cover;
 }
 
-.header h1{
-color:orange;
-font-size:45px;
-margin:0;
+.loader{
+    border:5px solid #f3f3f3;
+    border-top:5px solid #22c55e;
+    border-radius:50%;
+    width:45px;
+    height:45px;
+    animation:spin 1s linear infinite;
+    margin:auto;
 }
 
-.products{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:20px;
-padding:20px;
+@keyframes spin{
+    100%{transform:rotate(360deg);}
 }
-
-.card{
-background:white;
-border-radius:15px;
-overflow:hidden;
-box-shadow:0 4px 10px rgba(0,0,0,0.1);
-}
-
-.card img{
-width:100%;
-height:250px;
-object-fit:cover;
-}
-
-.info{
-padding:15px;
-}
-
-.info h2{
-font-size:20px;
-margin:0 0 10px;
-}
-
-.price{
-font-size:24px;
-font-weight:bold;
-color:green;
-margin-bottom:10px;
-}
-
-.desc{
-font-size:14px;
-color:#555;
-margin-bottom:15px;
-}
-
-.btn{
-display:block;
-background:#25D366;
-color:white;
-text-decoration:none;
-text-align:center;
-padding:12px;
-border-radius:10px;
-font-weight:bold;
-}
-
 </style>
 
 </head>
-
 <body>
 
-<div class="header">
-<h1>11_Cart</h1>
-<p>Kids & Baby Store</p>
+<!-- HEADER -->
+<header class="bg-black text-white py-8 shadow-lg">
+    <div class="text-center">
+        <h1 class="text-5xl font-bold text-orange-400">11_Cart</h1>
+        <p class="text-xl mt-3">Kids & Baby Store</p>
+    </div>
+</header>
+
+<!-- SEARCH -->
+<div class="max-w-7xl mx-auto px-4 mt-6">
+
+    <input
+        type="text"
+        id="search-input"
+        placeholder="Search products..."
+        class="w-full p-4 rounded-2xl border border-gray-300 shadow-md text-lg"
+    />
+
 </div>
 
-<div class="products" id="products">
+<!-- CATEGORY BUTTONS -->
+<div id="category-buttons" class="flex flex-wrap gap-3 justify-center mt-6 px-4"></div>
 
+<!-- LOADER -->
+<div id="loader" class="py-20">
+    <div class="loader"></div>
 </div>
+
+<!-- PRODUCTS -->
+<div
+    id="products-grid"
+    class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 p-6 max-w-7xl mx-auto"
+></div>
 
 <script>
 
-const sheetURL =
-"https://docs.google.com/spreadsheets/d/1J7pd72gHhLKuFoYMjzWoSPUjuSDUYdVqUaTDaml8eyA/export?format=csv";
+const SHEET_ID = "1J7pd72gHhLKuFoYMjzWoSPUjuSDUYdVqUaTDaml8eyA";
+const SHEET_NAME = "Sheet1";
 
-Papa.parse(sheetURL, {
+const API_URL =
+`https://opensheet.elk.sh/${SHEET_ID}/${SHEET_NAME}`;
 
-download:true,
-header:true,
+let allProducts = [];
+let currentCategory = "All Products";
 
-complete:function(results){
+async function loadProducts(){
 
-const products = results.data;
+    try{
 
-products.forEach(product => {
+        const response = await fetch(API_URL);
+        const data = await response.json();
 
-const name = product["Name"];
-const price = product["Price"];
-const image = product["Thumbnail"];
-const description = product["Description"];
+        allProducts = data;
 
-if(name && image){
+        document.getElementById("loader").style.display = "none";
 
-document.getElementById("products").innerHTML += `
+        createCategoryButtons();
+        renderProducts(allProducts);
 
-<div class="card">
+    }catch(error){
 
-<img src="${image}">
+        document.getElementById("loader").innerHTML =
+        "<p class='text-center text-red-500 text-xl'>Failed to load products.</p>";
 
-<div class="info">
-
-<h2>${name}</h2>
-
-<div class="price">
-Rs. ${price}
-</div>
-
-<div class="desc">
-${description}
-</div>
-
-<a class="btn"
-target="_blank"
-href="https://wa.me/94786802323?text=I'm interested in ${name}">
-Order on WhatsApp
-</a>
-
-</div>
-
-</div>
-
-`;
-
+        console.error(error);
+    }
 }
 
-});
+function createCategoryButtons(){
 
-}
+    const categories = [
+        "All Products",
+        ...new Set(
+            allProducts
+            .map(p => p.Category)
+            .filter(Boolean)
+        )
+    ];
 
-});
+    const container =
+    document.getElementById("category-buttons");
 
-</script>
+    container.innerHTML = "";
 
-</body>
-</html>products.forEach(product => {
+    categories.forEach(cat => {
 
-const name = product["Name"];
-const price = product["Price"];
-const image = product["Thumbnail"];
-const description = product["Description"];
+        const btn = document.createElement("button");
 
-if(name && image){
+        btn.innerText = cat;
 
-document.getElementById("products").innerHTML += `
+        btn.className =
+        "bg-white border px-5 py-2 rounded-full shadow hover:bg-green-500 hover:text-white transition";
 
-<div class="card">
-
-<img src="${image}">
-
-<div class="info">
-
-<h2>${name}</h2>
-
-<div class="price">
-Rs. ${price}
-</div>
-
-<div class="desc">
-${description}
-</div>
-
-<a class="btn"
-target="_blank"
-href="https://wa.me/94786802323?text=I'm interested in ${name}">
-Order on WhatsApp
-</a>
-
-</div>
-
-</div>
-
-`;
-
-}
-
-});
-
-}
-
-});
-
-</script>
-
-</body>
-</html>          currentCategory = cat;
-          filterProducts();
+        btn.onclick = () => {
+            currentCategory = cat;
+            filterProducts();
         };
+
         container.appendChild(btn);
-      });
-    }
 
-    function filterProducts() {
-      let filtered = allProducts;
+    });
+}
 
-      if (currentCategory !== 'All Products') {
-        filtered = filtered.filter(p => p.Category === currentCategory);
-      }
+function filterProducts(){
 
-      const searchTerm = document.getElementById('search-input').value.toLowerCase().trim();
-      if (searchTerm) {
-        filtered = filtered.filter(p => 
-          (p.Name && p.Name.toLowerCase().includes(searchTerm)) ||
-          (p.Description && p.Description.toLowerCase().includes(searchTerm))
+    let filtered = allProducts;
+
+    if(currentCategory !== "All Products"){
+
+        filtered = filtered.filter(
+            p => p.Category === currentCategory
         );
-      }
-
-      renderProducts(filtered);
     }
 
-    function renderProducts(products) {
-      const container = document.getElementById('products-grid');
-      container.innerHTML = '';
+    const searchTerm =
+    document.getElementById("search-input")
+    .value
+    .toLowerCase()
+    .trim();
 
-      if (products.length === 0) {
-        container.innerHTML = `<p class="col-span-full text-center text-gray-500 py-12 text-xl">No products found.</p>`;
+    if(searchTerm){
+
+        filtered = filtered.filter(p =>
+
+            (p.Name &&
+            p.Name.toLowerCase().includes(searchTerm))
+
+            ||
+
+            (p.Description &&
+            p.Description.toLowerCase().includes(searchTerm))
+
+        );
+    }
+
+    renderProducts(filtered);
+}
+
+function renderProducts(products){
+
+    const container =
+    document.getElementById("products-grid");
+
+    container.innerHTML = "";
+
+    if(products.length === 0){
+
+        container.innerHTML =
+        "<p class='text-center text-xl col-span-full'>No products found.</p>";
+
         return;
-      }
+    }
 
-      products.forEach(p => {
-        const price = p['Discounted Price'] || p.Price || 'Contact Us';
-        const img = p.Thumbnail || p.Image1 || p.Image || 'https://via.placeholder.com/400x300';
+    products.forEach(p => {
 
-        const div = document.createElement('div');
-        div.className = 'product-card bg-white rounded-3xl overflow-hidden shadow-md';
+        const price =
+        p["Discounted Price"] ||
+        p.Price ||
+        "Contact Us";
+
+        const img =
+        p.Thumbnail ||
+        p.Image1 ||
+        p.Image ||
+        "https://via.placeholder.com/400x300";
+
+        const div = document.createElement("div");
+
+        div.className =
+        "product-card bg-white rounded-3xl overflow-hidden shadow-md";
+
         div.innerHTML = `
-          <img src="\( {img}" class="w-full h-64 object-cover" alt=" \){p.Name}">
-          <div class="p-6">
-            <h3 class="font-bold text-lg leading-tight">${p.Name}</h3>
-            <p class="text-green-600 font-bold text-3xl mt-3">Rs. ${price}</p>
-            <p class="text-sm text-gray-600 mt-4 line-clamp-3">${p.Description ? p.Description.substring(0, 130) : ''}...</p>
-            <button onclick="orderNow('\( {(p.Name || '').replace(/'/g, '')} - Rs. \){price}')" 
-                    class="mt-6 w-full bg-green-500 hover:bg-green-600 text-white py-4 rounded-2xl font-semibold">
-              Order via WhatsApp
-            </button>
-          </div>
+
+            <img src="${img}" alt="${p.Name}" class="w-full">
+
+            <div class="p-5">
+
+                <h2 class="text-xl font-bold mb-2">
+                    ${p.Name || "No Name"}
+                </h2>
+
+                <p class="text-green-600 text-2xl font-bold mb-3">
+                    Rs. ${price}
+                </p>
+
+                <p class="text-gray-600 text-sm mb-4">
+                    ${p.Description ? p.Description.substring(0,130) : ""}
+                </p>
+
+                <button
+                    onclick="orderNow('${p.Name}')"
+                    class="w-full bg-green-500 hover:bg-green-600 text-white py-3 rounded-2xl font-bold"
+                >
+                    Order via WhatsApp
+                </button>
+
+            </div>
+
         `;
+
         container.appendChild(div);
-      });
-    }
 
-    function orderNow(text) {
-      const message = `Hi! I'm interested in ${text}. Please send more details.`;
-      window.open(`https://wa.me/94786802323?text=${encodeURIComponent(message)}`, '_blank');
-    }
+    });
+}
 
-    // Event Listeners
-    document.getElementById('search-input').addEventListener('input', filterProducts);
+function orderNow(product){
 
-    // Load products
-    window.onload = loadProducts;
-  </script>
+    const message =
+    `Hi! I'm interested in ${product}. Please send more details.`;
+
+    window.open(
+        `https://wa.me/94786802323?text=${encodeURIComponent(message)}`,
+        "_blank"
+    );
+}
+
+document
+.getElementById("search-input")
+.addEventListener("input", filterProducts);
+
+window.onload = loadProducts;
+
+</script>
+
 </body>
 </html>
