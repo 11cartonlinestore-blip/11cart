@@ -1,663 +1,146 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<section class="section">
 
-  <title>11_CART Sri Lanka | Kids Toys, Baby Items & Ride On Jeeps</title>
+  <div class="section-title">
+    <h2>Trending Products 🔥</h2>
+    <p>Latest products from 11_CART</p>
+  </div>
 
-  <meta name="description" content="Buy kids toys, ride on jeeps, hoverboards, scooters, baby products and swimming pools in Sri Lanka. Islandwide delivery available." />
-
-  <meta name="keywords" content="kids toys sri lanka, ride on jeep sri lanka, hoverboard sri lanka, baby products sri lanka, electric jeep sri lanka" />
-
-  <style>
-
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-      font-family:Arial, sans-serif;
-    }
-
-    body{
-      background:#f5f5f5;
-      color:#222;
-    }
-
-    a{
-      text-decoration:none;
-    }
-
-    /* NAVBAR */
-
-    nav{
-      background:white;
-      padding:18px 5%;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      position:sticky;
-      top:0;
-      z-index:1000;
-      box-shadow:0 2px 10px rgba(0,0,0,0.08);
-    }
-
-    .logo{
-      font-size:28px;
-      font-weight:900;
-      color:#ff3b00;
-    }
-
-    .nav-links{
-      display:flex;
-      gap:25px;
-    }
-
-    .nav-links a{
-      color:#333;
-      font-weight:600;
-    }
-
-    .whatsapp-btn{
-      background:#25D366;
-      color:white;
-      padding:12px 22px;
-      border-radius:12px;
-      font-weight:bold;
-    }
-
-    /* HERO */
-
-    .hero{
-      background:linear-gradient(135deg,#ff3b00,#ff9500);
-      color:white;
-      padding:80px 5%;
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      align-items:center;
-      gap:50px;
-    }
-
-    .hero-text h1{
-      font-size:58px;
-      line-height:1.1;
-      margin-bottom:20px;
-    }
-
-    .hero-text p{
-      font-size:18px;
-      margin-bottom:35px;
-      line-height:1.7;
-    }
-
-    .hero-buttons{
-      display:flex;
-      gap:20px;
-      flex-wrap:wrap;
-    }
-
-    .hero-buttons a{
-      padding:15px 28px;
-      border-radius:14px;
-      font-weight:bold;
-    }
-
-    .primary-btn{
-      background:white;
-      color:#ff3b00;
-    }
-
-    .secondary-btn{
-      border:2px solid white;
-      color:white;
-    }
-
-    .hero img{
+  <input
+    type="text"
+    id="searchInput"
+    placeholder="Search products..."
+    style="
       width:100%;
-      border-radius:30px;
-      object-fit:cover;
-      height:500px;
-      box-shadow:0 10px 40px rgba(0,0,0,0.2);
-    }
-
-    /* CATEGORY */
-
-    .section{
-      padding:80px 5%;
-    }
-
-    .section-title{
-      text-align:center;
-      margin-bottom:50px;
-    }
-
-    .section-title h2{
-      font-size:42px;
-      margin-bottom:10px;
-    }
-
-    .categories{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-      gap:20px;
-    }
-
-    .category-box{
-      background:white;
-      padding:30px;
-      border-radius:24px;
-      text-align:center;
-      box-shadow:0 5px 15px rgba(0,0,0,0.08);
-      transition:0.3s;
-    }
-
-    .category-box:hover{
-      transform:translateY(-8px);
-    }
-
-    .category-box h3{
-      margin-top:12px;
-    }
-
-    /* PRODUCTS */
-
-    .products{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-      gap:30px;
-    }
-
-    .product-card{
-      background:white;
-      border-radius:28px;
-      overflow:hidden;
-      box-shadow:0 5px 18px rgba(0,0,0,0.08);
-      transition:0.3s;
-    }
-
-    .product-card:hover{
-      transform:translateY(-8px);
-    }
-
-    .product-card img{
-      width:100%;
-      height:280px;
-      object-fit:cover;
-    }
-
-    .product-info{
-      padding:25px;
-    }
-
-    .product-info h3{
-      font-size:26px;
-      margin-bottom:10px;
-    }
-
-    .price{
-      color:#ff3b00;
-      font-size:24px;
-      font-weight:bold;
-      margin-bottom:20px;
-    }
-
-    .product-buttons{
-      display:flex;
-      gap:12px;
-    }
-
-    .product-buttons a{
-      flex:1;
-      text-align:center;
-      padding:13px;
+      padding:15px;
+      margin-bottom:30px;
       border-radius:12px;
-      font-weight:bold;
-    }
+      border:1px solid #ccc;
+      font-size:16px;
+    "
+  >
 
-    .details-btn{
-      background:#ff3b00;
-      color:white;
-    }
+  <div class="products" id="productsContainer"></div>
 
-    .wa-btn{
-      background:#25D366;
-      color:white;
-    }
+</section>
 
-    /* TRUST */
+<script>
 
-    .trust{
-      background:#111;
-      color:white;
-      border-radius:30px;
-      padding:60px;
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-      gap:30px;
-      text-align:center;
-    }
-
-    .trust h3{
-      margin:15px 0;
-    }
-
-    /* FOOTER */
-
-    footer{
-      background:black;
-      color:white;
-      padding:60px 5%;
-      margin-top:80px;
-    }
-
-    .footer-grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-      gap:40px;
-    }
-
-    footer h2{
-      color:#ff3b00;
-      margin-bottom:20px;
-    }
-
-    footer p,
-    footer a{
-      color:#ccc;
-      line-height:1.8;
-    }
-
-    .copyright{
-      border-top:1px solid #333;
-      margin-top:40px;
-      padding-top:20px;
-      text-align:center;
-      color:#777;
-    }
-
-    /* MOBILE */
-
-    @media(max-width:900px){
-
-      .hero{
-        grid-template-columns:1fr;
-      }
-
-      .hero-text h1{
-        font-size:42px;
-      }
-
-      .nav-links{
-        display:none;
-      }
-
-    }
-
-  </style>
-</head>
-
-<body>
-
-  <!-- NAVBAR -->
-
-  <nav>
-
-    <div class="logo">11_CART</div>
-
-    <div class="nav-links">
-      <a href="#">Home</a>
-      <a href="#">Products</a>
-      <a href="#">Categories</a>
-      <a href="#">Contact</a>
-    </div>
-
-    <a class="whatsapp-btn" href="https://wa.me/94786802323" target="_blank">
-      WhatsApp
-    </a>
-
-  </nav>
-
-  <!-- HERO -->
-
-  <section class="hero">
-
-    <div class="hero-text">
-
-      <h1>
-        Kids Toys & Ride On Jeeps Sri Lanka 🚀
-      </h1>
-
-      <p>
-        Shop premium kids toys, baby products, hoverboards,
-        swimming pools, scooters and electric ride on jeeps
-        with islandwide delivery.
-      </p>
-
-      <div class="hero-buttons">
-
-        <a class="primary-btn"
-        href="https://wa.me/94786802323"
-        target="_blank">
-          Order on WhatsApp
-        </a>
-
-        <a class="secondary-btn" href="#">
-          Explore Products
-        </a>
-
-      </div>
-
-    </div>
-
-    <img
-    src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?q=80&w=1200&auto=format&fit=crop"
-    alt="Kids Jeep">
-
-  </section>
-
-  <!-- CATEGORY -->
-
-  <section class="section">
-
-    <div class="section-title">
-      <h2>Shop by Category</h2>
-      <p>Explore our top product collections.</p>
-    </div>
-
-    <div class="categories">
-
-      <div class="category-box">
-        🚗
-        <h3>Ride On Jeeps</h3>
-      </div>
-
-      <div class="category-box">
-        🍼
-        <h3>Baby Products</h3>
-      </div>
-
-      <div class="category-box">
-        🛴
-        <h3>Hoverboards</h3>
-      </div>
-
-      <div class="category-box">
-        🏊
-        <h3>Swimming Pools</h3>
-      </div>
-
-      <div class="category-box">
-        🎓
-        <h3>Educational Toys</h3>
-      </div>
-
-      <div class="category-box">
-        ⚡
-        <h3>Electric Bikes</h3>
-      </div>
-
-    </div>
-
-  </section>
-
-  <!-- PRODUCTS -->
-
-  <section class="section">
-
-    <div class="section-title">
-      <h2>Trending Products 🔥</h2>
-      <p>Most popular products from 11_CART.</p>
-    </div>
-
-    <div class="products">
-
-      <div class="product-card">
-
-        <img
-        src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?q=80&w=1200&auto=format&fit=crop">
-
-        <div class="product-info">
-
-          <h3>Kids Electric Jeep</h3>
-
-          <div class="price">
-            Rs 89,900
-          </div>
-
-          <div class="product-buttons">
-
-            <a class="details-btn" href="#">
-              View Details
-            </a>
-
-            <a class="wa-btn"
-            href="https://wa.me/94786802323"
-            target="_blank">
-              WhatsApp
-            </a>
-
-          </div>
-
-        </div>
-
-      </div>
-
-      <div class="product-card">
-
-        <img
-        src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=1200&auto=format&fit=crop">
-
-        <div class="product-info">
-
-          <h3>8 Inch Hoverboard</h3>
-
-          <div class="price">
-            Rs 49,900
-          </div>
-
-          <div class="product-buttons">
-
-            <a class="details-btn" href="#">
-              View Details
-            </a>
-
-            <a class="wa-btn"
-            href="https://wa.me/94786802323"
-            target="_blank">
-              WhatsApp
-            </a>
-
-          </div>
-
-        </div>
-
-      </div>
-
-      <div class="product-card">
-
-        <img
-        src="https://images.unsplash.com/photo-1560090995-01632a28895b?q=80&w=1200&auto=format&fit=crop">
-
-        <div class="product-info">
-
-          <h3>Kids Swimming Pool</h3>
-
-          <div class="price">
-            Rs 24,900
-          </div>
-
-          <div class="product-buttons">
-
-            <a class="details-btn" href="#">
-              View Details
-            </a>
-
-            <a class="wa-btn"
-            href="https://wa.me/94786802323"
-            target="_blank">
-              WhatsApp
-            </a>
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-  <!-- TRUST -->
-
-  <section class="section">
-
-    <div class="trust">
-
-      <div>
-        🚚
-        <h3>Islandwide Delivery</h3>
-        <p>Fast delivery across Sri Lanka.</p>
-      </div>
-
-      <div>
-        💬
-        <h3>Fast WhatsApp Support</h3>
-        <p>Quick customer support.</p>
-      </div>
-
-      <div>
-        ⭐
-        <h3>Trusted Seller</h3>
-        <p>Trusted by many happy customers.</p>
-      </div>
-
-      <div>
-        💳
-        <h3>Easy Ordering</h3>
-        <p>Simple WhatsApp ordering system.</p>
-      </div>
-
-    </div>
-
-  </section>
-
-  <!-- FOOTER -->
-
-  <footer>
-
-    <div class="footer-grid">
-
-      <div>
-
-        <h2>11_CART</h2>
-
-        <p>
-          Premium toys, baby products,
-          hoverboards and ride on jeeps
-          in Sri Lanka.
-        </p>
-
-      </div>
-
-      <div>
-
-        <h3>Quick Links</h3>
-
-        <p><a href="#">Home</a></p>
-        <p><a href="#">Products</a></p>
-        <p><a href="#">Categories</a></p>
-        <p><a href="#">Contact</a></p>
-
-      </div>
-
-      <div>
-
-        <h3>Contact</h3>
-
-        <p>📱 0786802323</p>
-        <p>📍 Sri Lanka</p>
-        <p>🚚 Islandwide Delivery</p>
-
-      </div>
-
-    </div>
-
-    <div class="copyright">
-      © 2026 11_CART. All Rights Reserved.
-    </div>
-
-  </footer>
-
-  <script>
 const sheetURL =
 "https://docs.google.com/spreadsheets/d/e/2PACX-1vReVFFfTdnBOMgVF15qLDxBxyqbUKedALbb1_tFHpIEKWTD61_cVGqmuSY1Tn20VoqNd1nCyEp-Y1ur/pub?output=csv";
+
+let allProducts = [];
 
 async function loadProducts() {
 
   const response = await fetch(sheetURL);
-  const data = await response.text();
+  const csvText = await response.text();
 
-  const rows = data.split("\n").slice(1);
+  const rows = csvText.split('\n').slice(1);
 
-  const productsContainer =
-  document.querySelector(".products");
-
-  productsContainer.innerHTML = "";
+  allProducts = [];
 
   rows.forEach(row => {
 
-    const cols = row.split(",");
+    const cols = row.split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/);
 
-    const name = cols[0];
-    const category = cols[1];
-    const price = cols[2];
-    const image = cols[10];
+    const name = cols[0]?.replace(/"/g, "").trim();
+    const category = cols[1]?.replace(/"/g, "").trim();
+    const price = cols[2]?.replace(/"/g, "").trim();
+    const image = cols[10]?.replace(/"/g, "").trim();
 
     if(name && image){
 
-      productsContainer.innerHTML += `
-
-      <div class="product-card">
-
-        <img src="${image}" alt="${name}">
-
-        <div class="product-info">
-
-          <h3>${name}</h3>
-
-          <div class="price">
-            Rs ${price}
-          </div>
-
-          <div class="product-buttons">
-
-            <a class="details-btn" href="#">
-              View Details
-            </a>
-
-            <a class="wa-btn"
-            href="https://wa.me/94786802323?text=I want to order ${name}"
-            target="_blank">
-              WhatsApp
-            </a>
-
-          </div>
-
-        </div>
-
-      </div>
-
-      `;
+      allProducts.push({
+        name,
+        category,
+        price,
+        image
+      });
 
     }
 
   });
 
+  displayProducts(allProducts);
+
 }
 
+function displayProducts(products){
+
+  const container =
+  document.getElementById("productsContainer");
+
+  container.innerHTML = "";
+
+  products.forEach(product => {
+
+    container.innerHTML += `
+
+      <div class="product-card">
+
+        <img
+          src="${product.image}"
+          alt="${product.name}"
+          onerror="this.src='https://via.placeholder.com/400x300?text=11_CART';"
+        >
+
+        <div class="product-info">
+
+          <h3>${product.name}</h3>
+
+          <div class="price">
+            Rs ${product.price}
+          </div>
+
+          <div class="product-buttons">
+
+            <a
+              class="details-btn"
+              href="https://wa.me/94786802323?text=I want details about ${product.name}"
+              target="_blank"
+            >
+              View Details
+            </a>
+
+            <a
+              class="wa-btn"
+              href="https://wa.me/94786802323?text=I want to order ${product.name}"
+              target="_blank"
+            >
+              WhatsApp
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    `;
+
+  });
+
+}
+
+document
+.getElementById("searchInput")
+.addEventListener("input", function(){
+
+  const value =
+  this.value.toLowerCase();
+
+  const filtered =
+  allProducts.filter(product =>
+
+    product.name.toLowerCase().includes(value) ||
+    product.category.toLowerCase().includes(value)
+
+  );
+
+  displayProducts(filtered);
+
+});
+
 loadProducts();
-  </script>
-  
-</body>
-</html>
+
+</script>
