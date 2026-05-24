@@ -1,164 +1,593 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-<title>11_Cart</title>
+  <title>11_CART Sri Lanka | Kids Toys, Baby Items & Ride On Jeeps</title>
 
-<script src="https://cdn.jsdelivr.net/npm/papaparse@5.3.2/papaparse.min.js"></script>
+  <meta name="description" content="Buy kids toys, ride on jeeps, hoverboards, scooters, baby products and swimming pools in Sri Lanka. Islandwide delivery available." />
 
-<style>
+  <meta name="keywords" content="kids toys sri lanka, ride on jeep sri lanka, hoverboard sri lanka, baby products sri lanka, electric jeep sri lanka" />
 
-body{
-margin:0;
-font-family:Arial;
-background:#f2f2f2;
-}
+  <style>
 
-.header{
-background:black;
-color:white;
-padding:30px;
-text-align:center;
-}
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:Arial, sans-serif;
+    }
 
-.header h1{
-color:orange;
-font-size:45px;
-margin:0;
-}
+    body{
+      background:#f5f5f5;
+      color:#222;
+    }
 
-.products{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:20px;
-padding:20px;
-}
+    a{
+      text-decoration:none;
+    }
 
-.card{
-background:white;
-border-radius:15px;
-overflow:hidden;
-box-shadow:0 4px 10px rgba(0,0,0,0.1);
-}
+    /* NAVBAR */
 
-.card img{
-width:100%;
-height:250px;
-object-fit:cover;
-}
+    nav{
+      background:white;
+      padding:18px 5%;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      position:sticky;
+      top:0;
+      z-index:1000;
+      box-shadow:0 2px 10px rgba(0,0,0,0.08);
+    }
 
-.info{
-padding:15px;
-}
+    .logo{
+      font-size:28px;
+      font-weight:900;
+      color:#ff3b00;
+    }
 
-.info h2{
-font-size:20px;
-margin:0 0 10px;
-}
+    .nav-links{
+      display:flex;
+      gap:25px;
+    }
 
-.price{
-font-size:24px;
-font-weight:bold;
-color:green;
-margin-bottom:10px;
-}
+    .nav-links a{
+      color:#333;
+      font-weight:600;
+    }
 
-.desc{
-font-size:14px;
-color:#555;
-margin-bottom:15px;
-}
+    .whatsapp-btn{
+      background:#25D366;
+      color:white;
+      padding:12px 22px;
+      border-radius:12px;
+      font-weight:bold;
+    }
 
-.btn{
-display:block;
-background:#25D366;
-color:white;
-text-decoration:none;
-text-align:center;
-padding:12px;
-border-radius:10px;
-font-weight:bold;
-}
+    /* HERO */
 
-</style>
+    .hero{
+      background:linear-gradient(135deg,#ff3b00,#ff9500);
+      color:white;
+      padding:80px 5%;
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      align-items:center;
+      gap:50px;
+    }
 
+    .hero-text h1{
+      font-size:58px;
+      line-height:1.1;
+      margin-bottom:20px;
+    }
+
+    .hero-text p{
+      font-size:18px;
+      margin-bottom:35px;
+      line-height:1.7;
+    }
+
+    .hero-buttons{
+      display:flex;
+      gap:20px;
+      flex-wrap:wrap;
+    }
+
+    .hero-buttons a{
+      padding:15px 28px;
+      border-radius:14px;
+      font-weight:bold;
+    }
+
+    .primary-btn{
+      background:white;
+      color:#ff3b00;
+    }
+
+    .secondary-btn{
+      border:2px solid white;
+      color:white;
+    }
+
+    .hero img{
+      width:100%;
+      border-radius:30px;
+      object-fit:cover;
+      height:500px;
+      box-shadow:0 10px 40px rgba(0,0,0,0.2);
+    }
+
+    /* CATEGORY */
+
+    .section{
+      padding:80px 5%;
+    }
+
+    .section-title{
+      text-align:center;
+      margin-bottom:50px;
+    }
+
+    .section-title h2{
+      font-size:42px;
+      margin-bottom:10px;
+    }
+
+    .categories{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+      gap:20px;
+    }
+
+    .category-box{
+      background:white;
+      padding:30px;
+      border-radius:24px;
+      text-align:center;
+      box-shadow:0 5px 15px rgba(0,0,0,0.08);
+      transition:0.3s;
+    }
+
+    .category-box:hover{
+      transform:translateY(-8px);
+    }
+
+    .category-box h3{
+      margin-top:12px;
+    }
+
+    /* PRODUCTS */
+
+    .products{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+      gap:30px;
+    }
+
+    .product-card{
+      background:white;
+      border-radius:28px;
+      overflow:hidden;
+      box-shadow:0 5px 18px rgba(0,0,0,0.08);
+      transition:0.3s;
+    }
+
+    .product-card:hover{
+      transform:translateY(-8px);
+    }
+
+    .product-card img{
+      width:100%;
+      height:280px;
+      object-fit:cover;
+    }
+
+    .product-info{
+      padding:25px;
+    }
+
+    .product-info h3{
+      font-size:26px;
+      margin-bottom:10px;
+    }
+
+    .price{
+      color:#ff3b00;
+      font-size:24px;
+      font-weight:bold;
+      margin-bottom:20px;
+    }
+
+    .product-buttons{
+      display:flex;
+      gap:12px;
+    }
+
+    .product-buttons a{
+      flex:1;
+      text-align:center;
+      padding:13px;
+      border-radius:12px;
+      font-weight:bold;
+    }
+
+    .details-btn{
+      background:#ff3b00;
+      color:white;
+    }
+
+    .wa-btn{
+      background:#25D366;
+      color:white;
+    }
+
+    /* TRUST */
+
+    .trust{
+      background:#111;
+      color:white;
+      border-radius:30px;
+      padding:60px;
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+      gap:30px;
+      text-align:center;
+    }
+
+    .trust h3{
+      margin:15px 0;
+    }
+
+    /* FOOTER */
+
+    footer{
+      background:black;
+      color:white;
+      padding:60px 5%;
+      margin-top:80px;
+    }
+
+    .footer-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:40px;
+    }
+
+    footer h2{
+      color:#ff3b00;
+      margin-bottom:20px;
+    }
+
+    footer p,
+    footer a{
+      color:#ccc;
+      line-height:1.8;
+    }
+
+    .copyright{
+      border-top:1px solid #333;
+      margin-top:40px;
+      padding-top:20px;
+      text-align:center;
+      color:#777;
+    }
+
+    /* MOBILE */
+
+    @media(max-width:900px){
+
+      .hero{
+        grid-template-columns:1fr;
+      }
+
+      .hero-text h1{
+        font-size:42px;
+      }
+
+      .nav-links{
+        display:none;
+      }
+
+    }
+
+  </style>
 </head>
 
 <body>
 
-<div class="header">
-<h1>11_Cart</h1>
-<p>Kids & Baby Store</p>
-</div>
+  <!-- NAVBAR -->
 
-<div class="products" id="products">
+  <nav>
 
-</div>
+    <div class="logo">11_CART</div>
 
-<script>
+    <div class="nav-links">
+      <a href="#">Home</a>
+      <a href="#">Products</a>
+      <a href="#">Categories</a>
+      <a href="#">Contact</a>
+    </div>
 
-const sheetURL =
-"https://docs.google.com/spreadsheets/d/1J7pd72gHhLKuFoYMjzWoSPUjuSDUYdVqUaTDaml8eyA/export?format=csv";
+    <a class="whatsapp-btn" href="https://wa.me/94786802323" target="_blank">
+      WhatsApp
+    </a>
 
-Papa.parse(sheetURL, {
+  </nav>
 
-download:true,
-header:true,
+  <!-- HERO -->
 
-complete:function(results){
+  <section class="hero">
 
-const products = results.data;
+    <div class="hero-text">
 
-products.forEach(product => {
+      <h1>
+        Kids Toys & Ride On Jeeps Sri Lanka 🚀
+      </h1>
 
-const name = product["Name"];
-const price = product["Price"];
-const image = product["Thumbnail"];
-const description = product["Description"];
+      <p>
+        Shop premium kids toys, baby products, hoverboards,
+        swimming pools, scooters and electric ride on jeeps
+        with islandwide delivery.
+      </p>
 
-if(name && image){
+      <div class="hero-buttons">
 
-document.getElementById("products").innerHTML += `
+        <a class="primary-btn"
+        href="https://wa.me/94786802323"
+        target="_blank">
+          Order on WhatsApp
+        </a>
 
-<div class="card">
+        <a class="secondary-btn" href="#">
+          Explore Products
+        </a>
 
-<img src="${image}">
+      </div>
 
-<div class="info">
+    </div>
 
-<h2>${name}</h2>
+    <img
+    src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?q=80&w=1200&auto=format&fit=crop"
+    alt="Kids Jeep">
 
-<div class="price">
-Rs. ${price}
-</div>
+  </section>
 
-<div class="desc">
-${description}
-</div>
+  <!-- CATEGORY -->
 
-<a class="btn"
-target="_blank"
-href="https://wa.me/94786802323?text=I'm interested in ${name}">
-Order on WhatsApp
-</a>
+  <section class="section">
 
-</div>
+    <div class="section-title">
+      <h2>Shop by Category</h2>
+      <p>Explore our top product collections.</p>
+    </div>
 
-</div>
+    <div class="categories">
 
-`;
+      <div class="category-box">
+        🚗
+        <h3>Ride On Jeeps</h3>
+      </div>
 
-}
+      <div class="category-box">
+        🍼
+        <h3>Baby Products</h3>
+      </div>
 
-});
+      <div class="category-box">
+        🛴
+        <h3>Hoverboards</h3>
+      </div>
 
-}
+      <div class="category-box">
+        🏊
+        <h3>Swimming Pools</h3>
+      </div>
 
-});
+      <div class="category-box">
+        🎓
+        <h3>Educational Toys</h3>
+      </div>
 
-</script>
+      <div class="category-box">
+        ⚡
+        <h3>Electric Bikes</h3>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- PRODUCTS -->
+
+  <section class="section">
+
+    <div class="section-title">
+      <h2>Trending Products 🔥</h2>
+      <p>Most popular products from 11_CART.</p>
+    </div>
+
+    <div class="products">
+
+      <div class="product-card">
+
+        <img
+        src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?q=80&w=1200&auto=format&fit=crop">
+
+        <div class="product-info">
+
+          <h3>Kids Electric Jeep</h3>
+
+          <div class="price">
+            Rs 89,900
+          </div>
+
+          <div class="product-buttons">
+
+            <a class="details-btn" href="#">
+              View Details
+            </a>
+
+            <a class="wa-btn"
+            href="https://wa.me/94786802323"
+            target="_blank">
+              WhatsApp
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="product-card">
+
+        <img
+        src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=1200&auto=format&fit=crop">
+
+        <div class="product-info">
+
+          <h3>8 Inch Hoverboard</h3>
+
+          <div class="price">
+            Rs 49,900
+          </div>
+
+          <div class="product-buttons">
+
+            <a class="details-btn" href="#">
+              View Details
+            </a>
+
+            <a class="wa-btn"
+            href="https://wa.me/94786802323"
+            target="_blank">
+              WhatsApp
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="product-card">
+
+        <img
+        src="https://images.unsplash.com/photo-1560090995-01632a28895b?q=80&w=1200&auto=format&fit=crop">
+
+        <div class="product-info">
+
+          <h3>Kids Swimming Pool</h3>
+
+          <div class="price">
+            Rs 24,900
+          </div>
+
+          <div class="product-buttons">
+
+            <a class="details-btn" href="#">
+              View Details
+            </a>
+
+            <a class="wa-btn"
+            href="https://wa.me/94786802323"
+            target="_blank">
+              WhatsApp
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- TRUST -->
+
+  <section class="section">
+
+    <div class="trust">
+
+      <div>
+        🚚
+        <h3>Islandwide Delivery</h3>
+        <p>Fast delivery across Sri Lanka.</p>
+      </div>
+
+      <div>
+        💬
+        <h3>Fast WhatsApp Support</h3>
+        <p>Quick customer support.</p>
+      </div>
+
+      <div>
+        ⭐
+        <h3>Trusted Seller</h3>
+        <p>Trusted by many happy customers.</p>
+      </div>
+
+      <div>
+        💳
+        <h3>Easy Ordering</h3>
+        <p>Simple WhatsApp ordering system.</p>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+
+  <footer>
+
+    <div class="footer-grid">
+
+      <div>
+
+        <h2>11_CART</h2>
+
+        <p>
+          Premium toys, baby products,
+          hoverboards and ride on jeeps
+          in Sri Lanka.
+        </p>
+
+      </div>
+
+      <div>
+
+        <h3>Quick Links</h3>
+
+        <p><a href="#">Home</a></p>
+        <p><a href="#">Products</a></p>
+        <p><a href="#">Categories</a></p>
+        <p><a href="#">Contact</a></p>
+
+      </div>
+
+      <div>
+
+        <h3>Contact</h3>
+
+        <p>📱 0786802323</p>
+        <p>📍 Sri Lanka</p>
+        <p>🚚 Islandwide Delivery</p>
+
+      </div>
+
+    </div>
+
+    <div class="copyright">
+      © 2026 11_CART. All Rights Reserved.
+    </div>
+
+  </footer>
 
 </body>
 </html>
