@@ -1,27 +1,442 @@
-<section class="section">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>
+11_CART Sri Lanka | Kids Toys, Ride On Jeeps & Baby Products
+</title>
+
+<meta name="description"
+content="Buy kids toys, hoverboards, ride on jeeps, baby products and swimming pools in Sri Lanka with islandwide delivery.">
+
+<style>
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial,sans-serif;
+}
+
+body{
+  background:#f5f5f5;
+  color:#222;
+}
+
+a{
+  text-decoration:none;
+}
+
+/* NAVBAR */
+
+nav{
+  background:white;
+  padding:18px 5%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  position:sticky;
+  top:0;
+  z-index:999;
+  box-shadow:0 2px 10px rgba(0,0,0,0.08);
+}
+
+.logo{
+  font-size:30px;
+  font-weight:900;
+  color:#ff3b00;
+}
+
+.whatsapp-btn{
+  background:#25D366;
+  color:white;
+  padding:12px 22px;
+  border-radius:14px;
+  font-weight:bold;
+}
+
+/* HERO */
+
+.hero{
+  background:linear-gradient(135deg,#ff3b00,#ff9500);
+  color:white;
+  padding:80px 5%;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:50px;
+  align-items:center;
+}
+
+.hero h1{
+  font-size:58px;
+  line-height:1.1;
+  margin-bottom:25px;
+}
+
+.hero p{
+  font-size:19px;
+  line-height:1.8;
+  margin-bottom:35px;
+}
+
+.hero-buttons{
+  display:flex;
+  gap:15px;
+  flex-wrap:wrap;
+}
+
+.hero-buttons a{
+  padding:15px 28px;
+  border-radius:14px;
+  font-weight:bold;
+}
+
+.primary-btn{
+  background:white;
+  color:#ff3b00;
+}
+
+.secondary-btn{
+  border:2px solid white;
+  color:white;
+}
+
+.hero img{
+  width:100%;
+  height:500px;
+  object-fit:cover;
+  border-radius:28px;
+}
+
+/* SECTION */
+
+.section{
+  padding:80px 5%;
+}
+
+.section-title{
+  text-align:center;
+  margin-bottom:50px;
+}
+
+.section-title h2{
+  font-size:42px;
+  margin-bottom:10px;
+}
+
+/* SEARCH */
+
+#searchInput{
+  width:100%;
+  padding:16px;
+  border-radius:14px;
+  border:1px solid #ccc;
+  margin-bottom:40px;
+  font-size:16px;
+}
+
+/* PRODUCTS */
+
+.products{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:30px;
+}
+
+.product-card{
+  background:white;
+  border-radius:28px;
+  overflow:hidden;
+  box-shadow:0 5px 15px rgba(0,0,0,0.08);
+  transition:0.3s;
+}
+
+.product-card:hover{
+  transform:translateY(-8px);
+}
+
+.product-card img{
+  width:100%;
+  height:300px;
+  object-fit:cover;
+}
+
+.product-info{
+  padding:25px;
+}
+
+.product-info h3{
+  font-size:24px;
+  margin-bottom:12px;
+}
+
+.category{
+  color:#777;
+  margin-bottom:10px;
+}
+
+.price{
+  color:#ff3b00;
+  font-size:28px;
+  font-weight:bold;
+  margin-bottom:22px;
+}
+
+.product-buttons{
+  display:flex;
+  gap:12px;
+}
+
+.product-buttons a{
+  flex:1;
+  text-align:center;
+  padding:14px;
+  border-radius:12px;
+  font-weight:bold;
+}
+
+.details-btn{
+  background:#ff3b00;
+  color:white;
+}
+
+.wa-btn{
+  background:#25D366;
+  color:white;
+}
+
+/* TRUST */
+
+.trust{
+  background:#111;
+  color:white;
+  border-radius:28px;
+  padding:60px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:30px;
+  text-align:center;
+}
+
+.trust h3{
+  margin:15px 0;
+}
+
+/* FOOTER */
+
+footer{
+  background:black;
+  color:white;
+  padding:60px 5%;
+  margin-top:80px;
+}
+
+.footer-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:40px;
+}
+
+footer h2{
+  color:#ff3b00;
+  margin-bottom:20px;
+}
+
+footer p{
+  color:#ccc;
+  line-height:1.8;
+}
+
+.copyright{
+  border-top:1px solid #333;
+  margin-top:40px;
+  padding-top:20px;
+  text-align:center;
+  color:#777;
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+  .hero{
+    grid-template-columns:1fr;
+  }
+
+  .hero h1{
+    font-size:42px;
+  }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<nav>
+
+  <div class="logo">
+    11_CART
+  </div>
+
+  <a
+    class="whatsapp-btn"
+    href="https://wa.me/94786802323"
+    target="_blank"
+  >
+    WhatsApp
+  </a>
+
+</nav>
+
+<!-- HERO -->
+
+<section class="hero">
+
+  <div>
+
+    <h1>
+      Kids Toys & Ride On Jeeps Sri Lanka 🚀
+    </h1>
+
+    <p>
+      Shop premium kids toys, hoverboards,
+      swimming pools, scooters and electric
+      ride on jeeps with islandwide delivery.
+    </p>
+
+    <div class="hero-buttons">
+
+      <a
+        class="primary-btn"
+        href="https://wa.me/94786802323"
+        target="_blank"
+      >
+        Order on WhatsApp
+      </a>
+
+      <a
+        class="secondary-btn"
+        href="#products"
+      >
+        Explore Products
+      </a>
+
+    </div>
+
+  </div>
+
+  <img
+    src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?q=80&w=1200&auto=format&fit=crop"
+  >
+
+</section>
+
+<!-- PRODUCTS -->
+
+<section class="section" id="products">
 
   <div class="section-title">
-    <h2>Trending Products 🔥</h2>
-    <p>Latest products from 11_CART</p>
+
+    <h2>
+      Trending Products 🔥
+    </h2>
+
+    <p>
+      Latest products from 11_CART
+    </p>
+
   </div>
 
   <input
     type="text"
     id="searchInput"
     placeholder="Search products..."
-    style="
-      width:100%;
-      padding:15px;
-      margin-bottom:30px;
-      border-radius:12px;
-      border:1px solid #ccc;
-      font-size:16px;
-    "
   >
 
-  <div class="products" id="productsContainer"></div>
+  <div
+    class="products"
+    id="productsContainer"
+  ></div>
 
 </section>
+
+<!-- TRUST -->
+
+<section class="section">
+
+  <div class="trust">
+
+    <div>
+      🚚
+      <h3>Islandwide Delivery</h3>
+      <p>Fast delivery across Sri Lanka.</p>
+    </div>
+
+    <div>
+      💬
+      <h3>WhatsApp Support</h3>
+      <p>Quick customer support.</p>
+    </div>
+
+    <div>
+      ⭐
+      <h3>Trusted Seller</h3>
+      <p>High quality products.</p>
+    </div>
+
+    <div>
+      💳
+      <h3>Easy Ordering</h3>
+      <p>Simple WhatsApp ordering.</p>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+
+  <div class="footer-grid">
+
+    <div>
+
+      <h2>11_CART</h2>
+
+      <p>
+        Premium toys, baby products,
+        hoverboards and ride on jeeps
+        in Sri Lanka.
+      </p>
+
+    </div>
+
+    <div>
+
+      <h3>Contact</h3>
+
+      <p>📱 0786802323</p>
+      <p>🚚 Islandwide Delivery</p>
+      <p>📍 Sri Lanka</p>
+
+    </div>
+
+  </div>
+
+  <div class="copyright">
+    © 2026 11_CART. All Rights Reserved.
+  </div>
+
+</footer>
 
 <script>
 
@@ -30,23 +445,35 @@ const sheetURL =
 
 let allProducts = [];
 
-async function loadProducts() {
+async function loadProducts(){
 
-  const response = await fetch(sheetURL);
-  const csvText = await response.text();
+  const response =
+  await fetch(sheetURL);
 
-  const rows = csvText.split('\n').slice(1);
+  const csvText =
+  await response.text();
+
+  const rows =
+  csvText.split('\\n').slice(1);
 
   allProducts = [];
 
   rows.forEach(row => {
 
-    const cols = row.split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/);
+    const cols =
+    row.split(/,(?=(?:(?:[^\"]*\"){2})*[^\"]*$)/);
 
-    const name = cols[0]?.replace(/"/g, "").trim();
-    const category = cols[1]?.replace(/"/g, "").trim();
-    const price = cols[2]?.replace(/"/g, "").trim();
-    const image = cols[10]?.replace(/"/g, "").trim();
+    const name =
+    cols[0]?.replace(/\"/g,'').trim();
+
+    const category =
+    cols[1]?.replace(/\"/g,'').trim();
+
+    const price =
+    cols[2]?.replace(/\"/g,'').trim();
+
+    const image =
+    cols[10]?.replace(/\"/g,'').trim();
 
     if(name && image){
 
@@ -68,7 +495,9 @@ async function loadProducts() {
 function displayProducts(products){
 
   const container =
-  document.getElementById("productsContainer");
+  document.getElementById(
+    "productsContainer"
+  );
 
   container.innerHTML = "";
 
@@ -88,6 +517,10 @@ function displayProducts(products){
 
           <h3>${product.name}</h3>
 
+          <div class="category">
+            ${product.category}
+          </div>
+
           <div class="price">
             Rs ${product.price}
           </div>
@@ -99,7 +532,7 @@ function displayProducts(products){
               href="https://wa.me/94786802323?text=I want details about ${product.name}"
               target="_blank"
             >
-              View Details
+              Details
             </a>
 
             <a
@@ -132,8 +565,15 @@ document
   const filtered =
   allProducts.filter(product =>
 
-    product.name.toLowerCase().includes(value) ||
-    product.category.toLowerCase().includes(value)
+    product.name
+    .toLowerCase()
+    .includes(value)
+
+    ||
+
+    product.category
+    .toLowerCase()
+    .includes(value)
 
   );
 
@@ -144,3 +584,6 @@ document
 loadProducts();
 
 </script>
+
+</body>
+</html>
