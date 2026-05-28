@@ -13,10 +13,7 @@
 <meta name="description"
 content="Buy kids toys, ride on jeeps, baby products and swimming pools in Sri Lanka with islandwide delivery.">
 
-<!-- Facebook Preview -->
-
 <meta property="og:type" content="website">
-
 <meta property="og:title"
 content="11Cart Sri Lanka | Kids Toys & Baby Products">
 
@@ -64,8 +61,6 @@ color:#111;
 a{
 text-decoration:none;
 }
-
-/* NAVBAR */
 
 nav{
 background:white;
@@ -115,8 +110,6 @@ transition:0.3s;
 .whatsapp-btn:hover{
 transform:translateY(-3px);
 }
-
-/* HERO */
 
 .hero{
 background:#fff6f1;
@@ -182,8 +175,6 @@ object-fit:cover;
 transition:1s;
 }
 
-/* OFFER */
-
 .offer-banner{
 padding:25px 5%;
 display:grid;
@@ -202,8 +193,6 @@ font-size:20px;
 font-weight:800;
 box-shadow:0 5px 15px rgba(0,0,0,0.05);
 }
-
-/* CATEGORIES */
 
 .categories{
 padding:80px 5%;
@@ -229,20 +218,20 @@ border-radius:30px;
 font-size:55px;
 box-shadow:0 5px 20px rgba(0,0,0,0.06);
 transition:0.3s;
+cursor:pointer;
 }
 
 .category-card:hover{
 transform:translateY(-8px);
+background:#ff6b2c;
+color:white;
 }
 
 .category-card p{
 font-size:20px;
 font-weight:800;
 margin-top:15px;
-color:#111;
 }
-
-/* PRODUCTS */
 
 .section{
 padding:80px 5%;
@@ -270,7 +259,7 @@ width:100%;
 padding:18px;
 border-radius:18px;
 border:1px solid #ddd;
-margin-bottom:45px;
+margin-bottom:25px;
 font-size:17px;
 font-weight:600;
 }
@@ -287,7 +276,6 @@ border-radius:30px;
 overflow:hidden;
 box-shadow:0 5px 20px rgba(0,0,0,0.06);
 transition:0.3s;
-position:relative;
 }
 
 .product-card:hover{
@@ -303,15 +291,13 @@ align-items:center;
 justify-content:center;
 overflow:hidden;
 padding:20px;
-border-bottom:1px solid #f3f3f3;
 }
 
 .product-image img{
 max-width:100%;
 max-height:100%;
 object-fit:contain;
-transition:transform 0.6s ease;
-filter:drop-shadow(0 10px 20px rgba(0,0,0,0.12));
+transition:0.5s;
 }
 
 .product-card:hover .product-image img{
@@ -367,7 +353,16 @@ background:#25D366;
 color:white;
 }
 
-/* TRUST */
+.all-btn{
+background:#ff6b2c;
+color:white;
+padding:14px 24px;
+border-radius:14px;
+display:inline-block;
+margin-bottom:30px;
+font-weight:800;
+cursor:pointer;
+}
 
 .trust{
 background:#111;
@@ -388,11 +383,8 @@ font-weight:800;
 
 .trust p{
 color:#ddd;
-font-weight:500;
 line-height:1.7;
 }
-
-/* FOOTER */
 
 footer{
 background:black;
@@ -411,7 +403,6 @@ footer h2{
 color:#ff6b2c;
 margin-bottom:20px;
 font-size:36px;
-font-weight:900;
 }
 
 footer h3{
@@ -422,7 +413,6 @@ font-size:24px;
 footer p{
 color:#ccc;
 line-height:1.9;
-font-weight:500;
 }
 
 .copyright{
@@ -431,10 +421,7 @@ margin-top:40px;
 padding-top:20px;
 text-align:center;
 color:#777;
-font-weight:500;
 }
-
-/* FLOATING WHATSAPP */
 
 .floating-wa{
 position:fixed;
@@ -453,16 +440,12 @@ z-index:9999;
 box-shadow:0 5px 20px rgba(0,0,0,0.3);
 }
 
-/* LOADING */
-
 .loading{
 text-align:center;
 font-size:22px;
 padding:40px;
 font-weight:700;
 }
-
-/* MOBILE */
 
 @media(max-width:900px){
 
@@ -503,8 +486,6 @@ font-size:30px;
 
 <body>
 
-<!-- NAVBAR -->
-
 <nav>
 
 <div class="logo-wrap">
@@ -529,8 +510,6 @@ WhatsApp
 </a>
 
 </nav>
-
-<!-- HERO -->
 
 <section class="hero">
 
@@ -584,8 +563,6 @@ src="https://i.imgur.com/PQKPCCD.jpeg"
 
 </section>
 
-<!-- OFFER -->
-
 <section class="offer-banner">
 
 <div class="offer-box">
@@ -606,8 +583,6 @@ src="https://i.imgur.com/PQKPCCD.jpeg"
 
 </section>
 
-<!-- CATEGORIES -->
-
 <section class="categories">
 
 <h2>
@@ -616,27 +591,27 @@ Shop Categories
 
 <div class="category-grid">
 
-<div class="category-card">
+<div class="category-card" onclick="filterCategory('Baby Products')">
 🍼
 <p>Baby Products</p>
 </div>
 
-<div class="category-card">
+<div class="category-card" onclick="filterCategory('Ride On Jeeps')">
 🚗
 <p>Ride On Jeeps</p>
 </div>
 
-<div class="category-card">
+<div class="category-card" onclick="filterCategory('Swimming Pools')">
 🏊
 <p>Swimming Pools</p>
 </div>
 
-<div class="category-card">
+<div class="category-card" onclick="filterCategory('Scooters')">
 🛴
 <p>Scooters</p>
 </div>
 
-<div class="category-card">
+<div class="category-card" onclick="filterCategory('Kids Toys')">
 🧸
 <p>Kids Toys</p>
 </div>
@@ -644,8 +619,6 @@ Shop Categories
 </div>
 
 </section>
-
-<!-- PRODUCTS -->
 
 <section
 class="section"
@@ -662,6 +635,13 @@ Trending Products
 Latest products from 11Cart
 </p>
 
+</div>
+
+<div
+class="all-btn"
+onclick="displayProducts(allProducts)"
+>
+Show All Products
 </div>
 
 <input
@@ -682,8 +662,6 @@ Loading products...
 </div>
 
 </section>
-
-<!-- TRUST -->
 
 <section class="section">
 
@@ -716,8 +694,6 @@ Loading products...
 </div>
 
 </section>
-
-<!-- FOOTER -->
 
 <footer>
 
@@ -752,8 +728,6 @@ in Sri Lanka.
 </div>
 
 </footer>
-
-<!-- FLOATING WHATSAPP -->
 
 <a
 href="https://wa.me/94786802323"
@@ -865,6 +839,26 @@ WhatsApp
 
 `;
 
+});
+
+}
+
+function filterCategory(category){
+
+const filtered =
+allProducts.filter(product =>
+
+product.category
+.toLowerCase()
+.includes(category.toLowerCase())
+
+);
+
+displayProducts(filtered);
+
+document.getElementById("products")
+.scrollIntoView({
+behavior:"smooth"
 });
 
 }
