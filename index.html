@@ -28,6 +28,11 @@ href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;
 rel="stylesheet"
 >
 
+<link
+href="https://fonts.googleapis.com/css2?family=Noto+Sans+Sinhala:wght@400;500;600;700;800&display=swap"
+rel="stylesheet"
+>
+
 <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
 
 <style>
@@ -36,7 +41,7 @@ rel="stylesheet"
   margin:0;
   padding:0;
   box-sizing:border-box;
-  font-family:'Poppins',sans-serif;
+  font-family:'Noto Sans Sinhala','Poppins',sans-serif;
 }
 
 html{
@@ -73,10 +78,9 @@ nav{
 }
 
 .logo-img{
-  width:82px;
-  height:82px;
+  width:85px;
+  height:85px;
   object-fit:contain;
-  border-radius:22px;
   transition:0.3s;
 }
 
@@ -92,14 +96,14 @@ nav{
 }
 
 .logo-11{
-  font-size:42px;
+  font-size:44px;
   font-weight:800;
   color:#111;
   letter-spacing:-2px;
 }
 
 .logo-cart{
-  font-size:42px;
+  font-size:44px;
   font-weight:800;
   color:#ff3b00;
   letter-spacing:-2px;
@@ -108,20 +112,19 @@ nav{
 .whatsapp-btn{
   background:#25D366;
   color:white;
-  padding:16px 28px;
-  border-radius:16px;
+  padding:16px 30px;
+  border-radius:18px;
   font-weight:700;
   font-size:17px;
   display:flex;
   align-items:center;
   justify-content:center;
-  box-shadow:0 6px 20px rgba(37,211,102,0.3);
+  box-shadow:0 8px 25px rgba(37,211,102,0.35);
   transition:0.3s;
 }
 
 .whatsapp-btn:hover{
   transform:translateY(-3px);
-  box-shadow:0 10px 25px rgba(37,211,102,0.4);
 }
 
 /* HERO */
@@ -137,14 +140,15 @@ nav{
 }
 
 .hero h1{
-  font-size:60px;
+  font-size:62px;
   line-height:1.1;
   margin-bottom:25px;
+  font-weight:800;
 }
 
 .hero p{
-  font-size:20px;
-  line-height:1.8;
+  font-size:21px;
+  line-height:2;
   margin-bottom:35px;
 }
 
@@ -155,9 +159,10 @@ nav{
 }
 
 .hero-buttons a{
-  padding:15px 28px;
-  border-radius:14px;
-  font-weight:600;
+  padding:16px 30px;
+  border-radius:16px;
+  font-weight:700;
+  transition:0.3s;
 }
 
 .primary-btn{
@@ -168,6 +173,10 @@ nav{
 .secondary-btn{
   border:2px solid white;
   color:white;
+}
+
+.hero-buttons a:hover{
+  transform:translateY(-3px);
 }
 
 .hero img{
@@ -220,7 +229,6 @@ nav{
   overflow:hidden;
   box-shadow:0 5px 15px rgba(0,0,0,0.08);
   transition:0.3s;
-  border:1px solid rgba(0,0,0,0.05);
 }
 
 .product-card:hover{
@@ -243,7 +251,7 @@ nav{
   max-width:100%;
   max-height:100%;
   object-fit:contain;
-  transition:0.4s ease;
+  transition:0.4s;
 }
 
 .product-card:hover .product-image img{
@@ -255,7 +263,7 @@ nav{
 }
 
 .product-info h3{
-  font-size:22px;
+  font-size:24px;
   margin-bottom:10px;
 }
 
@@ -281,7 +289,7 @@ nav{
   text-align:center;
   padding:14px;
   border-radius:12px;
-  font-weight:600;
+  font-weight:700;
   transition:0.3s;
 }
 
@@ -296,7 +304,7 @@ nav{
 }
 
 .product-buttons a:hover{
-  opacity:0.9;
+  transform:translateY(-2px);
 }
 
 /* TRUST */
@@ -338,7 +346,7 @@ footer h2{
 
 footer p{
   color:#ccc;
-  line-height:1.8;
+  line-height:2;
 }
 
 .copyright{
@@ -355,8 +363,8 @@ footer p{
   position:fixed;
   bottom:20px;
   right:20px;
-  width:68px;
-  height:68px;
+  width:70px;
+  height:70px;
   background:#25D366;
   color:white;
   border-radius:50%;
@@ -385,11 +393,11 @@ footer p{
   }
 
   .hero h1{
-    font-size:42px;
+    font-size:44px;
   }
 
   .section-title h2{
-    font-size:36px;
+    font-size:38px;
   }
 
   .hero img{
@@ -401,9 +409,6 @@ footer p{
 @media(max-width:700px){
 
   nav{
-    flex-direction:row;
-    justify-content:space-between;
-    gap:10px;
     padding:14px 4%;
   }
 
@@ -426,20 +431,12 @@ footer p{
     font-size:14px;
   }
 
-}
-
-@media(max-width:600px){
-
-  .hero{
-    padding:60px 5%;
-  }
-
   .hero h1{
     font-size:34px;
   }
 
   .hero p{
-    font-size:16px;
+    font-size:17px;
   }
 
   .product-buttons{
@@ -501,9 +498,30 @@ footer p{
     </h1>
 
     <p>
-      Shop premium kids toys, hoverboards,
-      swimming pools, scooters and electric
-      ride on jeeps with islandwide delivery.
+      🇱🇰 ලංකාවේ ඕනම තැනකට trusted islandwide delivery 🚚✨
+      <br><br>
+
+      Kids toys, ride on jeeps, baby products,
+      swimming pools, hoverboards සහ තවත් quality
+      products affordable prices වලින් ඔබේ අතටම ❤️
+
+      <br><br>
+
+      අපි customerලාට විශ්වාසයෙන් සහ වගකීමෙන්
+      service එක ලබා දෙනවා 🤝
+
+      <br><br>
+
+      ✅ Cash On Delivery Available  
+      <br>
+      ✅ බඩු අතට ලැබුණාට පස්සේ සල්ලි ගෙවන්න පුළුවන්  
+      <br>
+      ✅ Fast & safe delivery  
+      <br>
+      ✅ WhatsApp support anytime  
+      <br>
+      ✅ Quality checked products only  
+
     </p>
 
     <div class="hero-buttons">
