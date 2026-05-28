@@ -16,7 +16,7 @@ content="width=device-width, initial-scale=1.0"
 
 <meta
 name="description"
-content="Buy kids toys, hoverboards, ride on jeeps, baby products and swimming pools in Sri Lanka with islandwide delivery."
+content="Buy kids toys, ride on jeeps, baby products and swimming pools in Sri Lanka with islandwide delivery."
 >
 
 <link
@@ -74,8 +74,8 @@ nav{
 }
 
 .logo img{
-  width:80px;
-  height:80px;
+  width:90px;
+  height:90px;
   object-fit:contain;
 }
 
@@ -85,14 +85,14 @@ nav{
 }
 
 .logo-11{
-  font-size:42px;
+  font-size:46px;
   font-weight:800;
   color:#111;
   letter-spacing:-2px;
 }
 
 .logo-cart{
-  font-size:42px;
+  font-size:46px;
   font-weight:800;
   color:#ff4d00;
   letter-spacing:-2px;
@@ -101,7 +101,7 @@ nav{
 .whatsapp-btn{
   background:#25D366;
   color:white;
-  padding:16px 28px;
+  padding:16px 30px;
   border-radius:18px;
   font-weight:700;
   font-size:17px;
@@ -139,7 +139,6 @@ nav{
   margin-bottom:40px;
   color:#111;
   font-weight:500;
-  max-width:700px;
 }
 
 .hero-buttons{
@@ -171,12 +170,61 @@ nav{
   transform:translateY(-3px);
 }
 
-.hero img{
+/* HERO SLIDER */
+
+.hero-slider{
+  position:relative;
   width:100%;
-  height:520px;
-  object-fit:cover;
+  height:550px;
+  overflow:hidden;
   border-radius:35px;
   box-shadow:0 15px 40px rgba(0,0,0,0.2);
+}
+
+.slides{
+  display:none;
+  width:100%;
+  height:100%;
+}
+
+.slides img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.fade{
+  animation:fadeEffect 1s;
+}
+
+@keyframes fadeEffect{
+
+  from{
+    opacity:0.4;
+  }
+
+  to{
+    opacity:1;
+  }
+
+}
+
+/* MINI TRUST */
+
+.mini-trust{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  margin-top:25px;
+}
+
+.mini-trust span{
+  background:rgba(255,255,255,0.25);
+  padding:12px 18px;
+  border-radius:12px;
+  color:#111;
+  font-weight:600;
+  backdrop-filter:blur(5px);
 }
 
 /* SECTION */
@@ -261,6 +309,13 @@ nav{
 
 .product-info{
   padding:28px;
+}
+
+.stock{
+  color:#ff4d00;
+  font-size:14px;
+  font-weight:700;
+  margin-bottom:10px;
 }
 
 .product-info h3{
@@ -412,8 +467,8 @@ footer p{
     font-size:42px;
   }
 
-  .hero img{
-    height:350px;
+  .hero-slider{
+    height:400px;
   }
 
 }
@@ -425,13 +480,13 @@ footer p{
   }
 
   .logo img{
-    width:65px;
-    height:65px;
+    width:70px;
+    height:70px;
   }
 
   .logo-11,
   .logo-cart{
-    font-size:30px;
+    font-size:32px;
   }
 
   .whatsapp-btn{
@@ -513,7 +568,7 @@ footer p{
     </h1>
 
     <p>
-      🇱🇰 ලංකාවේ ඕනම තැනකට trusted islandwide delivery 🚚✨
+      🇱🇰 ලංකාවේ ඕනම තැනකට trusted islandwide delivery 🚚
       <br><br>
 
       Kids toys, ride on jeeps, baby products,
@@ -524,18 +579,6 @@ footer p{
 
       අපි customerලාට විශ්වාසයෙන් සහ වගකීමෙන්
       service එක ලබා දෙනවා 🤝
-
-      <br><br>
-
-      ✅ Cash On Delivery Available  
-      <br>
-      ✅ බඩු අතට ලැබුණාට පස්සේ සල්ලි ගෙවන්න පුළුවන්  
-      <br>
-      ✅ Fast & safe delivery  
-      <br>
-      ✅ WhatsApp support anytime  
-      <br>
-      ✅ Quality checked products only  
 
     </p>
 
@@ -558,12 +601,58 @@ footer p{
 
     </div>
 
+    <div class="mini-trust">
+
+      <span>🚚 Islandwide Delivery</span>
+      <span>💵 Cash On Delivery</span>
+      <span>⭐ Trusted Seller</span>
+      <span>⚡ Fast WhatsApp Support</span>
+
+    </div>
+
   </div>
 
-  <img
-    src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?q=80&w=1200&auto=format&fit=crop"
-    alt="Kids Products"
-  >
+  <!-- HERO SLIDER -->
+
+  <div class="hero-slider">
+
+    <div class="slides fade">
+
+      <img
+        src="https://i.imgur.com/PQKPCCD.jpeg"
+        alt="Ride On Toy"
+      >
+
+    </div>
+
+    <div class="slides fade">
+
+      <img
+        src="https://i.imgur.com/ZYDxAHW.jpeg"
+        alt="Swimming Pool"
+      >
+
+    </div>
+
+    <div class="slides fade">
+
+      <img
+        src="https://i.imgur.com/Su5vwCL.jpeg"
+        alt="Kids"
+      >
+
+    </div>
+
+    <div class="slides fade">
+
+      <img
+        src="https://i.imgur.com/eBkDsFt.jpeg"
+        alt="Playing"
+      >
+
+    </div>
+
+  </div>
 
 </section>
 
@@ -692,6 +781,8 @@ const sheetURL =
 
 let allProducts = [];
 
+/* PRICE FORMAT */
+
 function formatPrice(price){
 
   const cleaned =
@@ -706,6 +797,8 @@ function formatPrice(price){
   : "0";
 
 }
+
+/* DISPLAY PRODUCTS */
 
 function displayProducts(products){
 
@@ -742,6 +835,10 @@ function displayProducts(products){
 
         <div class="product-info">
 
+          <div class="stock">
+            🔥 Fast Selling Product
+          </div>
+
           <h3>${product.name}</h3>
 
           <div class="category">
@@ -756,7 +853,7 @@ function displayProducts(products){
 
             <a
               class="details-btn"
-              href="https://wa.me/94786802323?text=${encodeURIComponent(`I want details about ${product.name}`)}"
+              href="https://wa.me/94786802323?text=${encodeURIComponent(`Hi, mage order eka place karanna one. Product: ${product.name}`)}"
               target="_blank"
             >
               Details
@@ -764,7 +861,7 @@ function displayProducts(products){
 
             <a
               class="wa-btn"
-              href="https://wa.me/94786802323?text=${encodeURIComponent(`I want to order ${product.name}`)}"
+              href="https://wa.me/94786802323?text=${encodeURIComponent(`Hi, mama me product eka order karanna කැමතියි. Product: ${product.name}`)}"
               target="_blank"
             >
               WhatsApp
@@ -781,6 +878,8 @@ function displayProducts(products){
   });
 
 }
+
+/* LOAD PRODUCTS */
 
 function loadProducts(){
 
@@ -832,6 +931,8 @@ function loadProducts(){
 
 }
 
+/* SEARCH */
+
 document
 .getElementById("searchInput")
 .addEventListener("input", function(){
@@ -857,6 +958,39 @@ document
   displayProducts(filtered);
 
 });
+
+/* HERO SLIDER */
+
+let slideIndex = 0;
+
+showSlides();
+
+function showSlides(){
+
+  let slides =
+  document.getElementsByClassName("slides");
+
+  for(let i = 0; i < slides.length; i++){
+
+    slides[i].style.display = "none";
+
+  }
+
+  slideIndex++;
+
+  if(slideIndex > slides.length){
+
+    slideIndex = 1;
+
+  }
+
+  slides[slideIndex - 1].style.display = "block";
+
+  setTimeout(showSlides,3000);
+
+}
+
+/* LOAD */
 
 loadProducts();
 
