@@ -14,6 +14,7 @@
 content="Buy kids toys, ride on jeeps, baby products and swimming pools in Sri Lanka with islandwide delivery.">
 
 <meta property="og:type" content="website">
+
 <meta property="og:title"
 content="11Cart Sri Lanka | Kids Toys & Baby Products">
 
@@ -194,45 +195,6 @@ font-weight:800;
 box-shadow:0 5px 15px rgba(0,0,0,0.05);
 }
 
-.categories{
-padding:80px 5%;
-text-align:center;
-}
-
-.categories h2{
-font-size:46px;
-font-weight:900;
-margin-bottom:45px;
-}
-
-.category-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-gap:25px;
-}
-
-.category-card{
-background:white;
-padding:40px 20px;
-border-radius:30px;
-font-size:55px;
-box-shadow:0 5px 20px rgba(0,0,0,0.06);
-transition:0.3s;
-cursor:pointer;
-}
-
-.category-card:hover{
-transform:translateY(-8px);
-background:#ff6b2c;
-color:white;
-}
-
-.category-card p{
-font-size:20px;
-font-weight:800;
-margin-top:15px;
-}
-
 .section{
 padding:80px 5%;
 }
@@ -259,7 +221,7 @@ width:100%;
 padding:18px;
 border-radius:18px;
 border:1px solid #ddd;
-margin-bottom:25px;
+margin-bottom:45px;
 font-size:17px;
 font-weight:600;
 }
@@ -276,6 +238,7 @@ border-radius:30px;
 overflow:hidden;
 box-shadow:0 5px 20px rgba(0,0,0,0.06);
 transition:0.3s;
+position:relative;
 }
 
 .product-card:hover{
@@ -291,13 +254,15 @@ align-items:center;
 justify-content:center;
 overflow:hidden;
 padding:20px;
+border-bottom:1px solid #f3f3f3;
 }
 
 .product-image img{
 max-width:100%;
 max-height:100%;
 object-fit:contain;
-transition:0.5s;
+transition:transform 0.6s ease;
+filter:drop-shadow(0 10px 20px rgba(0,0,0,0.12));
 }
 
 .product-card:hover .product-image img{
@@ -353,17 +318,6 @@ background:#25D366;
 color:white;
 }
 
-.all-btn{
-background:#ff6b2c;
-color:white;
-padding:14px 24px;
-border-radius:14px;
-display:inline-block;
-margin-bottom:30px;
-font-weight:800;
-cursor:pointer;
-}
-
 .trust{
 background:#111;
 color:white;
@@ -383,6 +337,7 @@ font-weight:800;
 
 .trust p{
 color:#ddd;
+font-weight:500;
 line-height:1.7;
 }
 
@@ -403,6 +358,7 @@ footer h2{
 color:#ff6b2c;
 margin-bottom:20px;
 font-size:36px;
+font-weight:900;
 }
 
 footer h3{
@@ -413,6 +369,7 @@ font-size:24px;
 footer p{
 color:#ccc;
 line-height:1.9;
+font-weight:500;
 }
 
 .copyright{
@@ -421,6 +378,7 @@ margin-top:40px;
 padding-top:20px;
 text-align:center;
 color:#777;
+font-weight:500;
 }
 
 .floating-wa{
@@ -583,43 +541,6 @@ src="https://i.imgur.com/PQKPCCD.jpeg"
 
 </section>
 
-<section class="categories">
-
-<h2>
-Shop Categories
-</h2>
-
-<div class="category-grid">
-
-<div class="category-card" onclick="filterCategory('Baby Products')">
-🍼
-<p>Baby Products</p>
-</div>
-
-<div class="category-card" onclick="filterCategory('Ride On Jeeps')">
-🚗
-<p>Ride On Jeeps</p>
-</div>
-
-<div class="category-card" onclick="filterCategory('Swimming Pools')">
-🏊
-<p>Swimming Pools</p>
-</div>
-
-<div class="category-card" onclick="filterCategory('Scooters')">
-🛴
-<p>Scooters</p>
-</div>
-
-<div class="category-card" onclick="filterCategory('Kids Toys')">
-🧸
-<p>Kids Toys</p>
-</div>
-
-</div>
-
-</section>
-
 <section
 class="section"
 id="products"
@@ -635,13 +556,6 @@ Trending Products
 Latest products from 11Cart
 </p>
 
-</div>
-
-<div
-class="all-btn"
-onclick="displayProducts(allProducts)"
->
-Show All Products
 </div>
 
 <input
@@ -839,26 +753,6 @@ WhatsApp
 
 `;
 
-});
-
-}
-
-function filterCategory(category){
-
-const filtered =
-allProducts.filter(product =>
-
-product.category
-.toLowerCase()
-.includes(category.toLowerCase())
-
-);
-
-displayProducts(filtered);
-
-document.getElementById("products")
-.scrollIntoView({
-behavior:"smooth"
 });
 
 }
