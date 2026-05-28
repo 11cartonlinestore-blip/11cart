@@ -1,13 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>11Cart Sri Lanka</title>
+<title>
+11Cart Sri Lanka | Kids Toys & Baby Products
+</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Sinhala:wght@400;700;900&display=swap" rel="stylesheet">
+<meta name="description"
+content="Buy kids toys, ride on jeeps, baby products and swimming pools in Sri Lanka with islandwide delivery.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Sinhala:wght@400;500;700;800;900&display=swap" rel="stylesheet">
 
 <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
 
@@ -22,22 +32,27 @@ font-family:'Noto Sans Sinhala',sans-serif;
 
 body{
 background:#f7f7f7;
+color:#111;
+}
+
+a{
+text-decoration:none;
 }
 
 nav{
 background:white;
-padding:20px;
+padding:18px 5%;
 display:flex;
 justify-content:space-between;
 align-items:center;
-box-shadow:0 2px 10px rgba(0,0,0,0.08);
 position:sticky;
 top:0;
 z-index:999;
+box-shadow:0 2px 15px rgba(0,0,0,0.06);
 }
 
 .logo{
-font-size:35px;
+font-size:38px;
 font-weight:900;
 }
 
@@ -48,86 +63,144 @@ color:#ff6b2c;
 .whatsapp-btn{
 background:#25D366;
 color:white;
-padding:14px 24px;
-border-radius:12px;
-font-weight:bold;
-text-decoration:none;
+padding:14px 28px;
+border-radius:16px;
+font-weight:800;
+font-size:17px;
 }
 
 .hero{
+background:#fff6f1;
 padding:80px 5%;
-background:#fff4ee;
 text-align:center;
 }
 
 .hero h1{
-font-size:55px;
-margin-bottom:20px;
+font-size:60px;
+font-weight:900;
+margin-bottom:25px;
 }
 
 .hero p{
-font-size:20px;
+font-size:22px;
 line-height:1.8;
-margin-bottom:30px;
+margin-bottom:35px;
 }
 
 .hero a{
 background:#ff6b2c;
 color:white;
 padding:16px 30px;
-border-radius:14px;
-text-decoration:none;
-font-weight:bold;
+border-radius:16px;
+font-weight:800;
+display:inline-block;
+}
+
+.offer-banner{
+padding:25px 5%;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+background:white;
+}
+
+.offer-box{
+background:#ffd9c7;
+padding:22px;
+border-radius:20px;
+text-align:center;
+font-size:20px;
+font-weight:800;
 }
 
 .section{
-padding:70px 5%;
+padding:80px 5%;
 }
 
 .section-title{
 text-align:center;
-margin-bottom:40px;
+margin-bottom:50px;
 }
 
 .section-title h2{
-font-size:42px;
-margin-bottom:10px;
+font-size:50px;
+font-weight:900;
+margin-bottom:15px;
+}
+
+.section-title p{
+font-size:18px;
+font-weight:600;
+color:#666;
 }
 
 #searchInput{
 width:100%;
 padding:18px;
-border-radius:14px;
+border-radius:18px;
 border:1px solid #ddd;
+margin-bottom:30px;
+font-size:17px;
+font-weight:600;
+}
+
+.category-buttons{
+display:flex;
+gap:10px;
+flex-wrap:wrap;
 margin-bottom:40px;
-font-size:16px;
+}
+
+.category-buttons button{
+padding:12px 20px;
+border:none;
+border-radius:12px;
+background:#111;
+color:white;
+font-weight:700;
+cursor:pointer;
 }
 
 .products{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-gap:25px;
+gap:30px;
 }
 
 .product-card{
 background:white;
-border-radius:25px;
+border-radius:30px;
 overflow:hidden;
-box-shadow:0 5px 20px rgba(0,0,0,0.05);
+box-shadow:0 5px 20px rgba(0,0,0,0.06);
 transition:0.3s;
+position:relative;
 }
 
 .product-card:hover{
-transform:translateY(-5px);
+transform:translateY(-8px);
+}
+
+.badge{
+position:absolute;
+top:15px;
+left:15px;
+background:#ff6b2c;
+color:white;
+padding:8px 14px;
+border-radius:12px;
+font-size:13px;
+font-weight:800;
+z-index:5;
 }
 
 .product-image{
-height:300px;
-background:white;
+width:100%;
+height:320px;
 display:flex;
 align-items:center;
 justify-content:center;
 padding:20px;
+background:white;
 }
 
 .product-image img{
@@ -137,46 +210,55 @@ object-fit:contain;
 }
 
 .product-info{
-padding:20px;
+padding:25px;
 }
 
 .product-info h3{
 font-size:24px;
+font-weight:800;
 margin-bottom:10px;
 }
 
 .category{
 color:#777;
-margin-bottom:10px;
+font-size:15px;
+margin-bottom:12px;
 }
 
 .price{
-font-size:28px;
-font-weight:900;
 color:#ff6b2c;
+font-size:30px;
+font-weight:900;
+margin-bottom:15px;
+}
+
+.review{
+font-size:14px;
+color:#666;
 margin-bottom:20px;
+line-height:1.6;
 }
 
-.buttons{
+.product-buttons{
 display:flex;
-gap:10px;
+gap:12px;
 }
 
-.buttons a{
+.product-buttons a{
 flex:1;
-padding:14px;
 text-align:center;
-border-radius:12px;
-text-decoration:none;
-font-weight:bold;
+padding:14px;
+border-radius:14px;
+font-weight:800;
+font-size:15px;
 }
 
 .details-btn{
-background:black;
+background:#111;
 color:white;
 }
 
-.order-btn{
+.wa-btn{
 background:#25D366;
 color:white;
 }
@@ -185,21 +267,66 @@ color:white;
 text-align:center;
 font-size:22px;
 padding:40px;
-font-weight:bold;
+font-weight:700;
+}
+
+.reviews-section{
+background:white;
+padding:80px 5%;
+}
+
+.review-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+}
+
+.review-card{
+background:#fff6f1;
+padding:25px;
+border-radius:20px;
+}
+
+.review-card h3{
+margin-bottom:10px;
 }
 
 footer{
 background:black;
 color:white;
-padding:50px 5%;
+padding:70px 5%;
 margin-top:50px;
 text-align:center;
 }
 
-@media(max-width:768px){
+.floating-wa{
+position:fixed;
+bottom:20px;
+right:20px;
+width:70px;
+height:70px;
+background:#25D366;
+color:white;
+border-radius:50%;
+display:flex;
+justify-content:center;
+align-items:center;
+font-size:32px;
+z-index:9999;
+}
+
+@media(max-width:900px){
 
 .hero h1{
-font-size:40px;
+font-size:42px;
+}
+
+.hero p{
+font-size:18px;
+}
+
+.section-title h2{
+font-size:38px;
 }
 
 }
@@ -229,12 +356,12 @@ WhatsApp
 <section class="hero">
 
 <h1>
-Sri Lanka's Trusted Kids Store
+Sri Lanka’s Trusted Kids Store
 </h1>
 
 <p>
 
-Kids toys, ride on jeeps, swimming pools,
+ළමා toys, ride on jeeps, swimming pools,
 baby products සහ තවත් ගොඩක් දේවල් 🚚
 
 <br><br>
@@ -247,8 +374,28 @@ baby products සහ තවත් ගොඩක් දේවල් 🚚
 href="https://wa.me/94786802323"
 target="_blank"
 >
-Order Now
+Order on WhatsApp
 </a>
+
+</section>
+
+<section class="offer-banner">
+
+<div class="offer-box">
+🚚 Islandwide Delivery
+</div>
+
+<div class="offer-box">
+💵 Cash On Delivery
+</div>
+
+<div class="offer-box">
+🔥 Best Prices
+</div>
+
+<div class="offer-box">
+⭐ Trusted Store
+</div>
 
 </section>
 
@@ -272,6 +419,30 @@ id="searchInput"
 placeholder="Search products..."
 >
 
+<div class="category-buttons">
+
+<button onclick="filterCategory('All')">
+All
+</button>
+
+<button onclick="filterCategory('Ride On')">
+Ride On
+</button>
+
+<button onclick="filterCategory('Toys')">
+Toys
+</button>
+
+<button onclick="filterCategory('Baby')">
+Baby
+</button>
+
+<button onclick="filterCategory('Pool')">
+Pool
+</button>
+
+</div>
+
 <div
 class="products"
 id="productsContainer"
@@ -279,6 +450,47 @@ id="productsContainer"
 
 <div class="loading">
 Loading products...
+</div>
+
+</div>
+
+</section>
+
+<section class="reviews-section">
+
+<div class="section-title">
+
+<h2>
+Happy Customers
+</h2>
+
+<p>
+Trusted by parents across Sri Lanka
+</p>
+
+</div>
+
+<div class="review-grid">
+
+<div class="review-card">
+<h3>★★★★★</h3>
+<p>
+Fast delivery and amazing quality.
+</p>
+</div>
+
+<div class="review-card">
+<h3>★★★★★</h3>
+<p>
+Kids loved the ride on jeep.
+</p>
+</div>
+
+<div class="review-card">
+<h3>★★★★★</h3>
+<p>
+Highly recommended seller.
+</p>
 </div>
 
 </div>
@@ -301,7 +513,19 @@ Loading products...
 🚚 Islandwide Delivery
 </p>
 
+<p>
+💵 Cash On Delivery
+</p>
+
 </footer>
+
+<a
+href="https://wa.me/94786802323"
+class="floating-wa"
+target="_blank"
+>
+💬
+</a>
 
 <script>
 
@@ -332,9 +556,14 @@ container.innerHTML += `
 
 <div class="product-card">
 
+${product.badge
+? `<div class="badge">${product.badge}</div>`
+: "" }
+
 <div class="product-image">
 
 <img
+loading="lazy"
 src="${product.image}"
 alt="${product.name}"
 onerror="this.src='https://via.placeholder.com/400x400?text=11Cart';"
@@ -354,7 +583,11 @@ ${product.category}
 Rs ${product.price}
 </div>
 
-<div class="buttons">
+<div class="review">
+⭐ ${product.review}
+</div>
+
+<div class="product-buttons">
 
 <a
 class="details-btn"
@@ -365,11 +598,11 @@ Details
 </a>
 
 <a
-class="order-btn"
+class="wa-btn"
 href="https://wa.me/94786802323?text=I want to order ${product.name}"
 target="_blank"
 >
-Order
+WhatsApp
 </a>
 
 </div>
@@ -411,6 +644,12 @@ item.Price || "0";
 const image =
 item.Thumbnail || "";
 
+const review =
+item.Review || "";
+
+const badge =
+item.Badge || "";
+
 if(name){
 
 allProducts.push({
@@ -418,7 +657,9 @@ allProducts.push({
 name:name,
 category:category,
 price:price,
-image:image
+image:image,
+review:review,
+badge:badge
 
 });
 
@@ -431,6 +672,29 @@ displayProducts(allProducts);
 }
 
 });
+
+}
+
+function filterCategory(category){
+
+if(category === "All"){
+
+displayProducts(allProducts);
+
+return;
+
+}
+
+const filtered =
+allProducts.filter(product =>
+
+product.category
+.toLowerCase()
+.includes(category.toLowerCase())
+
+);
+
+displayProducts(filtered);
 
 }
 
