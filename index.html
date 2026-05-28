@@ -7,327 +7,476 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>
-11_CART Sri Lanka | Kids Toys, Ride On Jeeps & Baby Products
+11Cart Sri Lanka | Kids Toys & Baby Products
 </title>
 
 <meta name="description"
-content="Buy kids toys, hoverboards, ride on jeeps, baby products and swimming pools in Sri Lanka with islandwide delivery.">
+content="Buy kids toys, ride on jeeps, baby products and swimming pools in Sri Lanka with islandwide delivery.">
+
+<meta property="og:type" content="website">
+<meta property="og:title"
+content="11Cart Sri Lanka | Kids Toys & Baby Products">
+
+<meta property="og:description"
+content="🚚 ලංකාවේ ඕනෑම තැනකට Delivery | 💵 Cash On Delivery Available | Kids Toys, Ride On Jeeps, Pools & Baby Products">
+
+<meta property="og:image"
+content="https://i.imgur.com/PQKPCCD.jpeg">
+
+<meta property="og:url"
+content="https://11cartonlinestore-blip.github.io/11cart/">
+
+<meta property="og:site_name"
+content="11Cart Sri Lanka">
+
+<meta name="twitter:card"
+content="summary_large_image">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Sinhala:wght@400;500;700;800;900&display=swap" rel="stylesheet">
 
 <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
 
 <style>
 
 *{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:Arial,sans-serif;
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Noto Sans Sinhala',sans-serif;
 }
 
 html{
-  scroll-behavior:smooth;
+scroll-behavior:smooth;
 }
 
 body{
-  background:#f5f5f5;
-  color:#222;
+background:#f7f7f7;
+color:#111;
 }
 
 a{
-  text-decoration:none;
+text-decoration:none;
 }
-
-/* NAVBAR */
 
 nav{
-  background:white;
-  padding:18px 5%;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  position:sticky;
-  top:0;
-  z-index:999;
-  box-shadow:0 2px 10px rgba(0,0,0,0.08);
+background:white;
+padding:18px 5%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+position:sticky;
+top:0;
+z-index:999;
+box-shadow:0 2px 15px rgba(0,0,0,0.06);
 }
 
-.logo{
-  font-size:32px;
-  font-weight:900;
-  color:#ff3b00;
+.logo-wrap{
+display:flex;
+align-items:center;
+gap:15px;
+}
+
+.logo-wrap img{
+width:75px;
+height:75px;
+object-fit:contain;
+}
+
+.logo-text{
+font-size:38px;
+font-weight:900;
+color:#111;
+}
+
+.logo-text span{
+color:#ff6b2c;
 }
 
 .whatsapp-btn{
-  background:#25D366;
-  color:white;
-  padding:12px 24px;
-  border-radius:14px;
-  font-weight:bold;
+background:#25D366;
+color:white;
+padding:14px 28px;
+border-radius:16px;
+font-weight:800;
+font-size:17px;
+box-shadow:0 5px 15px rgba(37,211,102,0.3);
+transition:0.3s;
 }
 
-/* HERO */
+.whatsapp-btn:hover{
+transform:translateY(-3px);
+}
 
 .hero{
-  background:linear-gradient(135deg,#ff3b00,#ff9500);
-  color:white;
-  padding:80px 5%;
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:50px;
-  align-items:center;
+background:#fff6f1;
+padding:80px 5%;
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:50px;
+align-items:center;
 }
 
 .hero h1{
-  font-size:60px;
-  line-height:1.1;
-  margin-bottom:25px;
+font-size:68px;
+font-weight:900;
+line-height:1.1;
+color:#111;
+margin-bottom:25px;
 }
 
-.hero p{
-  font-size:20px;
-  line-height:1.8;
-  margin-bottom:35px;
+.hero-text{
+font-size:22px;
+line-height:1.9;
+color:#333;
+font-weight:600;
+margin-bottom:35px;
 }
 
 .hero-buttons{
-  display:flex;
-  gap:15px;
-  flex-wrap:wrap;
+display:flex;
+gap:15px;
+flex-wrap:wrap;
 }
 
 .hero-buttons a{
-  padding:15px 28px;
-  border-radius:14px;
-  font-weight:bold;
+padding:16px 30px;
+border-radius:16px;
+font-weight:800;
+font-size:17px;
 }
 
 .primary-btn{
-  background:white;
-  color:#ff3b00;
+background:#ff6b2c;
+color:white;
+box-shadow:0 5px 20px rgba(255,107,44,0.25);
 }
 
 .secondary-btn{
-  border:2px solid white;
-  color:white;
+border:2px solid #111;
+color:#111;
 }
 
-.hero img{
-  width:100%;
-  height:500px;
-  object-fit:cover;
-  border-radius:30px;
-  box-shadow:0 10px 30px rgba(0,0,0,0.2);
+.slider{
+width:100%;
+height:520px;
+border-radius:35px;
+overflow:hidden;
+box-shadow:0 15px 40px rgba(0,0,0,0.12);
 }
 
-/* SECTION */
+.slider img{
+width:100%;
+height:100%;
+object-fit:cover;
+transition:1s;
+}
+
+.offer-banner{
+padding:25px 5%;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+background:white;
+}
+
+.offer-box{
+background:#ffd9c7;
+color:#111;
+padding:22px;
+border-radius:20px;
+text-align:center;
+font-size:20px;
+font-weight:800;
+box-shadow:0 5px 15px rgba(0,0,0,0.05);
+}
+
+.categories{
+padding:80px 5%;
+text-align:center;
+}
+
+.categories h2{
+font-size:46px;
+font-weight:900;
+margin-bottom:45px;
+}
+
+.category-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+gap:25px;
+}
+
+.category-card{
+background:white;
+padding:40px 20px;
+border-radius:30px;
+font-size:55px;
+box-shadow:0 5px 20px rgba(0,0,0,0.06);
+transition:0.3s;
+cursor:pointer;
+}
+
+.category-card:hover{
+transform:translateY(-8px);
+background:#ff6b2c;
+color:white;
+}
+
+.category-card p{
+font-size:20px;
+font-weight:800;
+margin-top:15px;
+}
 
 .section{
-  padding:80px 5%;
+padding:80px 5%;
 }
 
 .section-title{
-  text-align:center;
-  margin-bottom:50px;
+text-align:center;
+margin-bottom:50px;
 }
 
 .section-title h2{
-  font-size:48px;
-  margin-bottom:15px;
+font-size:50px;
+font-weight:900;
+margin-bottom:15px;
 }
 
-/* SEARCH */
+.section-title p{
+font-size:18px;
+font-weight:600;
+color:#666;
+}
 
 #searchInput{
-  width:100%;
-  padding:18px;
-  border-radius:16px;
-  border:1px solid #ccc;
-  margin-bottom:40px;
-  font-size:16px;
+width:100%;
+padding:18px;
+border-radius:18px;
+border:1px solid #ddd;
+margin-bottom:25px;
+font-size:17px;
+font-weight:600;
 }
 
-/* PRODUCTS */
-
 .products{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-  gap:30px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:30px;
 }
 
 .product-card{
-  background:white;
-  border-radius:28px;
-  overflow:hidden;
-  box-shadow:0 5px 15px rgba(0,0,0,0.08);
-  transition:0.3s;
+background:white;
+border-radius:30px;
+overflow:hidden;
+box-shadow:0 5px 20px rgba(0,0,0,0.06);
+transition:0.3s;
 }
 
 .product-card:hover{
-  transform:translateY(-8px);
+transform:translateY(-8px);
 }
 
 .product-image{
-  width:100%;
-  height:320px;
-  background:white;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  overflow:hidden;
-  padding:15px;
+width:100%;
+height:320px;
+background:radial-gradient(circle,#fff7f3,#ffffff);
+display:flex;
+align-items:center;
+justify-content:center;
+overflow:hidden;
+padding:20px;
 }
 
 .product-image img{
-  max-width:100%;
-  max-height:100%;
-  object-fit:contain;
-  transition:0.3s;
+max-width:100%;
+max-height:100%;
+object-fit:contain;
+transition:0.5s;
 }
 
 .product-card:hover .product-image img{
-  transform:scale(1.05);
+transform:scale(1.08);
 }
 
 .product-info{
-  padding:25px;
+padding:25px;
 }
 
 .product-info h3{
-  font-size:24px;
-  margin-bottom:10px;
+font-size:24px;
+font-weight:800;
+margin-bottom:10px;
+line-height:1.5;
 }
 
 .category{
-  color:#777;
-  margin-bottom:12px;
+color:#777;
+font-size:15px;
+font-weight:600;
+margin-bottom:12px;
 }
 
 .price{
-  color:#ff3b00;
-  font-size:28px;
-  font-weight:bold;
-  margin-bottom:20px;
+color:#ff6b2c;
+font-size:30px;
+font-weight:900;
+margin-bottom:20px;
 }
 
 .product-buttons{
-  display:flex;
-  gap:12px;
+display:flex;
+gap:12px;
 }
 
 .product-buttons a{
-  flex:1;
-  text-align:center;
-  padding:14px;
-  border-radius:12px;
-  font-weight:bold;
+flex:1;
+text-align:center;
+padding:14px;
+border-radius:14px;
+font-weight:800;
+font-size:15px;
 }
 
 .details-btn{
-  background:#ff3b00;
-  color:white;
+background:#111;
+color:white;
 }
 
 .wa-btn{
-  background:#25D366;
-  color:white;
+background:#25D366;
+color:white;
 }
 
-/* TRUST */
+.all-btn{
+background:#ff6b2c;
+color:white;
+padding:14px 24px;
+border-radius:14px;
+display:inline-block;
+margin-bottom:30px;
+font-weight:800;
+cursor:pointer;
+}
 
 .trust{
-  background:#111;
-  color:white;
-  border-radius:30px;
-  padding:60px;
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-  gap:30px;
-  text-align:center;
+background:#111;
+color:white;
+border-radius:35px;
+padding:60px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:30px;
+text-align:center;
 }
 
 .trust h3{
-  margin:15px 0;
+margin:15px 0;
+font-size:24px;
+font-weight:800;
 }
 
-/* FOOTER */
+.trust p{
+color:#ddd;
+line-height:1.7;
+}
 
 footer{
-  background:black;
-  color:white;
-  padding:60px 5%;
-  margin-top:80px;
+background:black;
+color:white;
+padding:70px 5%;
+margin-top:80px;
 }
 
 .footer-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:40px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:40px;
 }
 
 footer h2{
-  color:#ff3b00;
-  margin-bottom:20px;
+color:#ff6b2c;
+margin-bottom:20px;
+font-size:36px;
+}
+
+footer h3{
+margin-bottom:15px;
+font-size:24px;
 }
 
 footer p{
-  color:#ccc;
-  line-height:1.8;
+color:#ccc;
+line-height:1.9;
 }
 
 .copyright{
-  border-top:1px solid #333;
-  margin-top:40px;
-  padding-top:20px;
-  text-align:center;
-  color:#777;
+border-top:1px solid #333;
+margin-top:40px;
+padding-top:20px;
+text-align:center;
+color:#777;
 }
-
-/* FLOATING WHATSAPP */
 
 .floating-wa{
-  position:fixed;
-  bottom:20px;
-  right:20px;
-  width:65px;
-  height:65px;
-  background:#25D366;
-  color:white;
-  border-radius:50%;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  font-size:30px;
-  z-index:9999;
-  box-shadow:0 5px 20px rgba(0,0,0,0.3);
+position:fixed;
+bottom:20px;
+right:20px;
+width:70px;
+height:70px;
+background:#25D366;
+color:white;
+border-radius:50%;
+display:flex;
+justify-content:center;
+align-items:center;
+font-size:32px;
+z-index:9999;
+box-shadow:0 5px 20px rgba(0,0,0,0.3);
 }
-
-/* LOADING */
 
 .loading{
-  text-align:center;
-  font-size:22px;
-  padding:40px;
+text-align:center;
+font-size:22px;
+padding:40px;
+font-weight:700;
 }
-
-/* MOBILE */
 
 @media(max-width:900px){
 
-  .hero{
-    grid-template-columns:1fr;
-  }
+.hero{
+grid-template-columns:1fr;
+}
 
-  .hero h1{
-    font-size:42px;
-  }
+.hero h1{
+font-size:46px;
+}
 
-  .section-title h2{
-    font-size:38px;
-  }
+.hero-text{
+font-size:18px;
+}
 
-  .hero img{
-    height:350px;
-  }
+.slider{
+height:350px;
+}
+
+.section-title h2{
+font-size:38px;
+}
+
+.logo-wrap img{
+width:60px;
+height:60px;
+}
+
+.logo-text{
+font-size:30px;
+}
 
 }
 
@@ -337,186 +486,282 @@ footer p{
 
 <body>
 
-<!-- NAVBAR -->
-
 <nav>
 
-  <div class="logo">
-    11_CART
-  </div>
+<div class="logo-wrap">
 
-  <a
-    class="whatsapp-btn"
-    href="https://wa.me/94786802323"
-    target="_blank"
-  >
-    WhatsApp
-  </a>
+<img
+src="https://i.imgur.com/qqbXqsJ.png"
+alt="11Cart Logo"
+>
+
+<div class="logo-text">
+11<span>Cart</span>
+</div>
+
+</div>
+
+<a
+class="whatsapp-btn"
+href="https://wa.me/94786802323"
+target="_blank"
+>
+WhatsApp
+</a>
 
 </nav>
 
-<!-- HERO -->
-
 <section class="hero">
 
-  <div>
+<div>
 
-    <h1>
-      Kids Toys & Ride On Jeeps Sri Lanka 🚀
-    </h1>
+<h1>
+Sri Lanka’s Trusted Kids Store
+</h1>
 
-    <p>
-      Shop premium kids toys, hoverboards,
-      swimming pools, scooters and electric
-      ride on jeeps with islandwide delivery.
-    </p>
+<p class="hero-text">
 
-    <div class="hero-buttons">
+ළමා toys, ride on jeeps, swimming pools,
+baby products සහ තවත් ගොඩක් දේවල්
+දැන් ලංකාවේ ඕනෑම තැනකට delivery 🚚
 
-      <a
-        class="primary-btn"
-        href="https://wa.me/94786802323"
-        target="_blank"
-      >
-        Order on WhatsApp
-      </a>
+<br><br>
 
-      <a
-        class="secondary-btn"
-        href="#products"
-      >
-        Explore Products
-      </a>
+💵 Cash On Delivery Available
 
-    </div>
+</p>
 
-  </div>
+<div class="hero-buttons">
 
-  <img
-    src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?q=80&w=1200&auto=format&fit=crop"
-  >
+<a
+class="primary-btn"
+href="https://wa.me/94786802323"
+target="_blank"
+>
+Order on WhatsApp
+</a>
+
+<a
+class="secondary-btn"
+href="#products"
+>
+Explore Products
+</a>
+
+</div>
+
+</div>
+
+<div class="slider">
+
+<img
+id="sliderImage"
+src="https://i.imgur.com/PQKPCCD.jpeg"
+>
+
+</div>
 
 </section>
 
-<!-- PRODUCTS -->
+<section class="offer-banner">
+
+<div class="offer-box">
+🚚 Islandwide Delivery
+</div>
+
+<div class="offer-box">
+💵 Cash On Delivery
+</div>
+
+<div class="offer-box">
+🔥 Best Prices
+</div>
+
+<div class="offer-box">
+⭐ Trusted Store
+</div>
+
+</section>
+
+<section class="categories">
+
+<h2>
+Shop Categories
+</h2>
+
+<div class="category-grid">
+
+<div class="category-card" onclick="filterCategory('Baby Products')">
+🍼
+<p>Baby Products</p>
+</div>
+
+<div class="category-card" onclick="filterCategory('Ride On Jeeps')">
+🚗
+<p>Ride On Jeeps</p>
+</div>
+
+<div class="category-card" onclick="filterCategory('Swimming Pools')">
+🏊
+<p>Swimming Pools</p>
+</div>
+
+<div class="category-card" onclick="filterCategory('Scooters')">
+🛴
+<p>Scooters</p>
+</div>
+
+<div class="category-card" onclick="filterCategory('Kids Toys')">
+🧸
+<p>Kids Toys</p>
+</div>
+
+</div>
+
+</section>
 
 <section
 class="section"
 id="products"
 >
 
-  <div class="section-title">
+<div class="section-title">
 
-    <h2>
-      Trending Products 🔥
-    </h2>
+<h2>
+Trending Products
+</h2>
 
-    <p>
-      Latest products from 11_CART
-    </p>
+<p>
+Latest products from 11Cart
+</p>
 
-  </div>
+</div>
 
-  <input
-    type="text"
-    id="searchInput"
-    placeholder="Search products..."
-  >
+<div
+class="all-btn"
+onclick="displayProducts(allProducts)"
+>
+Show All Products
+</div>
 
-  <div
-    class="products"
-    id="productsContainer"
-  >
+<input
+type="text"
+id="searchInput"
+placeholder="Search products..."
+>
 
-    <div class="loading">
-      Loading products...
-    </div>
+<div
+class="products"
+id="productsContainer"
+>
 
-  </div>
+<div class="loading">
+Loading products...
+</div>
+
+</div>
 
 </section>
-
-<!-- TRUST -->
 
 <section class="section">
 
-  <div class="trust">
+<div class="trust">
 
-    <div>
-      🚚
-      <h3>Islandwide Delivery</h3>
-      <p>Fast delivery across Sri Lanka.</p>
-    </div>
+<div>
+🚚
+<h3>Islandwide Delivery</h3>
+<p>Fast delivery across Sri Lanka.</p>
+</div>
 
-    <div>
-      💬
-      <h3>WhatsApp Support</h3>
-      <p>Quick customer support.</p>
-    </div>
+<div>
+💬
+<h3>WhatsApp Support</h3>
+<p>Quick customer support.</p>
+</div>
 
-    <div>
-      ⭐
-      <h3>Trusted Seller</h3>
-      <p>Premium quality products.</p>
-    </div>
+<div>
+⭐
+<h3>Trusted Seller</h3>
+<p>Premium quality products.</p>
+</div>
 
-    <div>
-      💳
-      <h3>Easy Ordering</h3>
-      <p>Simple WhatsApp ordering.</p>
-    </div>
+<div>
+💵
+<h3>Cash On Delivery</h3>
+<p>Pay after receiving your order.</p>
+</div>
 
-  </div>
+</div>
 
 </section>
 
-<!-- FOOTER -->
-
 <footer>
 
-  <div class="footer-grid">
+<div class="footer-grid">
 
-    <div>
+<div>
 
-      <h2>11_CART</h2>
+<h2>11Cart</h2>
 
-      <p>
-        Premium toys, baby products,
-        hoverboards and ride on jeeps
-        in Sri Lanka.
-      </p>
+<p>
+Premium toys, baby products,
+hoverboards and ride on jeeps
+in Sri Lanka.
+</p>
 
-    </div>
+</div>
 
-    <div>
+<div>
 
-      <h3>Contact</h3>
+<h3>Contact</h3>
 
-      <p>📱 0786802323</p>
-      <p>🚚 Islandwide Delivery</p>
-      <p>📍 Sri Lanka</p>
+<p>📱 0786802323</p>
+<p>🚚 Islandwide Delivery</p>
+<p>📍 Sri Lanka</p>
 
-    </div>
+</div>
 
-  </div>
+</div>
 
-  <div class="copyright">
-    © 2026 11_CART. All Rights Reserved.
-  </div>
+<div class="copyright">
+© 2026 11Cart. All Rights Reserved.
+</div>
 
 </footer>
 
-<!-- FLOATING WHATSAPP -->
-
 <a
-  href="https://wa.me/94786802323"
-  class="floating-wa"
-  target="_blank"
+href="https://wa.me/94786802323"
+class="floating-wa"
+target="_blank"
 >
-  💬
+💬
 </a>
 
 <script>
+
+const sliderImages = [
+
+"https://i.imgur.com/PQKPCCD.jpeg",
+"https://i.imgur.com/ZYDxAHW.jpeg",
+"https://i.imgur.com/Su5vwCL.jpeg",
+"https://i.imgur.com/eBkDsFt.jpeg"
+
+];
+
+let currentSlide = 0;
+
+setInterval(() => {
+
+currentSlide++;
+
+if(currentSlide >= sliderImages.length){
+currentSlide = 0;
+}
+
+document.getElementById("sliderImage").src =
+sliderImages[currentSlide];
+
+}, 3000);
 
 const sheetURL =
 "https://docs.google.com/spreadsheets/d/e/2PACX-1vReVFFfTdnBOMgVF15qLDxBxyqbUKedALbb1_tFHpIEKWTD61_cVGqmuSY1Tn20VoqNd1nCyEp-Y1ur/pub?output=csv";
@@ -525,128 +770,146 @@ let allProducts = [];
 
 function displayProducts(products){
 
-  const container =
-  document.getElementById("productsContainer");
+const container =
+document.getElementById("productsContainer");
 
-  if(products.length === 0){
+container.innerHTML = "";
 
-    container.innerHTML =
-    "<div class='loading'>No products found.</div>";
+if(products.length === 0){
 
-    return;
+container.innerHTML =
+"<div class='loading'>No products found.</div>";
 
-  }
+return;
 
-  let html = "";
+}
 
-  products.forEach(product => {
+products.forEach(product => {
 
-    html += `
+container.innerHTML += `
 
-      <div class="product-card">
+<div class="product-card">
 
-        <div class="product-image">
+<div class="product-image">
 
-          <img
-            loading="lazy"
-            src="${product.image}"
-            alt="${product.name}"
-            onerror="this.src='https://via.placeholder.com/400x400?text=11_CART';"
-          >
+<img
+loading="lazy"
+src="${product.image}"
+alt="${product.name}"
+onerror="this.src='https://via.placeholder.com/400x400?text=11Cart';"
+>
 
-        </div>
+</div>
 
-        <div class="product-info">
+<div class="product-info">
 
-          <h3>${product.name}</h3>
+<h3>${product.name}</h3>
 
-          <div class="category">
-            ${product.category}
-          </div>
+<div class="category">
+${product.category}
+</div>
 
-          <div class="price">
-            Rs ${product.price}
-          </div>
+<div class="price">
+Rs ${product.price}
+</div>
 
-          <div class="product-buttons">
+<div class="product-buttons">
 
-            <a
-              class="details-btn"
-              href="https://wa.me/94786802323?text=I want details about ${product.name}"
-              target="_blank"
-            >
-              Details
-            </a>
+<a
+class="details-btn"
+href="https://wa.me/94786802323?text=I want details about ${product.name}"
+target="_blank"
+>
+Details
+</a>
 
-            <a
-              class="wa-btn"
-              href="https://wa.me/94786802323?text=I want to order ${product.name}"
-              target="_blank"
-            >
-              WhatsApp
-            </a>
+<a
+class="wa-btn"
+href="https://wa.me/94786802323?text=I want to order ${product.name}"
+target="_blank"
+>
+WhatsApp
+</a>
 
-          </div>
+</div>
 
-        </div>
+</div>
 
-      </div>
+</div>
 
-    `;
+`;
 
-  });
+});
 
-  container.innerHTML = html;
+}
+
+function filterCategory(category){
+
+const filtered =
+allProducts.filter(product =>
+
+product.category
+.toLowerCase()
+.includes(category.toLowerCase())
+
+);
+
+displayProducts(filtered);
+
+document.getElementById("products")
+.scrollIntoView({
+behavior:"smooth"
+});
 
 }
 
 function loadProducts(){
 
-  Papa.parse(sheetURL, {
+Papa.parse(sheetURL, {
 
-    download:true,
-    header:true,
+download:true,
+header:true,
 
-    complete:function(results){
+complete:function(results){
 
-      const data = results.data;
+const data = results.data;
 
-      allProducts = [];
+allProducts = [];
 
-      data.forEach(item => {
+data.forEach(item => {
 
-        const name =
-        item.Name || "";
+const name =
+item.Name || "";
 
-        const category =
-        item.Category || "General";
+const category =
+item.Category || "General";
 
-        const price =
-        item.Price || "0";
+const price =
+item.Price || "0";
 
-        const image =
-        item.Thumbnail || "";
+const image =
+item.Thumbnail || "";
 
-        if(name){
+if(name){
 
-          allProducts.push({
+allProducts.push({
 
-            name:name,
-            category:category,
-            price:price,
-            image:image
+name:name,
+category:category,
+price:price,
+image:image
 
-          });
+});
 
-        }
+}
 
-      });
+});
 
-      displayProducts(allProducts);
+displayProducts(allProducts);
 
-    }
+}
 
-  });
+});
 
 }
 
@@ -654,25 +917,25 @@ document
 .getElementById("searchInput")
 .addEventListener("input", function(){
 
-  const value =
-  this.value.toLowerCase();
+const value =
+this.value.toLowerCase();
 
-  const filtered =
-  allProducts.filter(product =>
+const filtered =
+allProducts.filter(product =>
 
-    product.name
-    .toLowerCase()
-    .includes(value)
+product.name
+.toLowerCase()
+.includes(value)
 
-    ||
+||
 
-    product.category
-    .toLowerCase()
-    .includes(value)
+product.category
+.toLowerCase()
+.includes(value)
 
-  );
+);
 
-  displayProducts(filtered);
+displayProducts(filtered);
 
 });
 
