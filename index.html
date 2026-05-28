@@ -1,947 +1,639 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>
-11Cart Sri Lanka | Kids Toys & Baby Products
-</title>
-
-<meta name="description"
-content="Buy kids toys, ride on jeeps, baby products and swimming pools in Sri Lanka with islandwide delivery.">
-
+<title>11Cart Sri Lanka | Kids Toys & Baby Products</title>
+<meta name="description" content="Buy kids toys, ride on jeeps, baby products and swimming pools in Sri Lanka with islandwide delivery.">
 <meta property="og:type" content="website">
-<meta property="og:title"
-content="11Cart Sri Lanka | Kids Toys & Baby Products">
-
-<meta property="og:description"
-content="🚚 ලංකාවේ ඕනෑම තැනකට Delivery | 💵 Cash On Delivery Available | Kids Toys, Ride On Jeeps, Pools & Baby Products">
-
-<meta property="og:image"
-content="https://i.imgur.com/PQKPCCD.jpeg">
-
-<meta property="og:url"
-content="https://11cartonlinestore-blip.github.io/11cart/">
-
-<meta property="og:site_name"
-content="11Cart Sri Lanka">
-
-<meta name="twitter:card"
-content="summary_large_image">
-
+<meta property="og:title" content="11Cart Sri Lanka | Kids Toys & Baby Products">
+<meta property="og:description" content="🚚 ලංකාවේ ඕනෑම තැනකට Delivery | 💵 Cash On Delivery Available | Kids Toys, Ride On Jeeps, Pools & Baby Products">
+<meta property="og:image" content="https://i.imgur.com/PQKPCCD.jpeg">
+<meta property="og:url" content="https://11cartonlinestore-blip.github.io/11cart/">
+<meta property="og:site_name" content="11Cart Sri Lanka">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Sinhala:wght@400;500;700;800;900&display=swap" rel="stylesheet">
-
 <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
 
 <style>
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Noto Sans Sinhala',sans-serif;
+:root {
+  --orange: #ff6b2c;
+  --green: #25D366;
+  --dark: #111;
+  --bg: #f7f7f7;
 }
 
-html{
-scroll-behavior:smooth;
+* { margin:0; padding:0; box-sizing:border-box; font-family:'Noto Sans Sinhala',sans-serif; }
+html { scroll-behavior:smooth; }
+body { background:var(--bg); color:var(--dark); }
+a { text-decoration:none; }
+
+/* NAV */
+nav {
+  background:white;
+  padding:14px 5%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  position:sticky;
+  top:0;
+  z-index:999;
+  box-shadow:0 2px 15px rgba(0,0,0,0.06);
+}
+.logo-wrap { display:flex; align-items:center; gap:12px; }
+.logo-wrap img { width:60px; height:60px; object-fit:contain; }
+.logo-text { font-size:32px; font-weight:900; color:var(--dark); }
+.logo-text span { color:var(--orange); }
+.whatsapp-btn {
+  background:var(--green);
+  color:white;
+  padding:11px 20px;
+  border-radius:14px;
+  font-weight:800;
+  font-size:15px;
+  box-shadow:0 5px 15px rgba(37,211,102,0.3);
+  transition:0.3s;
+  white-space:nowrap;
+}
+.whatsapp-btn:hover { transform:translateY(-2px); }
+
+/* HERO */
+.hero {
+  background:#fff6f1;
+  padding:70px 5%;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:50px;
+  align-items:center;
+}
+.hero h1 { font-size:60px; font-weight:900; line-height:1.1; margin-bottom:22px; }
+.hero-text { font-size:20px; line-height:1.9; color:#333; font-weight:600; margin-bottom:30px; }
+.hero-buttons { display:flex; gap:15px; flex-wrap:wrap; }
+.hero-buttons a { padding:15px 28px; border-radius:14px; font-weight:800; font-size:16px; }
+.primary-btn { background:var(--orange); color:white; box-shadow:0 5px 20px rgba(255,107,44,0.25); }
+.secondary-btn { border:2px solid var(--dark); color:var(--dark); }
+
+/* SLIDER */
+.slider { width:100%; height:480px; border-radius:30px; overflow:hidden; box-shadow:0 15px 40px rgba(0,0,0,0.12); position:relative; }
+.slider img { width:100%; height:100%; object-fit:cover; transition:opacity 0.8s; }
+
+/* OFFER BANNER */
+.offer-banner {
+  padding:22px 5%;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:16px;
+  background:white;
+}
+.offer-box {
+  background:#ffd9c7;
+  color:var(--dark);
+  padding:20px;
+  border-radius:18px;
+  text-align:center;
+  font-size:18px;
+  font-weight:800;
+  box-shadow:0 5px 15px rgba(0,0,0,0.05);
 }
 
-body{
-background:#f7f7f7;
-color:#111;
+/* CATEGORIES */
+.categories { padding:70px 5%; text-align:center; }
+.categories h2 { font-size:42px; font-weight:900; margin-bottom:40px; }
+.category-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); gap:20px; }
+.category-card {
+  background:white;
+  padding:35px 15px;
+  border-radius:25px;
+  font-size:48px;
+  box-shadow:0 5px 20px rgba(0,0,0,0.06);
+  transition:0.3s;
+  cursor:pointer;
+  border:3px solid transparent;
+}
+.category-card:hover, .category-card.active {
+  transform:translateY(-6px);
+  background:var(--orange);
+  color:white;
+  border-color:var(--orange);
+}
+.category-card p { font-size:17px; font-weight:800; margin-top:12px; }
+
+/* PRODUCTS SECTION */
+.section { padding:70px 5%; }
+.section-title { text-align:center; margin-bottom:40px; }
+.section-title h2 { font-size:46px; font-weight:900; margin-bottom:12px; }
+.section-title p { font-size:17px; font-weight:600; color:#666; }
+
+/* SEARCH + CONTROLS */
+.search-bar-wrap { position:relative; margin-bottom:20px; }
+.search-bar-wrap input {
+  width:100%;
+  padding:16px 20px 16px 50px;
+  border-radius:16px;
+  border:2px solid #eee;
+  font-size:16px;
+  font-weight:600;
+  transition:0.3s;
+  background:white;
+}
+.search-bar-wrap input:focus { outline:none; border-color:var(--orange); }
+.search-icon { position:absolute; left:18px; top:50%; transform:translateY(-50%); font-size:20px; }
+
+.filter-row {
+  display:flex;
+  gap:12px;
+  align-items:center;
+  flex-wrap:wrap;
+  margin-bottom:30px;
+}
+.show-all-btn {
+  background:var(--orange);
+  color:white;
+  padding:12px 22px;
+  border-radius:12px;
+  font-weight:800;
+  font-size:15px;
+  cursor:pointer;
+  border:none;
+  transition:0.3s;
+}
+.show-all-btn:hover { opacity:0.85; }
+
+.sort-select {
+  padding:12px 18px;
+  border-radius:12px;
+  border:2px solid #eee;
+  font-size:15px;
+  font-weight:700;
+  background:white;
+  cursor:pointer;
+}
+.sort-select:focus { outline:none; border-color:var(--orange); }
+
+.product-count {
+  margin-left:auto;
+  font-size:15px;
+  font-weight:700;
+  color:#666;
 }
 
-a{
-text-decoration:none;
+/* PRODUCTS GRID */
+.products { display:grid; grid-template-columns:repeat(auto-fill,minmax(270px,1fr)); gap:28px; }
+
+/* PRODUCT CARD */
+.product-card {
+  background:white;
+  border-radius:26px;
+  overflow:hidden;
+  box-shadow:0 5px 20px rgba(0,0,0,0.06);
+  transition:0.3s;
+  cursor:pointer;
+  position:relative;
+}
+.product-card:hover { transform:translateY(-7px); box-shadow:0 12px 35px rgba(0,0,0,0.12); }
+
+.stock-badge {
+  position:absolute;
+  top:14px;
+  left:14px;
+  background:#ff3b3b;
+  color:white;
+  font-size:12px;
+  font-weight:800;
+  padding:5px 12px;
+  border-radius:20px;
+  z-index:2;
+}
+.discount-badge {
+  position:absolute;
+  top:14px;
+  right:14px;
+  background:var(--orange);
+  color:white;
+  font-size:13px;
+  font-weight:900;
+  padding:5px 12px;
+  border-radius:20px;
+  z-index:2;
 }
 
-nav{
-background:white;
-padding:18px 5%;
-display:flex;
-justify-content:space-between;
-align-items:center;
-position:sticky;
-top:0;
-z-index:999;
-box-shadow:0 2px 15px rgba(0,0,0,0.06);
+.product-image {
+  width:100%;
+  height:280px;
+  background:radial-gradient(circle,#fff7f3,#ffffff);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+  padding:18px;
+}
+.product-image img {
+  max-width:100%;
+  max-height:100%;
+  object-fit:contain;
+  transition:transform 0.5s;
+  filter:drop-shadow(0 8px 16px rgba(0,0,0,0.1));
+}
+.product-card:hover .product-image img { transform:scale(1.07); }
+
+.product-info { padding:22px; }
+.product-info h3 { font-size:20px; font-weight:800; margin-bottom:8px; line-height:1.4; }
+.cat-tag {
+  display:inline-block;
+  background:#fff0e8;
+  color:var(--orange);
+  font-size:13px;
+  font-weight:700;
+  padding:4px 12px;
+  border-radius:20px;
+  margin-bottom:12px;
+}
+.price-row { display:flex; align-items:center; gap:10px; margin-bottom:18px; }
+.price { color:var(--orange); font-size:26px; font-weight:900; }
+.old-price { color:#aaa; font-size:17px; font-weight:700; text-decoration:line-through; }
+
+.product-buttons { display:flex; gap:10px; }
+.product-buttons a, .product-buttons button {
+  flex:1;
+  text-align:center;
+  padding:13px;
+  border-radius:13px;
+  font-weight:800;
+  font-size:14px;
+  cursor:pointer;
+  border:none;
+  transition:0.3s;
+}
+.details-btn { background:var(--dark); color:white; }
+.details-btn:hover { background:#333; }
+.wa-btn { background:var(--green); color:white; }
+.wa-btn:hover { opacity:0.85; }
+
+/* SKELETON LOADING */
+.skeleton {
+  background:white;
+  border-radius:26px;
+  overflow:hidden;
+  box-shadow:0 5px 20px rgba(0,0,0,0.06);
+}
+.skeleton-img {
+  width:100%;
+  height:280px;
+  background:linear-gradient(90deg,#f0f0f0 25%,#e0e0e0 50%,#f0f0f0 75%);
+  background-size:200% 100%;
+  animation:shimmer 1.5s infinite;
+}
+.skeleton-body { padding:22px; }
+.skeleton-line {
+  height:16px;
+  border-radius:8px;
+  background:linear-gradient(90deg,#f0f0f0 25%,#e0e0e0 50%,#f0f0f0 75%);
+  background-size:200% 100%;
+  animation:shimmer 1.5s infinite;
+  margin-bottom:12px;
+}
+.skeleton-line.short { width:60%; }
+.skeleton-line.shorter { width:40%; }
+@keyframes shimmer { 0%{background-position:200% 0} 100%{background-position:-200% 0} }
+
+/* MODAL */
+.modal-overlay {
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.65);
+  z-index:9000;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+  opacity:0;
+  pointer-events:none;
+  transition:opacity 0.3s;
+}
+.modal-overlay.open { opacity:1; pointer-events:all; }
+.modal {
+  background:white;
+  border-radius:30px;
+  max-width:850px;
+  width:100%;
+  max-height:90vh;
+  overflow-y:auto;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  position:relative;
+  transform:scale(0.9);
+  transition:transform 0.3s;
+}
+.modal-overlay.open .modal { transform:scale(1); }
+.modal-close {
+  position:absolute;
+  top:16px;
+  right:16px;
+  width:38px;
+  height:38px;
+  background:#111;
+  color:white;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:20px;
+  cursor:pointer;
+  z-index:10;
+  border:none;
+  font-weight:900;
 }
 
-.logo-wrap{
-display:flex;
-align-items:center;
-gap:15px;
+.modal-images { padding:25px; background:#fff7f3; border-radius:30px 0 0 30px; display:flex; flex-direction:column; gap:12px; }
+.modal-main-img {
+  width:100%;
+  height:280px;
+  object-fit:contain;
+  border-radius:18px;
+  background:white;
+  padding:10px;
 }
-
-.logo-wrap img{
-width:75px;
-height:75px;
-object-fit:contain;
+.modal-thumbs { display:flex; gap:10px; flex-wrap:wrap; }
+.modal-thumb {
+  width:70px;
+  height:70px;
+  object-fit:contain;
+  border-radius:12px;
+  border:3px solid transparent;
+  cursor:pointer;
+  background:white;
+  padding:5px;
+  transition:0.2s;
 }
+.modal-thumb.active, .modal-thumb:hover { border-color:var(--orange); }
 
-.logo-text{
-font-size:38px;
-font-weight:900;
-color:#111;
+.modal-info { padding:30px; overflow-y:auto; }
+.modal-info h2 { font-size:26px; font-weight:900; margin-bottom:12px; line-height:1.4; }
+.modal-cat { display:inline-block; background:#fff0e8; color:var(--orange); font-size:13px; font-weight:700; padding:4px 14px; border-radius:20px; margin-bottom:16px; }
+.modal-price-row { display:flex; align-items:center; gap:12px; margin-bottom:10px; }
+.modal-price { color:var(--orange); font-size:32px; font-weight:900; }
+.modal-old-price { color:#aaa; font-size:18px; text-decoration:line-through; font-weight:700; }
+.modal-savings { background:#e8ffef; color:#1a8a3a; font-size:13px; font-weight:800; padding:4px 12px; border-radius:20px; margin-bottom:18px; display:inline-block; }
+.modal-desc {
+  font-size:15px;
+  line-height:1.8;
+  color:#444;
+  font-weight:500;
+  margin-bottom:20px;
+  max-height:200px;
+  overflow-y:auto;
+  background:#fafafa;
+  padding:14px;
+  border-radius:14px;
+  white-space:pre-wrap;
 }
-
-.logo-text span{
-color:#ff6b2c;
+.modal-tags { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:20px; }
+.modal-tag { background:#f3f3f3; color:#555; font-size:13px; font-weight:700; padding:5px 14px; border-radius:20px; }
+.modal-btns { display:flex; gap:12px; }
+.modal-btns a {
+  flex:1;
+  text-align:center;
+  padding:15px;
+  border-radius:15px;
+  font-weight:800;
+  font-size:15px;
+  transition:0.3s;
 }
+.modal-btns .wb { background:var(--green); color:white; }
+.modal-btns .db { background:var(--dark); color:white; }
 
-.whatsapp-btn{
-background:#25D366;
-color:white;
-padding:14px 28px;
-border-radius:16px;
-font-weight:800;
-font-size:17px;
-box-shadow:0 5px 15px rgba(37,211,102,0.3);
-transition:0.3s;
+/* TRUST */
+.trust {
+  background:var(--dark);
+  color:white;
+  border-radius:30px;
+  padding:55px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:25px;
+  text-align:center;
 }
+.trust h3 { margin:12px 0; font-size:22px; font-weight:800; }
+.trust p { color:#ccc; font-weight:500; line-height:1.7; font-size:15px; }
+.trust-icon { font-size:40px; }
 
-.whatsapp-btn:hover{
-transform:translateY(-3px);
+/* FOOTER */
+footer { background:black; color:white; padding:60px 5%; margin-top:70px; }
+.footer-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:40px; }
+footer h2 { color:var(--orange); margin-bottom:18px; font-size:32px; font-weight:900; }
+footer h3 { margin-bottom:14px; font-size:22px; }
+footer p { color:#ccc; line-height:1.9; font-weight:500; font-size:15px; }
+.social-links { display:flex; gap:14px; margin-top:14px; }
+.social-links a {
+  width:42px; height:42px;
+  background:#1a1a1a;
+  border-radius:12px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:20px;
+  transition:0.3s;
 }
+.social-links a:hover { background:var(--orange); }
+.copyright { border-top:1px solid #333; margin-top:35px; padding-top:18px; text-align:center; color:#666; font-weight:500; font-size:14px; }
 
-.hero{
-background:#fff6f1;
-padding:80px 5%;
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:50px;
-align-items:center;
+/* FLOATING WA */
+.floating-wa {
+  position:fixed;
+  bottom:22px;
+  right:22px;
+  width:64px;
+  height:64px;
+  background:var(--green);
+  color:white;
+  border-radius:50%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-size:30px;
+  z-index:8999;
+  box-shadow:0 5px 20px rgba(37,211,102,0.4);
+  transition:0.3s;
 }
+.floating-wa:hover { transform:scale(1.1); }
 
-.hero h1{
-font-size:68px;
-font-weight:900;
-line-height:1.1;
-color:#111;
-margin-bottom:25px;
+/* NO PRODUCTS */
+.no-products {
+  text-align:center;
+  padding:60px 20px;
+  grid-column:1/-1;
 }
+.no-products p { font-size:20px; font-weight:700; color:#888; margin-top:14px; }
 
-.hero-text{
-font-size:22px;
-line-height:1.9;
-color:#333;
-font-weight:600;
-margin-bottom:35px;
-}
-
-.hero-buttons{
-display:flex;
-gap:15px;
-flex-wrap:wrap;
-}
-
-.hero-buttons a{
-padding:16px 30px;
-border-radius:16px;
-font-weight:800;
-font-size:17px;
-}
-
-.primary-btn{
-background:#ff6b2c;
-color:white;
-box-shadow:0 5px 20px rgba(255,107,44,0.25);
-}
-
-.secondary-btn{
-border:2px solid #111;
-color:#111;
-}
-
-.slider{
-width:100%;
-height:520px;
-border-radius:35px;
-overflow:hidden;
-box-shadow:0 15px 40px rgba(0,0,0,0.12);
-}
-
-.slider img{
-width:100%;
-height:100%;
-object-fit:cover;
-transition:1s;
-}
-
-.offer-banner{
-padding:25px 5%;
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:20px;
-background:white;
-}
-
-.offer-box{
-background:#ffd9c7;
-color:#111;
-padding:22px;
-border-radius:20px;
-text-align:center;
-font-size:20px;
-font-weight:800;
-box-shadow:0 5px 15px rgba(0,0,0,0.05);
-}
-
-.categories{
-padding:80px 5%;
-text-align:center;
-}
-
-.categories h2{
-font-size:46px;
-font-weight:900;
-margin-bottom:45px;
-}
-
-.category-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-gap:25px;
-}
-
-.category-card{
-background:white;
-padding:40px 20px;
-border-radius:30px;
-font-size:55px;
-box-shadow:0 5px 20px rgba(0,0,0,0.06);
-transition:0.3s;
-cursor:pointer;
-}
-
-.category-card:hover{
-transform:translateY(-8px);
-background:#ff6b2c;
-color:white;
-}
-
-.category-card p{
-font-size:20px;
-font-weight:800;
-margin-top:15px;
-}
-
-.section{
-padding:80px 5%;
-}
-
-.section-title{
-text-align:center;
-margin-bottom:50px;
-}
-
-.section-title h2{
-font-size:50px;
-font-weight:900;
-margin-bottom:15px;
-}
-
-.section-title p{
-font-size:18px;
-font-weight:600;
-color:#666;
-}
-
-#searchInput{
-width:100%;
-padding:18px;
-border-radius:18px;
-border:1px solid #ddd;
-margin-bottom:25px;
-font-size:17px;
-font-weight:600;
-}
-
-.products{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-gap:30px;
-}
-
-.product-card{
-background:white;
-border-radius:30px;
-overflow:hidden;
-box-shadow:0 5px 20px rgba(0,0,0,0.06);
-transition:0.3s;
-}
-
-.product-card:hover{
-transform:translateY(-8px);
-}
-
-.product-image{
-width:100%;
-height:320px;
-background:radial-gradient(circle,#fff7f3,#ffffff);
-display:flex;
-align-items:center;
-justify-content:center;
-overflow:hidden;
-padding:20px;
-}
-
-.product-image img{
-max-width:100%;
-max-height:100%;
-object-fit:contain;
-transition:0.5s;
-}
-
-.product-card:hover .product-image img{
-transform:scale(1.08);
-}
-
-.product-info{
-padding:25px;
-}
-
-.product-info h3{
-font-size:24px;
-font-weight:800;
-margin-bottom:10px;
-line-height:1.5;
-}
-
-.category{
-color:#777;
-font-size:15px;
-font-weight:600;
-margin-bottom:12px;
-}
-
-.price{
-color:#ff6b2c;
-font-size:30px;
-font-weight:900;
-margin-bottom:20px;
-}
-
-.product-buttons{
-display:flex;
-gap:12px;
-}
-
-.product-buttons a{
-flex:1;
-text-align:center;
-padding:14px;
-border-radius:14px;
-font-weight:800;
-font-size:15px;
-}
-
-.details-btn{
-background:#111;
-color:white;
-}
-
-.wa-btn{
-background:#25D366;
-color:white;
-}
-
-.all-btn{
-background:#ff6b2c;
-color:white;
-padding:14px 24px;
-border-radius:14px;
-display:inline-block;
-margin-bottom:30px;
-font-weight:800;
-cursor:pointer;
-}
-
-.trust{
-background:#111;
-color:white;
-border-radius:35px;
-padding:60px;
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:30px;
-text-align:center;
-}
-
-.trust h3{
-margin:15px 0;
-font-size:24px;
-font-weight:800;
-}
-
-.trust p{
-color:#ddd;
-line-height:1.7;
-}
-
-footer{
-background:black;
-color:white;
-padding:70px 5%;
-margin-top:80px;
-}
-
-.footer-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:40px;
-}
-
-footer h2{
-color:#ff6b2c;
-margin-bottom:20px;
-font-size:36px;
-}
-
-footer h3{
-margin-bottom:15px;
-font-size:24px;
-}
-
-footer p{
-color:#ccc;
-line-height:1.9;
-}
-
-.copyright{
-border-top:1px solid #333;
-margin-top:40px;
-padding-top:20px;
-text-align:center;
-color:#777;
-}
-
-.floating-wa{
-position:fixed;
-bottom:20px;
-right:20px;
-width:70px;
-height:70px;
-background:#25D366;
-color:white;
-border-radius:50%;
-display:flex;
-justify-content:center;
-align-items:center;
-font-size:32px;
-z-index:9999;
-box-shadow:0 5px 20px rgba(0,0,0,0.3);
-}
-
-.loading{
-text-align:center;
-font-size:22px;
-padding:40px;
-font-weight:700;
-}
-
+/* RESPONSIVE */
 @media(max-width:900px){
-
-.hero{
-grid-template-columns:1fr;
+  .hero { grid-template-columns:1fr; }
+  .hero h1 { font-size:40px; }
+  .hero-text { font-size:17px; }
+  .slider { height:320px; }
+  .section-title h2 { font-size:34px; }
+  .logo-wrap img { width:50px; height:50px; }
+  .logo-text { font-size:26px; }
+  .whatsapp-btn { padding:10px 16px; font-size:14px; }
+  .modal { grid-template-columns:1fr; }
+  .modal-images { border-radius:30px 30px 0 0; }
+  .trust { padding:35px 25px; }
+  .categories h2 { font-size:34px; }
 }
-
-.hero h1{
-font-size:46px;
+@media(max-width:480px){
+  nav { padding:12px 4%; }
+  .logo-text { font-size:22px; }
+  .logo-wrap img { width:42px; height:42px; }
+  .filter-row { flex-direction:column; align-items:stretch; }
+  .product-count { margin-left:0; }
 }
-
-.hero-text{
-font-size:18px;
-}
-
-.slider{
-height:350px;
-}
-
-.section-title h2{
-font-size:38px;
-}
-
-.logo-wrap img{
-width:60px;
-height:60px;
-}
-
-.logo-text{
-font-size:30px;
-}
-
-}
-
 </style>
-
 </head>
-
 <body>
 
+<!-- NAV -->
 <nav>
-
-<div class="logo-wrap">
-
-<img
-src="https://i.imgur.com/qqbXqsJ.png"
-alt="11Cart Logo"
->
-
-<div class="logo-text">
-11<span>Cart</span>
-</div>
-
-</div>
-
-<a
-class="whatsapp-btn"
-href="https://wa.me/94786802323"
-target="_blank"
->
-WhatsApp
-</a>
-
+  <div class="logo-wrap">
+    <img src="https://i.imgur.com/qqbXqsJ.png" alt="11Cart Logo">
+    <div class="logo-text">11<span>Cart</span></div>
+  </div>
+  <a class="whatsapp-btn" href="https://wa.me/94786802323" target="_blank">💬 WhatsApp</a>
 </nav>
 
+<!-- HERO -->
 <section class="hero">
-
-<div>
-
-<h1>
-Sri Lanka’s Trusted Kids Store
-</h1>
-
-<p class="hero-text">
-
-ළමා toys, ride on jeeps, swimming pools,
-baby products සහ තවත් ගොඩක් දේවල්
-දැන් ලංකාවේ ඕනෑම තැනකට delivery 🚚
-
-<br><br>
-
-💵 Cash On Delivery Available
-
-</p>
-
-<div class="hero-buttons">
-
-<a
-class="primary-btn"
-href="https://wa.me/94786802323"
-target="_blank"
->
-Order on WhatsApp
-</a>
-
-<a
-class="secondary-btn"
-href="#products"
->
-Explore Products
-</a>
-
-</div>
-
-</div>
-
-<div class="slider">
-
-<img
-id="sliderImage"
-src="https://i.imgur.com/PQKPCCD.jpeg"
->
-
-</div>
-
+  <div>
+    <h1>Sri Lanka's Trusted Kids Store</h1>
+    <p class="hero-text">
+      ළමා toys, ride on jeeps, swimming pools,
+      baby products සහ තවත් ගොඩක් දේවල්
+      දැන් ලංකාවේ ඕනෑම තැනකට delivery 🚚
+      <br><br>
+      💵 Cash On Delivery Available
+    </p>
+    <div class="hero-buttons">
+      <a class="primary-btn" href="https://wa.me/94786802323" target="_blank">Order on WhatsApp</a>
+      <a class="secondary-btn" href="#products">Explore Products</a>
+    </div>
+  </div>
+  <div class="slider">
+    <img id="sliderImage" src="https://i.imgur.com/PQKPCCD.jpeg" alt="11Cart">
+  </div>
 </section>
 
+<!-- OFFER BANNER -->
 <section class="offer-banner">
-
-<div class="offer-box">
-🚚 Islandwide Delivery
-</div>
-
-<div class="offer-box">
-💵 Cash On Delivery
-</div>
-
-<div class="offer-box">
-🔥 Best Prices
-</div>
-
-<div class="offer-box">
-⭐ Trusted Store
-</div>
-
+  <div class="offer-box">🚚 Islandwide Delivery</div>
+  <div class="offer-box">💵 Cash On Delivery</div>
+  <div class="offer-box">🔥 Best Prices</div>
+  <div class="offer-box">⭐ Trusted Store</div>
 </section>
 
+<!-- CATEGORIES -->
 <section class="categories">
-
-<h2>
-Shop Categories
-</h2>
-
-<div class="category-grid">
-
-<div class="category-card" onclick="filterCategory('Baby Products')">
-🍼
-<p>Baby Products</p>
-</div>
-
-<div class="category-card" onclick="filterCategory('Ride On Jeeps')">
-🚗
-<p>Ride On Jeeps</p>
-</div>
-
-<div class="category-card" onclick="filterCategory('Swimming Pools')">
-🏊
-<p>Swimming Pools</p>
-</div>
-
-<div class="category-card" onclick="filterCategory('Scooters')">
-🛴
-<p>Scooters</p>
-</div>
-
-<div class="category-card" onclick="filterCategory('Kids Toys')">
-🧸
-<p>Kids Toys</p>
-</div>
-
-</div>
-
+  <h2>Shop by Category</h2>
+  <div class="category-grid" id="categoryGrid">
+    <div class="category-card" onclick="filterCategory('Inflatables & Pools',this)">🏊<p>Pools</p></div>
+    <div class="category-card" onclick="filterCategory('Ride On',this)">🚗<p>Ride On</p></div>
+    <div class="category-card" onclick="filterCategory('Scooters',this)">🛴<p>Scooters</p></div>
+    <div class="category-card" onclick="filterCategory('Baby Gear',this)">🍼<p>Baby Gear</p></div>
+    <div class="category-card" onclick="filterCategory('Play Equipment',this)">🧸<p>Play</p></div>
+    <div class="category-card" onclick="filterCategory('Smart & Electronic Toys',this)">🤖<p>Smart Toys</p></div>
+    <div class="category-card" onclick="filterCategory('Safety & Accessories',this)">🛡️<p>Safety</p></div>
+    <div class="category-card" onclick="filterCategory('Furniture & Storage',this)">🪑<p>Furniture</p></div>
+  </div>
 </section>
 
-<section
-class="section"
-id="products"
->
+<!-- PRODUCTS -->
+<section class="section" id="products">
+  <div class="section-title">
+    <h2>Trending Products</h2>
+    <p>Latest products from 11Cart</p>
+  </div>
 
-<div class="section-title">
+  <div class="search-bar-wrap">
+    <span class="search-icon">🔍</span>
+    <input type="text" id="searchInput" placeholder="Search products...">
+  </div>
 
-<h2>
-Trending Products
-</h2>
+  <div class="filter-row">
+    <button class="show-all-btn" onclick="resetFilters()">Show All Products</button>
+    <select class="sort-select" id="sortSelect" onchange="applySortAndRender()">
+      <option value="">Sort By</option>
+      <option value="low">Price: Low to High</option>
+      <option value="high">Price: High to Low</option>
+      <option value="name">Name: A to Z</option>
+    </select>
+    <span class="product-count" id="productCount"></span>
+  </div>
 
-<p>
-Latest products from 11Cart
-</p>
-
-</div>
-
-<div
-class="all-btn"
-onclick="displayProducts(allProducts)"
->
-Show All Products
-</div>
-
-<input
-type="text"
-id="searchInput"
-placeholder="Search products..."
->
-
-<div
-class="products"
-id="productsContainer"
->
-
-<div class="loading">
-Loading products...
-</div>
-
-</div>
-
+  <div class="products" id="productsContainer">
+    <!-- Skeleton loading -->
+    <div class="skeleton"><div class="skeleton-img"></div><div class="skeleton-body"><div class="skeleton-line"></div><div class="skeleton-line short"></div><div class="skeleton-line shorter"></div></div></div>
+    <div class="skeleton"><div class="skeleton-img"></div><div class="skeleton-body"><div class="skeleton-line"></div><div class="skeleton-line short"></div><div class="skeleton-line shorter"></div></div></div>
+    <div class="skeleton"><div class="skeleton-img"></div><div class="skeleton-body"><div class="skeleton-line"></div><div class="skeleton-line short"></div><div class="skeleton-line shorter"></div></div></div>
+    <div class="skeleton"><div class="skeleton-img"></div><div class="skeleton-body"><div class="skeleton-line"></div><div class="skeleton-line short"></div><div class="skeleton-line shorter"></div></div></div>
+  </div>
 </section>
 
+<!-- TRUST -->
 <section class="section">
-
-<div class="trust">
-
-<div>
-🚚
-<h3>Islandwide Delivery</h3>
-<p>Fast delivery across Sri Lanka.</p>
-</div>
-
-<div>
-💬
-<h3>WhatsApp Support</h3>
-<p>Quick customer support.</p>
-</div>
-
-<div>
-⭐
-<h3>Trusted Seller</h3>
-<p>Premium quality products.</p>
-</div>
-
-<div>
-💵
-<h3>Cash On Delivery</h3>
-<p>Pay after receiving your order.</p>
-</div>
-
-</div>
-
+  <div class="trust">
+    <div><div class="trust-icon">🚚</div><h3>Islandwide Delivery</h3><p>Fast delivery across Sri Lanka.</p></div>
+    <div><div class="trust-icon">💬</div><h3>WhatsApp Support</h3><p>Quick customer support.</p></div>
+    <div><div class="trust-icon">⭐</div><h3>Trusted Seller</h3><p>Premium quality products.</p></div>
+    <div><div class="trust-icon">💵</div><h3>Cash On Delivery</h3><p>Pay after receiving your order.</p></div>
+  </div>
 </section>
 
+<!-- FOOTER -->
 <footer>
-
-<div class="footer-grid">
-
-<div>
-
-<h2>11Cart</h2>
-
-<p>
-Premium toys, baby products,
-hoverboards and ride on jeeps
-in Sri Lanka.
-</p>
-
-</div>
-
-<div>
-
-<h3>Contact</h3>
-
-<p>📱 0786802323</p>
-<p>🚚 Islandwide Delivery</p>
-<p>📍 Sri Lanka</p>
-
-</div>
-
-</div>
-
-<div class="copyright">
-© 2026 11Cart. All Rights Reserved.
-</div>
-
+  <div class="footer-grid">
+    <div>
+      <h2>11Cart</h2>
+      <p>Premium toys, baby products, hoverboards and ride on jeeps in Sri Lanka.</p>
+      <div class="social-links">
+        <a href="https://wa.me/94786802323" target="_blank">💬</a>
+        <a href="#" target="_blank">📘</a>
+        <a href="#" target="_blank">📸</a>
+      </div>
+    </div>
+    <div>
+      <h3>Contact</h3>
+      <p>📱 0786802323</p>
+      <p>🚚 Islandwide Delivery</p>
+      <p>📍 Sri Lanka</p>
+    </div>
+    <div>
+      <h3>Policy</h3>
+      <p>🔄 Easy Returns</p>
+      <p>✅ Authentic Products</p>
+      <p>🔒 Safe & Secure</p>
+    </div>
+  </div>
+  <div class="copyright">© 2026 11Cart. All Rights Reserved.</div>
 </footer>
 
-<a
-href="https://wa.me/94786802323"
-class="floating-wa"
-target="_blank"
->
-💬
-</a>
-
-<script>
-
-const sliderImages = [
-
-"https://i.imgur.com/PQKPCCD.jpeg",
-"https://i.imgur.com/ZYDxAHW.jpeg",
-"https://i.imgur.com/Su5vwCL.jpeg",
-"https://i.imgur.com/eBkDsFt.jpeg"
-
-];
-
-let currentSlide = 0;
-
-setInterval(() => {
-
-currentSlide++;
-
-if(currentSlide >= sliderImages.length){
-currentSlide = 0;
-}
-
-document.getElementById("sliderImage").src =
-sliderImages[currentSlide];
-
-}, 3000);
-
-const sheetURL =
-"https://docs.google.com/spreadsheets/d/e/2PACX-1vReVFFfTdnBOMgVF15qLDxBxyqbUKedALbb1_tFHpIEKWTD61_cVGqmuSY1Tn20VoqNd1nCyEp-Y1ur/pub?output=csv";
-
-let allProducts = [];
-
-function displayProducts(products){
-
-const container =
-document.getElementById("productsContainer");
-
-container.innerHTML = "";
-
-if(products.length === 0){
-
-container.innerHTML =
-"<div class='loading'>No products found.</div>";
-
-return;
-
-}
-
-products.forEach(product => {
-
-container.innerHTML += `
-
-<div class="product-card">
-
-<div class="product-image">
-
-<img
-loading="lazy"
-src="${product.image}"
-alt="${product.name}"
-onerror="this.src='https://via.placeholder.com/400x400?text=11Cart';"
->
-
-</div>
-
-<div class="product-info">
-
-<h3>${product.name}</h3>
-
-<div class="category">
-${product.category}
-</div>
-
-<div class="price">
-Rs ${product.price}
-</div>
-
-<div class="product-buttons">
-
-<a
-class="details-btn"
-href="https://wa.me/94786802323?text=I want details about ${product.name}"
-target="_blank"
->
-Details
-</a>
-
-<a
-class="wa-btn"
-href="https://wa.me/94786802323?text=I want to order ${product.name}"
-target="_blank"
->
-WhatsApp
-</a>
-
-</div>
-
-</div>
-
-</div>
-
-`;
-
-});
-
-}
-
-function filterCategory(category){
-
-const filtered =
-allProducts.filter(product =>
-
-product.category
-.toLowerCase()
-.includes(category.toLowerCase())
-
-);
-
-displayProducts(filtered);
-
-document.getElementById("products")
-.scrollIntoView({
-behavior:"smooth"
-});
-
-}
-
-function loadProducts(){
-
-Papa.parse(sheetURL, {
-
-download:true,
-header:true,
-
-complete:function(results){
-
-const data = results.data;
-
-allProducts = [];
-
-data.forEach(item => {
-
-const name =
-item.Name || "";
-
-const category =
-item.Category || "General";
-
-const price =
-item.Price || "0";
-
-const image =
-item.Thumbnail || "";
-
-if(name){
-
-allProducts.push({
-
-name:name,
-category:category,
-price:price,
-image:image
-
-});
-
-}
-
-});
-
-displayProducts(allProducts);
-
-}
-
-});
-
-}
-
-document
-.getElementById("searchInput")
-.addEventListener("input", function(){
-
-const value =
-this.value.toLowerCase();
-
-const filtered =
-allProducts.filter(product =>
-
-product.name
-.toLowerCase()
-.includes(value)
-
-||
-
-product.category
-.toLowerCase()
-.includes(value)
-
-);
-
-displayProducts(filtered);
-
-});
-
-loadProducts();
-
-</script>
-
-</body>
-</html>
+<!-- FLOATING WA -->
+<a href="https://wa.me/94786802323" class="floating-wa" target="_blank">💬</a>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modalOverlay" onclick="closeModalOnBg(event)">
+  <div class="modal" id="modal">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div class="modal-images" id="modalImages">
+      <img id="modalMainImg" class="modal-main-img" src="" alt="">
+      <div class="modal-thumbs" id="modalThumbs"></div>
+    </div>
+    <div class="modal-info">
+      <div class="modal-cat" id="modalCat"></div>
+      <h2 id="modalName"></h2>
+      <div class="modal-price-row">
+        <span class="modal-price" id="modalPrice"></span>
+        <span class="modal-old-price" id="modalOldPrice"></span>
+      </div>
+      <span class="modal-savings" id="modalSavings" style="display:none"></span>
+      <div class="modal-tags" id="modalTags"></div>
+      <div class="m
