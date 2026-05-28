@@ -11,17 +11,13 @@ content="width=device-width, initial-scale=1.0"
 >
 
 <title>
-11 Cart Sri Lanka | Kids Toys & Baby Products
+11 Cart Sri Lanka
 </title>
 
 <meta
 name="description"
 content="Buy kids toys, hoverboards, ride on jeeps, baby products and swimming pools in Sri Lanka with islandwide delivery."
 >
-
-<meta property="og:title" content="11 Cart Sri Lanka">
-<meta property="og:description" content="Kids Toys, Ride On Jeeps & Baby Products">
-<meta property="og:type" content="website">
 
 <link
 href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
@@ -41,7 +37,6 @@ rel="stylesheet"
   margin:0;
   padding:0;
   box-sizing:border-box;
-  font-family:'Noto Sans Sinhala','Poppins',sans-serif;
 }
 
 html{
@@ -50,7 +45,8 @@ html{
 
 body{
   background:#f5f5f5;
-  color:#222;
+  color:#111;
+  font-family:'Poppins','Noto Sans Sinhala',sans-serif;
 }
 
 a{
@@ -74,52 +70,42 @@ nav{
 .logo{
   display:flex;
   align-items:center;
-  gap:16px;
+  gap:14px;
 }
 
-.logo-img{
-  width:85px;
-  height:85px;
+.logo img{
+  width:80px;
+  height:80px;
   object-fit:contain;
-  transition:0.3s;
-}
-
-.logo-img:hover{
-  transform:scale(1.05);
 }
 
 .logo-text{
   display:flex;
   align-items:center;
-  gap:2px;
-  line-height:1;
 }
 
 .logo-11{
-  font-size:44px;
+  font-size:42px;
   font-weight:800;
   color:#111;
   letter-spacing:-2px;
 }
 
 .logo-cart{
-  font-size:44px;
+  font-size:42px;
   font-weight:800;
-  color:#ff3b00;
+  color:#ff4d00;
   letter-spacing:-2px;
 }
 
 .whatsapp-btn{
   background:#25D366;
   color:white;
-  padding:16px 30px;
+  padding:16px 28px;
   border-radius:18px;
   font-weight:700;
   font-size:17px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  box-shadow:0 8px 25px rgba(37,211,102,0.35);
+  box-shadow:0 10px 25px rgba(37,211,102,0.35);
   transition:0.3s;
 }
 
@@ -130,9 +116,8 @@ nav{
 /* HERO */
 
 .hero{
-  background:linear-gradient(135deg,#ff3b00,#ff9500);
-  color:white;
-  padding:80px 5%;
+  background:linear-gradient(135deg,#ff5a00,#ff7b00);
+  padding:90px 5%;
   display:grid;
   grid-template-columns:1fr 1fr;
   gap:50px;
@@ -140,34 +125,41 @@ nav{
 }
 
 .hero h1{
-  font-size:62px;
+  font-size:64px;
   line-height:1.1;
-  margin-bottom:25px;
+  margin-bottom:30px;
   font-weight:800;
+  color:#111;
+  letter-spacing:-2px;
 }
 
 .hero p{
-  font-size:21px;
+  font-size:20px;
   line-height:2;
-  margin-bottom:35px;
+  margin-bottom:40px;
+  color:#111;
+  font-weight:500;
+  max-width:700px;
 }
 
 .hero-buttons{
   display:flex;
-  gap:15px;
+  gap:18px;
   flex-wrap:wrap;
 }
 
 .hero-buttons a{
-  padding:16px 30px;
-  border-radius:16px;
+  padding:17px 32px;
+  border-radius:18px;
   font-weight:700;
+  font-size:17px;
   transition:0.3s;
 }
 
 .primary-btn{
   background:white;
-  color:#ff3b00;
+  color:#ff4d00;
+  box-shadow:0 10px 25px rgba(255,255,255,0.25);
 }
 
 .secondary-btn{
@@ -181,16 +173,16 @@ nav{
 
 .hero img{
   width:100%;
-  height:500px;
+  height:520px;
   object-fit:cover;
-  border-radius:30px;
-  box-shadow:0 10px 30px rgba(0,0,0,0.2);
+  border-radius:35px;
+  box-shadow:0 15px 40px rgba(0,0,0,0.2);
 }
 
 /* SECTION */
 
 .section{
-  padding:80px 5%;
+  padding:90px 5%;
 }
 
 .section-title{
@@ -200,19 +192,28 @@ nav{
 
 .section-title h2{
   font-size:48px;
+  color:#111;
   margin-bottom:15px;
+  font-weight:800;
+}
+
+.section-title p{
+  color:#666;
+  font-size:18px;
 }
 
 /* SEARCH */
 
 #searchInput{
   width:100%;
-  padding:18px;
-  border-radius:16px;
+  padding:20px;
+  border-radius:18px;
   border:1px solid #ddd;
-  margin-bottom:40px;
+  margin-bottom:45px;
   font-size:16px;
   outline:none;
+  background:white;
+  font-family:'Poppins','Noto Sans Sinhala',sans-serif;
 }
 
 /* PRODUCTS */
@@ -225,9 +226,9 @@ nav{
 
 .product-card{
   background:white;
-  border-radius:28px;
+  border-radius:30px;
   overflow:hidden;
-  box-shadow:0 5px 15px rgba(0,0,0,0.08);
+  box-shadow:0 8px 25px rgba(0,0,0,0.08);
   transition:0.3s;
 }
 
@@ -244,7 +245,7 @@ nav{
   align-items:center;
   justify-content:center;
   overflow:hidden;
-  padding:15px;
+  padding:18px;
 }
 
 .product-image img{
@@ -259,24 +260,26 @@ nav{
 }
 
 .product-info{
-  padding:25px;
+  padding:28px;
 }
 
 .product-info h3{
   font-size:24px;
-  margin-bottom:10px;
+  margin-bottom:12px;
+  color:#111;
 }
 
 .category{
   color:#777;
-  margin-bottom:12px;
+  margin-bottom:15px;
+  font-size:15px;
 }
 
 .price{
-  color:#ff3b00;
-  font-size:30px;
-  font-weight:700;
-  margin-bottom:20px;
+  color:#ff4d00;
+  font-size:32px;
+  font-weight:800;
+  margin-bottom:22px;
 }
 
 .product-buttons{
@@ -287,14 +290,14 @@ nav{
 .product-buttons a{
   flex:1;
   text-align:center;
-  padding:14px;
-  border-radius:12px;
+  padding:15px;
+  border-radius:14px;
   font-weight:700;
   transition:0.3s;
 }
 
 .details-btn{
-  background:#ff3b00;
+  background:#ff4d00;
   color:white;
 }
 
@@ -312,16 +315,28 @@ nav{
 .trust{
   background:#111;
   color:white;
-  border-radius:30px;
-  padding:60px;
+  border-radius:35px;
+  padding:70px 40px;
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-  gap:30px;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:35px;
   text-align:center;
 }
 
+.trust div{
+  background:rgba(255,255,255,0.04);
+  padding:25px;
+  border-radius:25px;
+}
+
 .trust h3{
-  margin:15px 0;
+  margin:18px 0 12px;
+  font-size:22px;
+}
+
+.trust p{
+  color:#ccc;
+  line-height:1.8;
 }
 
 /* FOOTER */
@@ -329,7 +344,7 @@ nav{
 footer{
   background:black;
   color:white;
-  padding:60px 5%;
+  padding:70px 5%;
   margin-top:80px;
 }
 
@@ -340,8 +355,9 @@ footer{
 }
 
 footer h2{
-  color:#ff3b00;
+  color:#ff4d00;
   margin-bottom:20px;
+  font-size:34px;
 }
 
 footer p{
@@ -351,8 +367,8 @@ footer p{
 
 .copyright{
   border-top:1px solid #333;
-  margin-top:40px;
-  padding-top:20px;
+  margin-top:45px;
+  padding-top:22px;
   text-align:center;
   color:#777;
 }
@@ -361,10 +377,10 @@ footer p{
 
 .floating-wa{
   position:fixed;
-  bottom:20px;
-  right:20px;
-  width:70px;
-  height:70px;
+  bottom:22px;
+  right:22px;
+  width:72px;
+  height:72px;
   background:#25D366;
   color:white;
   border-radius:50%;
@@ -373,7 +389,7 @@ footer p{
   align-items:center;
   font-size:32px;
   z-index:9999;
-  box-shadow:0 5px 20px rgba(0,0,0,0.3);
+  box-shadow:0 10px 25px rgba(0,0,0,0.3);
 }
 
 /* LOADING */
@@ -393,11 +409,7 @@ footer p{
   }
 
   .hero h1{
-    font-size:44px;
-  }
-
-  .section-title h2{
-    font-size:38px;
+    font-size:42px;
   }
 
   .hero img{
@@ -412,13 +424,9 @@ footer p{
     padding:14px 4%;
   }
 
-  .logo{
-    gap:10px;
-  }
-
-  .logo-img{
-    width:62px;
-    height:62px;
+  .logo img{
+    width:65px;
+    height:65px;
   }
 
   .logo-11,
@@ -431,12 +439,20 @@ footer p{
     font-size:14px;
   }
 
+  .hero{
+    padding:70px 5%;
+  }
+
   .hero h1{
-    font-size:34px;
+    font-size:38px;
   }
 
   .hero p{
     font-size:17px;
+  }
+
+  .section-title h2{
+    font-size:36px;
   }
 
   .product-buttons{
@@ -460,7 +476,6 @@ footer p{
     <img
       src="https://i.imgur.com/qqbXqsJ.png"
       alt="11 Cart Logo"
-      class="logo-img"
     >
 
     <div class="logo-text">
@@ -494,7 +509,7 @@ footer p{
   <div>
 
     <h1>
-      Kids Toys & Ride On Jeeps Sri Lanka 🚀
+      Premium Toys For Happy Kids
     </h1>
 
     <p>
@@ -547,7 +562,7 @@ footer p{
 
   <img
     src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?q=80&w=1200&auto=format&fit=crop"
-    alt="Kids Toys"
+    alt="Kids Products"
   >
 
 </section>
@@ -605,19 +620,19 @@ id="products"
     <div>
       💬
       <h3>WhatsApp Support</h3>
-      <p>Quick customer support.</p>
+      <p>Quick customer support anytime.</p>
     </div>
 
     <div>
       ⭐
       <h3>Trusted Seller</h3>
-      <p>Premium quality products.</p>
+      <p>Premium quality checked products.</p>
     </div>
 
     <div>
       💳
-      <h3>Easy Ordering</h3>
-      <p>Simple WhatsApp ordering.</p>
+      <h3>Cash On Delivery</h3>
+      <p>Pay after receiving your order.</p>
     </div>
 
   </div>
