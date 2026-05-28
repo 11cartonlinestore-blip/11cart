@@ -89,9 +89,9 @@ nav{
 
 .logo img{
 
-  width:85px;
+  width:95px;
 
-  height:85px;
+  height:95px;
 
   object-fit:contain;
 
@@ -107,7 +107,7 @@ nav{
 
 .logo-11{
 
-  font-size:48px;
+  font-size:50px;
 
   font-weight:900;
 
@@ -119,7 +119,7 @@ nav{
 
 .logo-cart{
 
-  font-size:48px;
+  font-size:50px;
 
   font-weight:900;
 
@@ -135,7 +135,7 @@ nav{
 
   color:white;
 
-  padding:16px 30px;
+  padding:16px 32px;
 
   border-radius:18px;
 
@@ -381,6 +381,54 @@ nav{
 
 }
 
+/* CATEGORY BUTTONS */
+
+.category-buttons{
+
+  display:flex;
+
+  flex-wrap:wrap;
+
+  gap:12px;
+
+  justify-content:center;
+
+  margin-bottom:35px;
+
+}
+
+.category-buttons button{
+
+  padding:14px 22px;
+
+  border:none;
+
+  border-radius:14px;
+
+  background:white;
+
+  font-weight:700;
+
+  cursor:pointer;
+
+  box-shadow:0 4px 12px rgba(0,0,0,0.06);
+
+  transition:0.3s;
+
+  font-family:'Poppins','Noto Sans Sinhala',sans-serif;
+
+}
+
+.category-buttons button:hover{
+
+  background:#ff5a00;
+
+  color:white;
+
+  transform:translateY(-2px);
+
+}
+
 /* SEARCH */
 
 #searchInput{
@@ -488,13 +536,21 @@ nav{
 
 .stock{
 
+  display:inline-block;
+
+  background:#fff0e8;
+
   color:#ff5a00;
 
-  font-size:14px;
+  padding:8px 14px;
+
+  border-radius:10px;
+
+  font-size:13px;
 
   font-weight:800;
 
-  margin-bottom:10px;
+  margin-bottom:12px;
 
 }
 
@@ -720,6 +776,44 @@ footer p{
 
 }
 
+/* MOBILE BAR */
+
+.mobile-bar{
+
+  position:fixed;
+
+  bottom:0;
+
+  left:0;
+
+  width:100%;
+
+  background:white;
+
+  display:none;
+
+  justify-content:space-around;
+
+  align-items:center;
+
+  padding:14px 10px;
+
+  box-shadow:0 -5px 20px rgba(0,0,0,0.08);
+
+  z-index:99999;
+
+}
+
+.mobile-bar a{
+
+  color:#111;
+
+  font-weight:700;
+
+  font-size:15px;
+
+}
+
 /* LOADING */
 
 .loading{
@@ -768,16 +862,16 @@ footer p{
 
   .logo img{
 
-    width:72px;
+    width:75px;
 
-    height:72px;
+    height:75px;
 
   }
 
   .logo-11,
   .logo-cart{
 
-    font-size:34px;
+    font-size:36px;
 
   }
 
@@ -816,6 +910,18 @@ footer p{
   .product-buttons{
 
     flex-direction:column;
+
+  }
+
+  .mobile-bar{
+
+    display:flex;
+
+  }
+
+  body{
+
+    padding-bottom:90px;
 
   }
 
@@ -875,6 +981,7 @@ footer p{
     <p>
 
       🇱🇰 ලංකාවේ ඕනම තැනකට trusted islandwide delivery 🚚
+
       <br><br>
 
       Kids toys, ride on jeeps, baby products,
@@ -884,6 +991,7 @@ footer p{
       <br><br>
 
       Cash On Delivery available 💵
+
       <br><br>
 
       අපි customerලාට විශ්වාසයෙන් සහ වගකීමෙන්
@@ -914,11 +1022,11 @@ footer p{
 
       <span>🚚 Islandwide Delivery</span>
 
-      <span>💵 Cash On Delivery</span>
+      <span>💵 Pay After Delivery</span>
 
-      <span>⭐ Trusted Seller</span>
+      <span>⭐ Trusted Sri Lankan Seller</span>
 
-      <span>⚡ Fast Support</span>
+      <span>⚡ Fast WhatsApp Support</span>
 
     </div>
 
@@ -987,11 +1095,41 @@ id="products"
 
   </div>
 
+  <!-- CATEGORY FILTER -->
+
+  <div class="category-buttons">
+
+    <button onclick="filterCategory('All')">
+      All
+    </button>
+
+    <button onclick="filterCategory('Toy')">
+      🧸 Toys
+    </button>
+
+    <button onclick="filterCategory('Ride')">
+      🚗 Ride On
+    </button>
+
+    <button onclick="filterCategory('Pool')">
+      🏊 Pools
+    </button>
+
+    <button onclick="filterCategory('Baby')">
+      👶 Baby
+    </button>
+
+  </div>
+
+  <!-- SEARCH -->
+
   <input
     type="text"
     id="searchInput"
     placeholder="Search products..."
   >
+
+  <!-- PRODUCTS -->
 
   <div
     class="products"
@@ -1088,6 +1226,27 @@ target="_blank"
 💬
 </a>
 
+<!-- MOBILE BAR -->
+
+<div class="mobile-bar">
+
+<a href="#products">
+🛒 Products
+</a>
+
+<a href="tel:0786802323">
+📞 Call
+</a>
+
+<a
+href="https://wa.me/94786802323"
+target="_blank"
+>
+💬 WhatsApp
+</a>
+
+</div>
+
 <script>
 
 const sheetURL =
@@ -1150,7 +1309,7 @@ function displayProducts(products){
         <div class="product-info">
 
           <div class="stock">
-            🔥 Fast Selling Product
+            ⭐ BEST SELLER
           </div>
 
           <h3>${product.name}</h3>
@@ -1249,6 +1408,31 @@ function loadProducts(){
 
 }
 
+/* CATEGORY FILTER */
+
+function filterCategory(category){
+
+  if(category === "All"){
+
+    displayProducts(allProducts);
+
+    return;
+
+  }
+
+  const filtered =
+  allProducts.filter(product =>
+
+    product.category
+    .toLowerCase()
+    .includes(category.toLowerCase())
+
+  );
+
+  displayProducts(filtered);
+
+}
+
 /* SEARCH */
 
 document
@@ -1304,7 +1488,7 @@ function showSlides(){
 
   slides[slideIndex - 1].style.display = "block";
 
-  setTimeout(showSlides,3000);
+  setTimeout(showSlides,4000);
 
 }
 
