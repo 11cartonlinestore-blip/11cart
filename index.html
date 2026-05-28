@@ -4,946 +4,496 @@
 <head>
 
 <meta charset="UTF-8">
-
-<meta
-name="viewport"
-content="width=device-width, initial-scale=1.0"
->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>
-11 Cart Sri Lanka
+11Cart Sri Lanka | Kids Toys & Baby Products
 </title>
 
-<meta
-name="description"
-content="Buy kids toys, ride on jeeps, baby products and swimming pools in Sri Lanka with islandwide delivery."
->
+<meta name="description"
+content="Buy kids toys, ride on jeeps, baby products and swimming pools in Sri Lanka with islandwide delivery.">
 
-<link
-href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
-rel="stylesheet"
->
+<!-- Facebook Preview -->
 
-<link
-href="https://fonts.googleapis.com/css2?family=Noto+Sans+Sinhala:wght@400;500;600;700;800&display=swap"
-rel="stylesheet"
->
+<meta property="og:type" content="website">
+
+<meta property="og:title"
+content="11Cart Sri Lanka | Kids Toys & Baby Products">
+
+<meta property="og:description"
+content="🚚 ලංකාවේ ඕනෑම තැනකට Delivery | 💵 Cash On Delivery Available | Kids Toys, Ride On Jeeps, Pools & Baby Products">
+
+<meta property="og:image"
+content="https://i.imgur.com/PQKPCCD.jpeg">
+
+<meta property="og:url"
+content="https://11cartonlinestore-blip.github.io/11cart/">
+
+<meta property="og:site_name"
+content="11Cart Sri Lanka">
+
+<meta name="twitter:card"
+content="summary_large_image">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Sinhala:wght@400;500;700;800;900&display=swap" rel="stylesheet">
 
 <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
 
 <style>
 
 *{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Noto Sans Sinhala',sans-serif;
 }
 
 html{
-  scroll-behavior:smooth;
+scroll-behavior:smooth;
 }
 
 body{
-  background:#f7f7f7;
-  color:#111;
-  font-family:'Poppins','Noto Sans Sinhala',sans-serif;
+background:#f7f7f7;
+color:#111;
 }
 
 a{
-  text-decoration:none;
+text-decoration:none;
 }
 
 /* NAVBAR */
 
 nav{
-
-  background:white;
-
-  padding:18px 5%;
-
-  display:flex;
-
-  justify-content:space-between;
-
-  align-items:center;
-
-  position:sticky;
-
-  top:0;
-
-  z-index:999;
-
-  box-shadow:0 3px 18px rgba(0,0,0,0.06);
-
+background:white;
+padding:18px 5%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+position:sticky;
+top:0;
+z-index:999;
+box-shadow:0 2px 15px rgba(0,0,0,0.06);
 }
 
-.logo{
-
-  display:flex;
-
-  align-items:center;
-
-  gap:14px;
-
+.logo-wrap{
+display:flex;
+align-items:center;
+gap:15px;
 }
 
-.logo img{
-
-  width:95px;
-
-  height:95px;
-
-  object-fit:contain;
-
+.logo-wrap img{
+width:75px;
+height:75px;
+object-fit:contain;
 }
 
 .logo-text{
-
-  display:flex;
-
-  align-items:center;
-
+font-size:38px;
+font-weight:900;
+color:#111;
 }
 
-.logo-11{
-
-  font-size:52px;
-
-  font-weight:900;
-
-  color:#111;
-
-  letter-spacing:-3px;
-
-}
-
-.logo-cart{
-
-  font-size:52px;
-
-  font-weight:900;
-
-  color:#ff5a00;
-
-  letter-spacing:-3px;
-
+.logo-text span{
+color:#ff6b2c;
 }
 
 .whatsapp-btn{
-
-  background:#25D366;
-
-  color:white;
-
-  padding:16px 30px;
-
-  border-radius:18px;
-
-  font-weight:700;
-
-  font-size:17px;
-
-  box-shadow:0 10px 25px rgba(37,211,102,0.25);
-
-  transition:0.3s;
-
+background:#25D366;
+color:white;
+padding:14px 28px;
+border-radius:16px;
+font-weight:800;
+font-size:17px;
+box-shadow:0 5px 15px rgba(37,211,102,0.3);
+transition:0.3s;
 }
 
 .whatsapp-btn:hover{
-
-  transform:translateY(-3px);
-
+transform:translateY(-3px);
 }
 
 /* HERO */
 
 .hero{
-
-  background:
-  linear-gradient(
-  135deg,
-  #fffdf8,
-  #fff4eb,
-  #ffe8d6
-  );
-
-  padding:90px 5%;
-
-  display:grid;
-
-  grid-template-columns:1fr 1fr;
-
-  gap:60px;
-
-  align-items:center;
-
+background:#fff6f1;
+padding:80px 5%;
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:50px;
+align-items:center;
 }
 
 .hero h1{
-
-  font-size:68px;
-
-  line-height:1.05;
-
-  margin-bottom:30px;
-
-  font-weight:900;
-
-  color:#111;
-
-  letter-spacing:-3px;
-
+font-size:68px;
+font-weight:900;
+line-height:1.1;
+color:#111;
+margin-bottom:25px;
 }
 
-.hero p{
-
-  font-size:21px;
-
-  line-height:2;
-
-  margin-bottom:40px;
-
-  color:#222;
-
-  font-weight:600;
-
+.hero-text{
+font-size:22px;
+line-height:1.9;
+color:#333;
+font-weight:600;
+margin-bottom:35px;
 }
 
 .hero-buttons{
-
-  display:flex;
-
-  gap:18px;
-
-  flex-wrap:wrap;
-
+display:flex;
+gap:15px;
+flex-wrap:wrap;
 }
 
 .hero-buttons a{
-
-  padding:18px 34px;
-
-  border-radius:18px;
-
-  font-weight:700;
-
-  font-size:17px;
-
-  transition:0.3s;
-
+padding:16px 30px;
+border-radius:16px;
+font-weight:800;
+font-size:17px;
 }
 
 .primary-btn{
-
-  background:#ff5a00;
-
-  color:white;
-
-  box-shadow:0 10px 25px rgba(255,90,0,0.25);
-
+background:#ff6b2c;
+color:white;
+box-shadow:0 5px 20px rgba(255,107,44,0.25);
 }
 
 .secondary-btn{
-
-  border:2px solid #111;
-
-  color:#111;
-
+border:2px solid #111;
+color:#111;
 }
 
-.hero-buttons a:hover{
-
-  transform:translateY(-3px);
-
+.slider{
+width:100%;
+height:520px;
+border-radius:35px;
+overflow:hidden;
+box-shadow:0 15px 40px rgba(0,0,0,0.12);
 }
 
-/* MINI TRUST */
-
-.mini-trust{
-
-  display:flex;
-
-  flex-wrap:wrap;
-
-  gap:14px;
-
-  margin-top:30px;
-
+.slider img{
+width:100%;
+height:100%;
+object-fit:cover;
+transition:1s;
 }
 
-.mini-trust span{
+/* OFFER */
 
-  background:white;
-
-  padding:12px 18px;
-
-  border-radius:14px;
-
-  color:#111;
-
-  font-weight:700;
-
-  box-shadow:0 5px 15px rgba(0,0,0,0.08);
-
+.offer-banner{
+padding:25px 5%;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+background:white;
 }
 
-/* HERO SLIDER */
-
-.hero-slider{
-
-  position:relative;
-
-  width:100%;
-
-  height:560px;
-
-  overflow:hidden;
-
-  border-radius:35px;
-
-  box-shadow:0 18px 45px rgba(0,0,0,0.15);
-
+.offer-box{
+background:#ffd9c7;
+color:#111;
+padding:22px;
+border-radius:20px;
+text-align:center;
+font-size:20px;
+font-weight:800;
+box-shadow:0 5px 15px rgba(0,0,0,0.05);
 }
 
-.slides{
+/* CATEGORIES */
 
-  display:none;
-
-  width:100%;
-
-  height:100%;
-
+.categories{
+padding:80px 5%;
+text-align:center;
 }
 
-.slides img{
-
-  width:100%;
-
-  height:100%;
-
-  object-fit:cover;
-
+.categories h2{
+font-size:46px;
+font-weight:900;
+margin-bottom:45px;
 }
 
-.fade{
-
-  animation:fadeEffect 1s;
-
+.category-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+gap:25px;
 }
 
-@keyframes fadeEffect{
-
-  from{
-    opacity:0.4;
-  }
-
-  to{
-    opacity:1;
-  }
-
+.category-card{
+background:white;
+padding:40px 20px;
+border-radius:30px;
+font-size:55px;
+box-shadow:0 5px 20px rgba(0,0,0,0.06);
+transition:0.3s;
 }
 
-/* SECTION */
-
-.section{
-
-  padding:90px 5%;
-
+.category-card:hover{
+transform:translateY(-8px);
 }
 
-.section-title{
-
-  text-align:center;
-
-  margin-bottom:55px;
-
-}
-
-.section-title h2{
-
-  font-size:50px;
-
-  color:#111;
-
-  margin-bottom:15px;
-
-  font-weight:900;
-
-}
-
-.section-title p{
-
-  color:#666;
-
-  font-size:18px;
-
-  font-weight:500;
-
-}
-
-/* CATEGORY BUTTONS */
-
-.category-buttons{
-
-  display:flex;
-
-  flex-wrap:wrap;
-
-  gap:12px;
-
-  justify-content:center;
-
-  margin-bottom:35px;
-
-}
-
-.category-buttons button{
-
-  padding:14px 22px;
-
-  border:none;
-
-  border-radius:14px;
-
-  background:white;
-
-  font-weight:700;
-
-  cursor:pointer;
-
-  box-shadow:0 4px 12px rgba(0,0,0,0.06);
-
-  transition:0.3s;
-
-  font-family:'Poppins','Noto Sans Sinhala',sans-serif;
-
-}
-
-.category-buttons button:hover{
-
-  background:#ff5a00;
-
-  color:white;
-
-  transform:translateY(-2px);
-
-}
-
-/* SEARCH */
-
-#searchInput{
-
-  width:100%;
-
-  padding:20px;
-
-  border-radius:18px;
-
-  border:1px solid #ddd;
-
-  margin-bottom:45px;
-
-  font-size:16px;
-
-  outline:none;
-
-  background:white;
-
-  font-family:'Poppins','Noto Sans Sinhala',sans-serif;
-
-  box-shadow:0 3px 12px rgba(0,0,0,0.04);
-
+.category-card p{
+font-size:20px;
+font-weight:800;
+margin-top:15px;
+color:#111;
 }
 
 /* PRODUCTS */
 
+.section{
+padding:80px 5%;
+}
+
+.section-title{
+text-align:center;
+margin-bottom:50px;
+}
+
+.section-title h2{
+font-size:50px;
+font-weight:900;
+margin-bottom:15px;
+}
+
+.section-title p{
+font-size:18px;
+font-weight:600;
+color:#666;
+}
+
+#searchInput{
+width:100%;
+padding:18px;
+border-radius:18px;
+border:1px solid #ddd;
+margin-bottom:45px;
+font-size:17px;
+font-weight:600;
+}
+
 .products{
-
-  display:grid;
-
-  grid-template-columns:
-  repeat(auto-fit,minmax(280px,1fr));
-
-  gap:32px;
-
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:30px;
 }
 
 .product-card{
-
-  background:white;
-
-  border-radius:30px;
-
-  overflow:hidden;
-
-  box-shadow:0 8px 25px rgba(0,0,0,0.08);
-
-  transition:0.3s;
-
-  position:relative;
-
+background:white;
+border-radius:30px;
+overflow:hidden;
+box-shadow:0 5px 20px rgba(0,0,0,0.06);
+transition:0.3s;
+position:relative;
 }
 
 .product-card:hover{
-
-  transform:translateY(-8px);
-
-  box-shadow:0 20px 45px rgba(0,0,0,0.12);
-
+transform:translateY(-8px);
 }
 
 .product-image{
-
-  width:100%;
-
-  height:320px;
-
-  background:white;
-
-  display:flex;
-
-  align-items:center;
-
-  justify-content:center;
-
-  overflow:hidden;
-
-  padding:20px;
-
+width:100%;
+height:320px;
+background:radial-gradient(circle,#fff7f3,#ffffff);
+display:flex;
+align-items:center;
+justify-content:center;
+overflow:hidden;
+padding:20px;
+border-bottom:1px solid #f3f3f3;
 }
 
 .product-image img{
-
-  max-width:100%;
-
-  max-height:100%;
-
-  object-fit:contain;
-
-  transition:0.4s;
-
+max-width:100%;
+max-height:100%;
+object-fit:contain;
+transition:transform 0.6s ease;
+filter:drop-shadow(0 10px 20px rgba(0,0,0,0.12));
 }
 
 .product-card:hover .product-image img{
-
-  transform:scale(1.05);
-
+transform:scale(1.08);
 }
 
 .product-info{
-
-  padding:28px;
-
-}
-
-.stock{
-
-  display:inline-block;
-
-  background:#fff0e8;
-
-  color:#ff5a00;
-
-  padding:8px 14px;
-
-  border-radius:10px;
-
-  font-size:13px;
-
-  font-weight:800;
-
-  margin-bottom:12px;
-
+padding:25px;
 }
 
 .product-info h3{
-
-  font-size:25px;
-
-  margin-bottom:12px;
-
-  color:#111;
-
-  font-weight:800;
-
+font-size:24px;
+font-weight:800;
+margin-bottom:10px;
+line-height:1.5;
 }
 
 .category{
-
-  color:#777;
-
-  margin-bottom:15px;
-
-  font-size:15px;
-
-  font-weight:500;
-
+color:#777;
+font-size:15px;
+font-weight:600;
+margin-bottom:12px;
 }
 
 .price{
-
-  color:#ff5a00;
-
-  font-size:34px;
-
-  font-weight:900;
-
-  margin-bottom:24px;
-
+color:#ff6b2c;
+font-size:30px;
+font-weight:900;
+margin-bottom:20px;
 }
 
 .product-buttons{
-
-  display:flex;
-
-  gap:12px;
-
+display:flex;
+gap:12px;
 }
 
 .product-buttons a{
-
-  flex:1;
-
-  text-align:center;
-
-  padding:15px;
-
-  border-radius:14px;
-
-  font-weight:700;
-
-  transition:0.3s;
-
+flex:1;
+text-align:center;
+padding:14px;
+border-radius:14px;
+font-weight:800;
+font-size:15px;
 }
 
 .details-btn{
-
-  background:#ff5a00;
-
-  color:white;
-
+background:#111;
+color:white;
 }
 
 .wa-btn{
-
-  background:#25D366;
-
-  color:white;
-
+background:#25D366;
+color:white;
 }
 
-.product-buttons a:hover{
-
-  transform:translateY(-2px);
-
-}
-
-/* TRUST SECTION */
+/* TRUST */
 
 .trust{
-
-  background:#111;
-
-  color:white;
-
-  border-radius:35px;
-
-  padding:70px 40px;
-
-  display:grid;
-
-  grid-template-columns:
-  repeat(auto-fit,minmax(220px,1fr));
-
-  gap:35px;
-
-  text-align:center;
-
-}
-
-.trust div{
-
-  background:rgba(255,255,255,0.04);
-
-  padding:25px;
-
-  border-radius:25px;
-
+background:#111;
+color:white;
+border-radius:35px;
+padding:60px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:30px;
+text-align:center;
 }
 
 .trust h3{
-
-  margin:18px 0 12px;
-
-  font-size:22px;
-
+margin:15px 0;
+font-size:24px;
+font-weight:800;
 }
 
 .trust p{
-
-  color:#ccc;
-
-  line-height:1.8;
-
+color:#ddd;
+font-weight:500;
+line-height:1.7;
 }
 
 /* FOOTER */
 
 footer{
-
-  background:black;
-
-  color:white;
-
-  padding:70px 5%;
-
-  margin-top:80px;
-
+background:black;
+color:white;
+padding:70px 5%;
+margin-top:80px;
 }
 
 .footer-grid{
-
-  display:grid;
-
-  grid-template-columns:
-  repeat(auto-fit,minmax(250px,1fr));
-
-  gap:40px;
-
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:40px;
 }
 
 footer h2{
+color:#ff6b2c;
+margin-bottom:20px;
+font-size:36px;
+font-weight:900;
+}
 
-  color:#ff5a00;
-
-  margin-bottom:20px;
-
-  font-size:34px;
-
+footer h3{
+margin-bottom:15px;
+font-size:24px;
 }
 
 footer p{
-
-  color:#ccc;
-
-  line-height:2;
-
+color:#ccc;
+line-height:1.9;
+font-weight:500;
 }
 
 .copyright{
-
-  border-top:1px solid #333;
-
-  margin-top:45px;
-
-  padding-top:22px;
-
-  text-align:center;
-
-  color:#777;
-
+border-top:1px solid #333;
+margin-top:40px;
+padding-top:20px;
+text-align:center;
+color:#777;
+font-weight:500;
 }
 
 /* FLOATING WHATSAPP */
 
 .floating-wa{
-
-  position:fixed;
-
-  bottom:90px;
-
-  right:22px;
-
-  width:75px;
-
-  height:75px;
-
-  background:#25D366;
-
-  color:white;
-
-  border-radius:50%;
-
-  display:flex;
-
-  justify-content:center;
-
-  align-items:center;
-
-  font-size:34px;
-
-  z-index:9999;
-
-  box-shadow:0 10px 25px rgba(0,0,0,0.25);
-
-  animation:pulse 1.5s infinite;
-
-}
-
-@keyframes pulse{
-
-  0%{
-    transform:scale(1);
-  }
-
-  50%{
-    transform:scale(1.08);
-  }
-
-  100%{
-    transform:scale(1);
-  }
-
-}
-
-/* MOBILE BAR */
-
-.mobile-bar{
-
-  position:fixed;
-
-  bottom:0;
-
-  left:0;
-
-  width:100%;
-
-  background:white;
-
-  display:none;
-
-  justify-content:space-around;
-
-  align-items:center;
-
-  padding:14px 10px;
-
-  box-shadow:0 -5px 20px rgba(0,0,0,0.08);
-
-  z-index:99999;
-
-}
-
-.mobile-bar a{
-
-  color:#111;
-
-  font-weight:700;
-
-  font-size:15px;
-
+position:fixed;
+bottom:20px;
+right:20px;
+width:70px;
+height:70px;
+background:#25D366;
+color:white;
+border-radius:50%;
+display:flex;
+justify-content:center;
+align-items:center;
+font-size:32px;
+z-index:9999;
+box-shadow:0 5px 20px rgba(0,0,0,0.3);
 }
 
 /* LOADING */
 
 .loading{
-
-  text-align:center;
-
-  font-size:22px;
-
-  padding:40px;
-
-  font-weight:700;
-
+text-align:center;
+font-size:22px;
+padding:40px;
+font-weight:700;
 }
 
 /* MOBILE */
 
 @media(max-width:900px){
 
-  .hero{
-
-    grid-template-columns:1fr;
-
-  }
-
-  .hero h1{
-
-    font-size:46px;
-
-  }
-
-  .hero-slider{
-
-    height:420px;
-
-  }
-
+.hero{
+grid-template-columns:1fr;
 }
 
-@media(max-width:700px){
+.hero h1{
+font-size:46px;
+}
 
-  nav{
+.hero-text{
+font-size:18px;
+}
 
-    padding:14px 4%;
+.slider{
+height:350px;
+}
 
-  }
+.section-title h2{
+font-size:38px;
+}
 
-  .logo img{
+.logo-wrap img{
+width:60px;
+height:60px;
+}
 
-    width:78px;
-
-    height:78px;
-
-  }
-
-  .logo-11,
-  .logo-cart{
-
-    font-size:36px;
-
-  }
-
-  .whatsapp-btn{
-
-    padding:13px 18px;
-
-    font-size:14px;
-
-  }
-
-  .hero{
-
-    padding:70px 5%;
-
-  }
-
-  .hero h1{
-
-    font-size:42px;
-
-  }
-
-  .hero p{
-
-    font-size:18px;
-
-  }
-
-  .section-title h2{
-
-    font-size:38px;
-
-  }
-
-  .product-buttons{
-
-    flex-direction:column;
-
-  }
-
-  .mobile-bar{
-
-    display:flex;
-
-  }
-
-  body{
-
-    padding-bottom:90px;
-
-  }
+.logo-text{
+font-size:30px;
+}
 
 }
 
@@ -957,23 +507,15 @@ footer p{
 
 <nav>
 
-<div class="logo">
+<div class="logo-wrap">
 
 <img
 src="https://i.imgur.com/qqbXqsJ.png"
-alt="11 Cart Logo"
+alt="11Cart Logo"
 >
 
 <div class="logo-text">
-
-<span class="logo-11">
-11
-</span>
-
-<span class="logo-cart">
-Cart
-</span>
-
+11<span>Cart</span>
 </div>
 
 </div>
@@ -995,27 +537,18 @@ WhatsApp
 <div>
 
 <h1>
-Premium Toys For Happy Kids
+Sri Lanka’s Trusted Kids Store
 </h1>
 
-<p>
+<p class="hero-text">
 
-🇱🇰 ලංකාවේ ඕනම තැනකට trusted islandwide delivery 🚚
-
-<br><br>
-
-Kids toys, ride on jeeps, baby products,
-swimming pools, hoverboards සහ තවත් quality
-products affordable prices වලින් ඔබේ අතටම ❤️
+ළමා toys, ride on jeeps, swimming pools,
+baby products සහ තවත් ගොඩක් දේවල්
+දැන් ලංකාවේ ඕනෑම තැනකට delivery 🚚
 
 <br><br>
 
 💵 Cash On Delivery Available
-
-<br><br>
-
-අපි customerලාට විශ්වාසයෙන් සහ වගකීමෙන්
-service එක ලබා දෙනවා 🤝
 
 </p>
 
@@ -1038,58 +571,74 @@ Explore Products
 
 </div>
 
-<div class="mini-trust">
-
-<span>🚚 Islandwide Delivery</span>
-
-<span>💵 Pay After Delivery</span>
-
-<span>⭐ Trusted Sri Lankan Seller</span>
-
-<span>⚡ Fast WhatsApp Support</span>
-
 </div>
 
-</div>
-
-<!-- HERO SLIDER -->
-
-<div class="hero-slider">
-
-<div class="slides fade">
+<div class="slider">
 
 <img
+id="sliderImage"
 src="https://i.imgur.com/PQKPCCD.jpeg"
-alt="Ride On Toy"
 >
 
 </div>
 
-<div class="slides fade">
+</section>
 
-<img
-src="https://i.imgur.com/ZYDxAHW.jpeg"
-alt="Swimming Pool"
->
+<!-- OFFER -->
 
+<section class="offer-banner">
+
+<div class="offer-box">
+🚚 Islandwide Delivery
 </div>
 
-<div class="slides fade">
-
-<img
-src="https://i.imgur.com/Su5vwCL.jpeg"
-alt="Kids"
->
-
+<div class="offer-box">
+💵 Cash On Delivery
 </div>
 
-<div class="slides fade">
+<div class="offer-box">
+🔥 Best Prices
+</div>
 
-<img
-src="https://i.imgur.com/eBkDsFt.jpeg"
-alt="Playing"
->
+<div class="offer-box">
+⭐ Trusted Store
+</div>
 
+</section>
+
+<!-- CATEGORIES -->
+
+<section class="categories">
+
+<h2>
+Shop Categories
+</h2>
+
+<div class="category-grid">
+
+<div class="category-card">
+🍼
+<p>Baby Products</p>
+</div>
+
+<div class="category-card">
+🚗
+<p>Ride On Jeeps</p>
+</div>
+
+<div class="category-card">
+🏊
+<p>Swimming Pools</p>
+</div>
+
+<div class="category-card">
+🛴
+<p>Scooters</p>
+</div>
+
+<div class="category-card">
+🧸
+<p>Kids Toys</p>
 </div>
 
 </div>
@@ -1106,50 +655,20 @@ id="products"
 <div class="section-title">
 
 <h2>
-Trending Products 🔥
+Trending Products
 </h2>
 
 <p>
-Latest products from 11 Cart
+Latest products from 11Cart
 </p>
 
 </div>
-
-<!-- CATEGORY BUTTONS -->
-
-<div class="category-buttons">
-
-<button onclick="filterCategory('All')">
-All
-</button>
-
-<button onclick="filterCategory('Toys')">
-🧸 Toys
-</button>
-
-<button onclick="filterCategory('Ride')">
-🚗 Ride On
-</button>
-
-<button onclick="filterCategory('Pool')">
-🏊 Pools
-</button>
-
-<button onclick="filterCategory('Baby')">
-👶 Baby
-</button>
-
-</div>
-
-<!-- SEARCH -->
 
 <input
 type="text"
 id="searchInput"
 placeholder="Search products..."
 >
-
-<!-- PRODUCTS -->
 
 <div
 class="products"
@@ -1179,13 +698,13 @@ Loading products...
 <div>
 💬
 <h3>WhatsApp Support</h3>
-<p>Quick customer support anytime.</p>
+<p>Quick customer support.</p>
 </div>
 
 <div>
 ⭐
 <h3>Trusted Seller</h3>
-<p>Premium quality checked products.</p>
+<p>Premium quality products.</p>
 </div>
 
 <div>
@@ -1206,7 +725,7 @@ Loading products...
 
 <div>
 
-<h2>11 Cart</h2>
+<h2>11Cart</h2>
 
 <p>
 Premium toys, baby products,
@@ -1221,9 +740,7 @@ in Sri Lanka.
 <h3>Contact</h3>
 
 <p>📱 0786802323</p>
-
 <p>🚚 Islandwide Delivery</p>
-
 <p>📍 Sri Lanka</p>
 
 </div>
@@ -1231,7 +748,7 @@ in Sri Lanka.
 </div>
 
 <div class="copyright">
-© 2026 11 Cart. All Rights Reserved.
+© 2026 11Cart. All Rights Reserved.
 </div>
 
 </footer>
@@ -1246,273 +763,187 @@ target="_blank"
 💬
 </a>
 
-<!-- MOBILE BAR -->
-
-<div class="mobile-bar">
-
-<a href="#products">
-🛒 Products
-</a>
-
-<a href="tel:0786802323">
-📞 Call
-</a>
-
-<a
-href="https://wa.me/94786802323"
-target="_blank"
->
-💬 WhatsApp
-</a>
-
-</div>
-
 <script>
+
+const sliderImages = [
+
+"https://i.imgur.com/PQKPCCD.jpeg",
+"https://i.imgur.com/ZYDxAHW.jpeg",
+"https://i.imgur.com/Su5vwCL.jpeg",
+"https://i.imgur.com/eBkDsFt.jpeg"
+
+];
+
+let currentSlide = 0;
+
+setInterval(() => {
+
+currentSlide++;
+
+if(currentSlide >= sliderImages.length){
+currentSlide = 0;
+}
+
+document.getElementById("sliderImage").src =
+sliderImages[currentSlide];
+
+}, 3000);
 
 const sheetURL =
 "https://docs.google.com/spreadsheets/d/e/2PACX-1vReVFFfTdnBOMgVF15qLDxBxyqbUKedALbb1_tFHpIEKWTD61_cVGqmuSY1Tn20VoqNd1nCyEp-Y1ur/pub?output=csv";
 
 let allProducts = [];
 
-/* PRICE FORMAT */
-
-function formatPrice(price){
-
-  const cleaned =
-  parseFloat(
-    price
-    .toString()
-    .replace(/[^0-9.]/g,'')
-  );
-
-  return cleaned
-  ? cleaned.toLocaleString()
-  : "0";
-
-}
-
-/* DISPLAY PRODUCTS */
-
 function displayProducts(products){
 
-  const container =
-  document.getElementById("productsContainer");
+const container =
+document.getElementById("productsContainer");
 
-  container.innerHTML = "";
+container.innerHTML = "";
 
-  if(products.length === 0){
+if(products.length === 0){
 
-    container.innerHTML =
-    "<div class='loading'>No products found.</div>";
+container.innerHTML =
+"<div class='loading'>No products found.</div>";
 
-    return;
-
-  }
-
-  products.forEach(product => {
-
-    container.innerHTML += `
-
-      <div class="product-card">
-
-        <div class="product-image">
-
-          <img
-            loading="lazy"
-            src="${product.image}"
-            alt="${product.name}"
-            onerror="this.src='https://via.placeholder.com/400x400?text=11+Cart';"
-          >
-
-        </div>
-
-        <div class="product-info">
-
-          <div class="stock">
-            ⭐ BEST SELLER
-          </div>
-
-          <h3>${product.name}</h3>
-
-          <div class="category">
-            ${product.category}
-          </div>
-
-          <div class="price">
-            Rs ${formatPrice(product.price)}
-          </div>
-
-          <div class="product-buttons">
-
-            <a
-              class="details-btn"
-              href="https://wa.me/94786802323?text=${encodeURIComponent(`Hi, mage order eka place karanna one. Product: ${product.name}`)}"
-              target="_blank"
-            >
-              Details
-            </a>
-
-            <a
-              class="wa-btn"
-              href="https://wa.me/94786802323?text=${encodeURIComponent(`Hi, mama me product eka order karanna කැමතියි. Product: ${product.name}`)}"
-              target="_blank"
-            >
-              WhatsApp
-            </a>
-
-          </div>
-
-        </div>
-
-      </div>
-
-    `;
-
-  });
+return;
 
 }
 
-/* LOAD PRODUCTS */
+products.forEach(product => {
+
+container.innerHTML += `
+
+<div class="product-card">
+
+<div class="product-image">
+
+<img
+loading="lazy"
+src="${product.image}"
+alt="${product.name}"
+onerror="this.src='https://via.placeholder.com/400x400?text=11Cart';"
+>
+
+</div>
+
+<div class="product-info">
+
+<h3>${product.name}</h3>
+
+<div class="category">
+${product.category}
+</div>
+
+<div class="price">
+Rs ${product.price}
+</div>
+
+<div class="product-buttons">
+
+<a
+class="details-btn"
+href="https://wa.me/94786802323?text=I want details about ${product.name}"
+target="_blank"
+>
+Details
+</a>
+
+<a
+class="wa-btn"
+href="https://wa.me/94786802323?text=I want to order ${product.name}"
+target="_blank"
+>
+WhatsApp
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+`;
+
+});
+
+}
 
 function loadProducts(){
 
-  Papa.parse(sheetURL, {
+Papa.parse(sheetURL, {
 
-    download:true,
+download:true,
+header:true,
 
-    header:true,
+complete:function(results){
 
-    complete:function(results){
+const data = results.data;
 
-      const data = results.data;
+allProducts = [];
 
-      allProducts = [];
+data.forEach(item => {
 
-      data.forEach(item => {
+const name =
+item.Name || "";
 
-        const name =
-        item.Name || "";
+const category =
+item.Category || "General";
 
-        const category =
-        item.Category || "General";
+const price =
+item.Price || "0";
 
-        const price =
-        item.Price || "0";
+const image =
+item.Thumbnail || "";
 
-        const image =
-        item.Thumbnail || "";
+if(name){
 
-        if(name){
+allProducts.push({
 
-          allProducts.push({
+name:name,
+category:category,
+price:price,
+image:image
 
-            name:name,
-
-            category:category,
-
-            price:price,
-
-            image:image
-
-          });
-
-        }
-
-      });
-
-      displayProducts(allProducts);
-
-    }
-
-  });
+});
 
 }
 
-/* CATEGORY FILTER */
+});
 
-function filterCategory(category){
-
-  if(category === "All"){
-
-    displayProducts(allProducts);
-
-    return;
-
-  }
-
-  const filtered =
-  allProducts.filter(product =>
-
-    product.category
-    .toLowerCase()
-    .includes(category.toLowerCase())
-
-  );
-
-  displayProducts(filtered);
+displayProducts(allProducts);
 
 }
 
-/* SEARCH */
+});
+
+}
 
 document
 .getElementById("searchInput")
 .addEventListener("input", function(){
 
-  const value =
-  this.value.toLowerCase();
+const value =
+this.value.toLowerCase();
 
-  const filtered =
-  allProducts.filter(product =>
+const filtered =
+allProducts.filter(product =>
 
-    product.name
-    .toLowerCase()
-    .includes(value)
+product.name
+.toLowerCase()
+.includes(value)
 
-    ||
+||
 
-    product.category
-    .toLowerCase()
-    .includes(value)
+product.category
+.toLowerCase()
+.includes(value)
 
-  );
+);
 
-  displayProducts(filtered);
+displayProducts(filtered);
 
 });
-
-/* HERO SLIDER */
-
-let slideIndex = 0;
-
-showSlides();
-
-function showSlides(){
-
-  let slides =
-  document.getElementsByClassName("slides");
-
-  for(let i = 0; i < slides.length; i++){
-
-    slides[i].style.display = "none";
-
-  }
-
-  slideIndex++;
-
-  if(slideIndex > slides.length){
-
-    slideIndex = 1;
-
-  }
-
-  slides[slideIndex - 1].style.display = "block";
-
-  setTimeout(showSlides,4000);
-
-}
-
-/* LOAD */
 
 loadProducts();
 
