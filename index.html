@@ -21,7 +21,7 @@ scroll-behavior:smooth;
 }
 
 body{
-background:#f5f5f5;
+background:#f6f7fb;
 color:#111;
 overflow-x:hidden;
 }
@@ -29,6 +29,7 @@ overflow-x:hidden;
 :root{
 --orange:#ff6b2c;
 --green:#25D366;
+--dark:#111827;
 }
 
 a{
@@ -37,7 +38,7 @@ text-decoration:none;
 
 img{
 max-width:100%;
-height:auto;
+display:block;
 }
 
 nav{
@@ -49,29 +50,51 @@ align-items:center;
 position:sticky;
 top:0;
 z-index:999;
-box-shadow:0 2px 15px rgba(0,0,0,0.08);
+box-shadow:0 5px 25px rgba(0,0,0,0.06);
 }
 
 .logo{
-font-size:38px;
-font-weight:900;
+display:flex;
+align-items:center;
+gap:12px;
 }
 
-.logo span{
+.logo img{
+height:60px;
+}
+
+.logo-text h1{
+font-size:32px;
+font-weight:900;
+line-height:1;
+}
+
+.logo-text span{
 color:var(--orange);
+}
+
+.logo-text p{
+font-size:12px;
+font-weight:600;
+color:#777;
 }
 
 .nav-buttons{
 display:flex;
-gap:10px;
+gap:12px;
 align-items:center;
 }
 
 .nav-btn{
-padding:12px 20px;
-border-radius:12px;
+padding:12px 22px;
+border-radius:14px;
 font-weight:700;
 cursor:pointer;
+transition:0.3s;
+}
+
+.nav-btn:hover{
+transform:translateY(-2px);
 }
 
 .whatsapp-top{
@@ -80,29 +103,39 @@ color:white;
 }
 
 .cart-btn{
-background:#111;
+background:var(--dark);
 color:white;
 }
 
 .hero{
-padding:70px 5%;
+padding:90px 5%;
 display:grid;
 grid-template-columns:1fr 1fr;
-gap:40px;
+gap:50px;
 align-items:center;
-background:linear-gradient(135deg,#fff5ef,#fff);
+background:
+linear-gradient(
+135deg,
+rgba(255,107,44,0.08),
+rgba(255,255,255,1)
+);
 }
 
 .hero h1{
-font-size:58px;
-line-height:1.1;
+font-size:62px;
 font-weight:900;
-margin-bottom:20px;
+line-height:1.15;
+margin-bottom:25px;
 }
 
 .hero p{
 font-size:18px;
-line-height:1.8;
+line-height:2;
+color:#444;
+background:white;
+padding:28px;
+border-radius:25px;
+box-shadow:0 10px 30px rgba(0,0,0,0.06);
 margin-bottom:25px;
 }
 
@@ -113,10 +146,15 @@ flex-wrap:wrap;
 }
 
 .btn{
-padding:15px 28px;
+padding:16px 28px;
 border-radius:14px;
 font-weight:700;
 display:inline-block;
+transition:0.3s;
+}
+
+.btn:hover{
+transform:translateY(-3px);
 }
 
 .btn-primary{
@@ -130,9 +168,10 @@ color:#111;
 }
 
 .slider{
-height:500px;
-border-radius:30px;
+height:520px;
+border-radius:35px;
 overflow:hidden;
+box-shadow:0 20px 40px rgba(0,0,0,0.12);
 }
 
 .slider img{
@@ -151,13 +190,13 @@ margin-bottom:40px;
 }
 
 .section-title h2{
-font-size:44px;
+font-size:46px;
 font-weight:900;
 }
 
 .categories{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
 gap:20px;
 margin-top:30px;
 }
@@ -167,7 +206,7 @@ background:white;
 padding:30px 15px;
 border-radius:24px;
 text-align:center;
-font-size:34px;
+font-size:20px;
 font-weight:800;
 cursor:pointer;
 transition:0.35s;
@@ -185,7 +224,7 @@ transform:translateY(-8px);
 display:flex;
 gap:15px;
 flex-wrap:wrap;
-margin-bottom:30px;
+margin-bottom:35px;
 }
 
 .search-wrap input,
@@ -194,6 +233,7 @@ padding:16px 20px;
 border-radius:14px;
 border:2px solid #eee;
 font-size:15px;
+background:white;
 }
 
 .search-wrap input{
@@ -211,12 +251,14 @@ background:white;
 border-radius:28px;
 overflow:hidden;
 box-shadow:0 5px 20px rgba(0,0,0,0.07);
-transition:0.35s;
+transition:0.4s;
 position:relative;
+border:1px solid #f1f1f1;
 }
 
 .product-card:hover{
 transform:translateY(-10px);
+box-shadow:0 20px 40px rgba(0,0,0,0.12);
 }
 
 .badge{
@@ -259,7 +301,7 @@ padding:22px;
 .product-info h3{
 font-size:21px;
 margin-bottom:12px;
-min-height:55px;
+min-height:60px;
 }
 
 .old-price{
@@ -270,7 +312,7 @@ margin-bottom:5px;
 }
 
 .price{
-font-size:30px;
+font-size:34px;
 font-weight:900;
 color:var(--orange);
 margin-bottom:18px;
@@ -300,29 +342,6 @@ background:var(--green);
 color:white;
 }
 
-footer{
-background:#111;
-color:white;
-padding:70px 5%;
-margin-top:70px;
-}
-
-.footer-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-gap:40px;
-}
-
-footer h2{
-color:var(--orange);
-margin-bottom:15px;
-}
-
-footer p{
-line-height:1.8;
-color:#ccc;
-}
-
 .modal{
 position:fixed;
 top:0;
@@ -340,7 +359,7 @@ padding:20px;
 .modal-content{
 background:white;
 width:100%;
-max-width:900px;
+max-width:950px;
 border-radius:30px;
 overflow:hidden;
 display:grid;
@@ -357,7 +376,7 @@ justify-content:center;
 
 .modal-image img{
 max-width:100%;
-max-height:400px;
+max-height:420px;
 object-fit:contain;
 }
 
@@ -431,6 +450,29 @@ cursor:pointer;
 font-size:18px;
 }
 
+footer{
+background:linear-gradient(135deg,#111,#1f1f1f);
+color:white;
+padding:70px 5%;
+margin-top:70px;
+}
+
+.footer-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+gap:40px;
+}
+
+footer h2{
+color:var(--orange);
+margin-bottom:15px;
+}
+
+footer p{
+line-height:2;
+color:#ccc;
+}
+
 .floating-wa{
 position:fixed;
 bottom:25px;
@@ -454,11 +496,11 @@ grid-template-columns:1fr;
 }
 
 .hero h1{
-font-size:40px;
+font-size:42px;
 }
 
 .slider{
-height:300px;
+height:320px;
 }
 
 .modal-content{
@@ -475,7 +517,14 @@ grid-template-columns:1fr;
 <nav>
 
 <div class="logo">
-11<span>Cart</span>
+
+<img src="https://i.imgur.com/qqbXqsJ.png">
+
+<div class="logo-text">
+<h1>11<span>Cart</span></h1>
+<p>Sri Lanka Kids Store</p>
+</div>
+
 </div>
 
 <div class="nav-buttons">
@@ -499,22 +548,39 @@ onclick="openCart()">
 
 <div>
 
-<h1>Sri Lanka's #1 Kids & Baby Store</h1>
+<h1>
+ඔබේ දරුවාට ආදරණීයම තෑගි 🎁❤️
+</h1>
 
 <p>
-Ride on jeeps, pools, scooters, baby products and toys with islandwide delivery 🚚
+
+11Cart Online Store වෙතින් ඔබට ලබාගත හැකියි 🚗🛴🍼🧸
+
+✅ Rechargeable Jeeps  
+✅ Baby Products  
+✅ Scooters & Toys  
+✅ Swimming Pools  
+✅ Play Equipment  
+
+🚚 Islandwide Delivery  
+💵 Cash On Delivery Available  
+💯 Quality Guaranteed
+
+ඔබේ පුංචි පැටව්වන්ගේ සතුට වෙනුවෙන් ❤️
+
 </p>
 
 <div class="hero-buttons">
 
 <a class="btn btn-primary"
 href="#products">
-Shop Now
+🛒 දැන් මිලදී ගන්න
 </a>
 
 <a class="btn btn-secondary"
-href="https://wa.me/94786802323">
-Contact Us
+href="https://wa.me/94786802323"
+target="_blank">
+💬 WhatsApp Order
 </a>
 
 </div>
@@ -523,7 +589,7 @@ Contact Us
 
 <div class="slider">
 <img id="sliderImage"
-src="https://i.imgur.com/PQKPCCD.jpeg">
+src="https://i.imgur.com/WE06TRx.jpeg">
 </div>
 
 </section>
@@ -531,7 +597,7 @@ src="https://i.imgur.com/PQKPCCD.jpeg">
 <section class="section">
 
 <div class="section-title">
-<h2>Categories</h2>
+<h2>Popular Categories</h2>
 </div>
 
 <div class="categories">
@@ -568,7 +634,7 @@ onclick="filterCategory('Play Equipment')">
 <section class="section" id="products">
 
 <div class="section-title">
-<h2>Trending Products</h2>
+<h2>Trending Products 🔥</h2>
 </div>
 
 <div class="search-wrap">
@@ -578,7 +644,7 @@ id="searchInput"
 placeholder="Search products...">
 
 <select id="sortSelect">
-<option value="default">Sort</option>
+<option value="default">Sort Products</option>
 <option value="low">Low Price</option>
 <option value="high">High Price</option>
 </select>
@@ -595,17 +661,52 @@ id="productsContainer"></div>
 <div class="footer-grid">
 
 <div>
-<h2>11Cart</h2>
-<p>Premium baby products and toys in Sri Lanka.</p>
+
+<img src="https://i.imgur.com/qqbXqsJ.png"
+style="height:70px;margin-bottom:15px;">
+
+<p>
+
+11Cart Online Store ❤️  
+Sri Lanka වල Kids & Baby Products සඳහා විශ්වාසදායක Online Store එකක්.
+
+🚚 Islandwide Delivery  
+💬 Friendly Support  
+💯 Quality Products
+
+</p>
+
 </div>
 
 <div>
-<h2>Contact</h2>
-<p>0786802323</p>
-<p>Islandwide Delivery</p>
+
+<h2>📞 Contact Us</h2>
+
+<p>WhatsApp: 0786802323</p>
+<p>Cash On Delivery Available</p>
+<p>Facebook Orders Available</p>
+
+</div>
+
+<div>
+
+<h2>🔥 Categories</h2>
+
+<p>🚗 Ride On Vehicles</p>
+<p>🛴 Scooters</p>
+<p>🍼 Baby Gear</p>
+<p>🏊 Pools</p>
+<p>🧸 Toys</p>
+
 </div>
 
 </div>
+
+<br><br>
+
+<center style="color:#888;">
+© 2026 11Cart Online Store — All Rights Reserved
+</center>
 
 </footer>
 
@@ -699,9 +800,9 @@ let cart =
 JSON.parse(localStorage.getItem('cart')) || [];
 
 const sliderImages=[
-'https://i.imgur.com/PQKPCCD.jpeg',
 'https://i.imgur.com/WE06TRx.jpeg',
-'https://i.imgur.com/XI3p3Mp.jpeg'
+'https://i.imgur.com/XI3p3Mp.jpeg',
+'https://i.imgur.com/faB3Ip4.jpeg'
 ];
 
 let currentSlide=0;
@@ -716,9 +817,7 @@ sliderImages[currentSlide];
 },3000);
 
 function formatPrice(num){
-
 return Number(num).toLocaleString('en-LK');
-
 }
 
 function saveCart(){
@@ -1024,6 +1123,12 @@ document.getElementById('productModal').style.display='none';
 function filterCategory(category){
 
 currentCategory=category;
+
+document.querySelectorAll('.category-card')
+.forEach(card=>card.classList.remove('active'));
+
+event.target.closest('.category-card')
+.classList.add('active');
 
 applyFilters();
 
