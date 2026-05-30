@@ -1,0 +1,1293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>11Cart Sri Lanka | Kids Toys, Baby Products & Surprise Gifts</title>
+<meta name="description" content="Buy kids toys, ride on jeeps, baby products and swimming pools in Sri Lanka with islandwide delivery.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="11Cart Sri Lanka | Kids Toys, Baby Products & Surprise Gifts">
+<meta property="og:description" content="🎁 FREE Personalized Birthday Card | 🚚 ලංකාවේ ඕනෑම තැනකට Delivery | 💵 Cash On Delivery Available | Kids Toys, Ride On Jeeps, Pools & Baby Products">
+<meta property="og:image" content="https://i.imgur.com/PQKPCCD.jpeg">
+<meta property="og:url" content="https://11cartonlinestore-blip.github.io/11cart/">
+<meta property="og:site_name" content="11Cart Sri Lanka">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Sinhala:wght@400;500;700;800;900&family=Baloo+2:wght@400;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+<style>
+/* ===== ROOT VARIABLES ===== */
+:root {
+  --orange: #ff5c00;
+  --orange-light: #ff7a2e;
+  --orange-pale: #fff3ec;
+  --green: #25D366;
+  --green-dark: #128C7E;
+  --dark: #0e0e0e;
+  --dark2: #1a1a1a;
+  --mid: #444;
+  --light: #f8f5f2;
+  --white: #ffffff;
+  --card-shadow: 0 4px 30px rgba(0,0,0,0.07);
+  --card-shadow-hover: 0 16px 50px rgba(0,0,0,0.14);
+  --radius-xl: 28px;
+  --radius-lg: 20px;
+  --radius-md: 14px;
+  --radius-sm: 10px;
+}
+
+/* ===== RESET ===== */
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; font-size:16px; }
+body { background:var(--light); color:var(--dark); font-family:'Plus Jakarta Sans', 'Noto Sans Sinhala', sans-serif; overflow-x:hidden; }
+a { text-decoration:none; color:inherit; }
+img { display:block; max-width:100%; }
+
+/* ===== SCROLLBAR ===== */
+::-webkit-scrollbar { width:6px; }
+::-webkit-scrollbar-track { background:#f0f0f0; }
+::-webkit-scrollbar-thumb { background:var(--orange); border-radius:99px; }
+
+/* ===== NAV ===== */
+nav {
+  background:rgba(255,255,255,0.92);
+  backdrop-filter:blur(16px);
+  -webkit-backdrop-filter:blur(16px);
+  padding:0 5%;
+  height:72px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  position:sticky;
+  top:0;
+  z-index:999;
+  border-bottom:1px solid rgba(0,0,0,0.06);
+  transition:box-shadow 0.3s;
+}
+nav.scrolled { box-shadow:0 4px 30px rgba(0,0,0,0.08); }
+.logo-wrap { display:flex; align-items:center; gap:10px; }
+.logo-wrap img { width:52px; height:52px; object-fit:contain; }
+.logo-text { font-family:'Baloo 2', sans-serif; font-size:28px; font-weight:900; color:var(--dark); letter-spacing:-0.5px; }
+.logo-text span { color:var(--orange); }
+.nav-right { display:flex; align-items:center; gap:12px; }
+.wa-nav-btn {
+  background:var(--green);
+  color:white;
+  padding:10px 20px;
+  border-radius:99px;
+  font-weight:700;
+  font-size:14px;
+  display:flex;
+  align-items:center;
+  gap:7px;
+  box-shadow:0 4px 20px rgba(37,211,102,0.25);
+  transition:all 0.25s;
+}
+.wa-nav-btn:hover { transform:translateY(-2px); box-shadow:0 8px 28px rgba(37,211,102,0.35); }
+
+/* ===== ANNOUNCE BAR ===== */
+.announce-bar {
+  background:var(--dark);
+  color:white;
+  text-align:center;
+  padding:10px 20px;
+  font-size:13px;
+  font-weight:600;
+  letter-spacing:0.02em;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  overflow:hidden;
+}
+.announce-bar span { display:inline-flex; align-items:center; gap:6px; }
+.announce-sep { color:rgba(255,255,255,0.3); margin:0 16px; }
+
+/* ===== HERO ===== */
+.hero {
+  background:linear-gradient(135deg, #fff8f4 0%, #fff3ec 60%, #ffe4d4 100%);
+  padding:64px 5% 0;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:48px;
+  align-items:center;
+  position:relative;
+  overflow:hidden;
+}
+.hero::before {
+  content:'';
+  position:absolute;
+  top:-100px;
+  right:0;
+  width:500px;
+  height:500px;
+  background:radial-gradient(circle, rgba(255,92,0,0.08) 0%, transparent 70%);
+  pointer-events:none;
+}
+.hero-badge {
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  background:rgba(255,92,0,0.1);
+  color:var(--orange);
+  font-size:12px;
+  font-weight:700;
+  padding:5px 14px;
+  border-radius:99px;
+  margin-bottom:18px;
+  letter-spacing:0.05em;
+  text-transform:uppercase;
+}
+.hero h1 {
+  font-family:'Baloo 2', sans-serif;
+  font-size:54px;
+  font-weight:900;
+  line-height:1.1;
+  margin-bottom:20px;
+  letter-spacing:-1px;
+  color:var(--dark);
+}
+.hero h1 em { color:var(--orange); font-style:normal; }
+.hero-sub {
+  font-size:16px;
+  line-height:1.85;
+  color:#555;
+  font-weight:500;
+  margin-bottom:32px;
+  max-width:460px;
+}
+.hero-sub strong { color:var(--dark); font-weight:700; }
+.hero-actions { display:flex; gap:14px; flex-wrap:wrap; align-items:center; }
+.btn-primary {
+  background:var(--orange);
+  color:white;
+  padding:15px 30px;
+  border-radius:99px;
+  font-weight:700;
+  font-size:15px;
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  box-shadow:0 8px 30px rgba(255,92,0,0.30);
+  transition:all 0.25s;
+}
+.btn-primary:hover { transform:translateY(-3px); box-shadow:0 14px 40px rgba(255,92,0,0.38); background:var(--orange-light); }
+.btn-outline {
+  border:2px solid rgba(0,0,0,0.15);
+  color:var(--dark);
+  padding:13px 28px;
+  border-radius:99px;
+  font-weight:700;
+  font-size:15px;
+  transition:all 0.25s;
+  background:white;
+}
+.btn-outline:hover { border-color:var(--orange); color:var(--orange); background:var(--orange-pale); }
+
+/* Slider */
+.slider-wrap {
+  position:relative;
+  height:480px;
+  border-radius:var(--radius-xl) var(--radius-xl) 0 0;
+  overflow:hidden;
+  box-shadow:0 -4px 60px rgba(0,0,0,0.15);
+}
+.slider-wrap img {
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transition:opacity 0.7s ease;
+}
+.slider-dots {
+  position:absolute;
+  bottom:16px;
+  left:50%;
+  transform:translateX(-50%);
+  display:flex;
+  gap:6px;
+}
+.slider-dot {
+  width:6px;
+  height:6px;
+  border-radius:99px;
+  background:rgba(255,255,255,0.5);
+  transition:all 0.3s;
+  cursor:pointer;
+}
+.slider-dot.active { width:22px; background:white; }
+
+/* ===== TRUST STRIP ===== */
+.trust-strip {
+  background:white;
+  padding:22px 5%;
+  display:flex;
+  gap:0;
+  border-bottom:1px solid #f0f0f0;
+  overflow-x:auto;
+}
+.trust-item {
+  flex:1;
+  min-width:170px;
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:0 24px;
+  border-right:1px solid #f0f0f0;
+}
+.trust-item:last-child { border-right:none; }
+.trust-icon-box {
+  width:44px; height:44px;
+  background:var(--orange-pale);
+  border-radius:12px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:20px;
+  flex-shrink:0;
+}
+.trust-item-text h4 { font-size:13px; font-weight:800; color:var(--dark); margin-bottom:2px; }
+.trust-item-text p { font-size:12px; color:#888; font-weight:500; }
+
+/* ===== SECTION HEADER ===== */
+.sec-head { text-align:center; margin-bottom:44px; }
+.sec-label {
+  display:inline-block;
+  font-size:11px;
+  font-weight:800;
+  letter-spacing:0.12em;
+  text-transform:uppercase;
+  color:var(--orange);
+  margin-bottom:10px;
+}
+.sec-head h2 {
+  font-family:'Baloo 2', sans-serif;
+  font-size:40px;
+  font-weight:900;
+  letter-spacing:-0.5px;
+  color:var(--dark);
+  margin-bottom:10px;
+}
+.sec-head p { font-size:16px; color:#777; font-weight:500; }
+
+/* ===== CATEGORIES ===== */
+.categories { padding:72px 5%; }
+.category-grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fill, minmax(140px, 1fr));
+  gap:16px;
+}
+.category-card {
+  background:white;
+  padding:28px 12px 22px;
+  border-radius:var(--radius-lg);
+  text-align:center;
+  cursor:pointer;
+  border:2px solid transparent;
+  box-shadow:var(--card-shadow);
+  transition:all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+  position:relative;
+  overflow:hidden;
+}
+.category-card::before {
+  content:'';
+  position:absolute;
+  inset:0;
+  background:var(--orange);
+  opacity:0;
+  transition:opacity 0.25s;
+}
+.category-card:hover { transform:translateY(-6px); box-shadow:var(--card-shadow-hover); border-color:var(--orange); }
+.category-card:hover::before { opacity:0.05; }
+.category-card.active { background:var(--orange); border-color:var(--orange); transform:translateY(-6px); box-shadow:0 12px 40px rgba(255,92,0,0.25); }
+.cat-emoji { font-size:42px; position:relative; z-index:1; display:block; margin-bottom:10px; transition:transform 0.3s; }
+.category-card:hover .cat-emoji { transform:scale(1.15) rotate(-5deg); }
+.category-card.active .cat-emoji { filter:brightness(0) invert(1); }
+.cat-name { font-size:13px; font-weight:800; color:var(--dark); position:relative; z-index:1; transition:color 0.25s; }
+.category-card.active .cat-name { color:white; }
+
+/* ===== PRODUCTS SECTION ===== */
+.products-section { padding:0 5% 72px; }
+
+/* Search & Filter */
+.filter-bar {
+  background:white;
+  border-radius:var(--radius-lg);
+  padding:20px 24px;
+  display:flex;
+  gap:14px;
+  align-items:center;
+  flex-wrap:wrap;
+  margin-bottom:28px;
+  box-shadow:var(--card-shadow);
+}
+.search-wrap {
+  flex:1;
+  min-width:200px;
+  position:relative;
+}
+.search-wrap svg {
+  position:absolute;
+  left:14px;
+  top:50%;
+  transform:translateY(-50%);
+  opacity:0.4;
+}
+.search-wrap input {
+  width:100%;
+  padding:12px 16px 12px 42px;
+  border:2px solid #eee;
+  border-radius:var(--radius-sm);
+  font-size:14px;
+  font-weight:600;
+  background:#fafafa;
+  font-family:'Plus Jakarta Sans', sans-serif;
+  transition:all 0.2s;
+  color:var(--dark);
+}
+.search-wrap input:focus { outline:none; border-color:var(--orange); background:white; }
+.search-wrap input::placeholder { color:#bbb; }
+.sort-select {
+  padding:12px 16px;
+  border:2px solid #eee;
+  border-radius:var(--radius-sm);
+  font-size:14px;
+  font-weight:700;
+  background:white;
+  cursor:pointer;
+  color:var(--dark);
+  font-family:'Plus Jakarta Sans', sans-serif;
+  transition:border-color 0.2s;
+  min-width:160px;
+}
+.sort-select:focus { outline:none; border-color:var(--orange); }
+.reset-btn {
+  padding:12px 20px;
+  background:var(--orange-pale);
+  color:var(--orange);
+  border:2px solid transparent;
+  border-radius:var(--radius-sm);
+  font-weight:800;
+  font-size:13px;
+  cursor:pointer;
+  font-family:'Plus Jakarta Sans', sans-serif;
+  transition:all 0.2s;
+  white-space:nowrap;
+}
+.reset-btn:hover { background:var(--orange); color:white; }
+.prod-count { font-size:13px; font-weight:700; color:#999; white-space:nowrap; }
+
+/* ===== PRODUCT GRID ===== */
+.product-grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fill, minmax(260px, 1fr));
+  gap:24px;
+}
+
+/* ===== PRODUCT CARD ===== */
+.product-card {
+  background:white;
+  border-radius:var(--radius-xl);
+  overflow:hidden;
+  box-shadow:var(--card-shadow);
+  transition:all 0.3s cubic-bezier(0.34, 1.2, 0.64, 1);
+  cursor:pointer;
+  position:relative;
+  border:2px solid transparent;
+}
+.product-card:hover { transform:translateY(-8px); box-shadow:var(--card-shadow-hover); border-color:#f0f0f0; }
+
+.badge-row {
+  position:absolute;
+  top:14px;
+  left:14px;
+  right:14px;
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  z-index:3;
+  pointer-events:none;
+}
+.badge-stock {
+  background:#ff3b3b;
+  color:white;
+  font-size:11px;
+  font-weight:800;
+  padding:4px 10px;
+  border-radius:99px;
+  letter-spacing:0.01em;
+}
+.badge-discount {
+  background:var(--orange);
+  color:white;
+  font-size:12px;
+  font-weight:900;
+  padding:4px 10px;
+  border-radius:99px;
+}
+
+.card-img-wrap {
+  background:linear-gradient(160deg, #fff8f4 0%, #fff 100%);
+  height:260px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+  overflow:hidden;
+}
+.card-img-wrap img {
+  max-width:100%;
+  max-height:100%;
+  object-fit:contain;
+  transition:transform 0.4s cubic-bezier(0.34, 1.2, 0.64, 1);
+  filter:drop-shadow(0 8px 20px rgba(0,0,0,0.08));
+}
+.product-card:hover .card-img-wrap img { transform:scale(1.08); }
+
+.card-body { padding:20px; }
+.card-cat {
+  display:inline-block;
+  background:var(--orange-pale);
+  color:var(--orange);
+  font-size:11px;
+  font-weight:700;
+  padding:3px 10px;
+  border-radius:99px;
+  margin-bottom:8px;
+  letter-spacing:0.02em;
+}
+.card-body h3 {
+  font-size:15px;
+  font-weight:800;
+  line-height:1.45;
+  margin-bottom:12px;
+  color:var(--dark);
+  display:-webkit-box;
+  -webkit-line-clamp:2;
+  -webkit-box-orient:vertical;
+  overflow:hidden;
+}
+.card-price-row { display:flex; align-items:baseline; gap:8px; margin-bottom:16px; }
+.card-price { font-family:'Baloo 2', sans-serif; font-size:22px; font-weight:900; color:var(--orange); }
+.card-old-price { font-size:14px; font-weight:600; color:#ccc; text-decoration:line-through; }
+.card-actions { display:flex; gap:8px; }
+.card-details-btn {
+  flex:1;
+  background:#f3f3f3;
+  color:var(--dark);
+  border:none;
+  padding:11px;
+  border-radius:var(--radius-sm);
+  font-weight:700;
+  font-size:13px;
+  cursor:pointer;
+  font-family:'Plus Jakarta Sans', sans-serif;
+  transition:all 0.2s;
+}
+.card-details-btn:hover { background:var(--dark); color:white; }
+.card-wa-btn {
+  flex:1;
+  background:var(--green);
+  color:white;
+  padding:11px;
+  border-radius:var(--radius-sm);
+  font-weight:700;
+  font-size:13px;
+  text-align:center;
+  transition:all 0.2s;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:5px;
+}
+.card-wa-btn:hover { background:var(--green-dark); }
+
+/* ===== SKELETON ===== */
+.skeleton { background:white; border-radius:var(--radius-xl); overflow:hidden; box-shadow:var(--card-shadow); }
+.skel-img { height:260px; background:linear-gradient(90deg,#f4f4f4 25%,#eaeaea 50%,#f4f4f4 75%); background-size:200% 100%; animation:shimmer 1.4s infinite; }
+.skel-body { padding:20px; }
+.skel-line { height:14px; border-radius:8px; background:linear-gradient(90deg,#f4f4f4 25%,#eaeaea 50%,#f4f4f4 75%); background-size:200% 100%; animation:shimmer 1.4s infinite; margin-bottom:10px; }
+.skel-line.w60 { width:60%; }
+.skel-line.w40 { width:40%; }
+@keyframes shimmer { 0%{background-position:200% 0} 100%{background-position:-200% 0} }
+
+/* ===== MODAL ===== */
+.modal-overlay {
+  position:fixed;
+  inset:0;
+  background:rgba(10,10,10,0.7);
+  backdrop-filter:blur(6px);
+  z-index:9000;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+  opacity:0;
+  pointer-events:none;
+  transition:opacity 0.3s;
+}
+.modal-overlay.open { opacity:1; pointer-events:all; }
+.modal {
+  background:white;
+  border-radius:30px;
+  max-width:860px;
+  width:100%;
+  max-height:95vh;
+  overflow-y:auto;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  position:relative;
+  transform:translateY(20px) scale(0.97);
+  transition:all 0.35s cubic-bezier(0.34, 1.2, 0.64, 1);
+  box-shadow:0 30px 80px rgba(0,0,0,0.25);
+}
+.modal-overlay.open .modal { transform:translateY(0) scale(1); }
+
+.modal-close {
+  position:absolute;
+  top:16px;
+  right:16px;
+  width:36px;
+  height:36px;
+  background:rgba(0,0,0,0.08);
+  color:var(--dark);
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:16px;
+  cursor:pointer;
+  z-index:10;
+  border:none;
+  font-weight:900;
+  transition:all 0.2s;
+}
+.modal-close:hover { background:var(--dark); color:white; }
+
+.modal-left {
+  background:linear-gradient(145deg, #fff8f4, #fff);
+  padding:28px;
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+  overflow-y:auto;
+}
+.modal-main-img {
+  width:100%;
+  height:270px;
+  object-fit:contain;
+  border-radius:var(--radius-lg);
+  background:white;
+  padding:12px;
+  box-shadow:0 4px 20px rgba(0,0,0,0.06);
+}
+.modal-thumbs { display:flex; gap:10px; flex-wrap:wrap; }
+.modal-thumb {
+  width:68px; height:68px;
+  object-fit:contain;
+  border-radius:var(--radius-sm);
+  border:2px solid transparent;
+  cursor:pointer;
+  background:white;
+  padding:5px;
+  transition:all 0.2s;
+  box-shadow:0 2px 10px rgba(0,0,0,0.06);
+}
+.modal-thumb.active, .modal-thumb:hover { border-color:var(--orange); }
+
+.modal-right { padding:30px; overflow-y:auto; display:flex; flex-direction:column; gap:14px; }
+.modal-cat-badge { display:inline-block; background:var(--orange-pale); color:var(--orange); font-size:12px; font-weight:700; padding:4px 14px; border-radius:99px; width:fit-content; }
+.modal-right h2 { font-family:'Baloo 2', sans-serif; font-size:24px; font-weight:900; line-height:1.35; color:var(--dark); }
+.modal-price-area { display:flex; align-items:baseline; gap:10px; }
+.modal-price { font-family:'Baloo 2', sans-serif; font-size:30px; font-weight:900; color:var(--orange); }
+.modal-old-price { font-size:16px; font-weight:600; color:#ccc; text-decoration:line-through; }
+.modal-savings {
+  display:inline-flex;
+  align-items:center;
+  gap:5px;
+  background:#e8ffef;
+  color:#1a8a3a;
+  font-size:12px;
+  font-weight:800;
+  padding:5px 12px;
+  border-radius:99px;
+  width:fit-content;
+}
+.modal-tags { display:flex; flex-wrap:wrap; gap:7px; }
+.modal-tag { background:#f5f5f5; color:#555; font-size:12px; font-weight:700; padding:5px 12px; border-radius:99px; }
+.modal-desc {
+  font-size:14px;
+  line-height:1.85;
+  color:#555;
+  font-weight:500;
+  background:#fafafa;
+  padding:14px;
+  border-radius:var(--radius-md);
+  max-height:180px;
+  overflow-y:auto;
+  white-space:pre-wrap;
+  border:1px solid #f0f0f0;
+}
+.modal-actions { display:flex; gap:10px; margin-top:auto; }
+.modal-actions a {
+  flex:1;
+  text-align:center;
+  padding:14px;
+  border-radius:var(--radius-md);
+  font-weight:800;
+  font-size:14px;
+  transition:all 0.25s;
+}
+.modal-actions .m-wa { background:var(--green); color:white; }
+.modal-actions .m-wa:hover { background:var(--green-dark); }
+.modal-actions .m-det { background:var(--dark); color:white; }
+.modal-actions .m-det:hover { opacity:0.85; }
+
+/* ===== TRUST SECTION ===== */
+.trust-full {
+  margin:0 5%;
+  background:var(--dark);
+  color:white;
+  border-radius:28px;
+  padding:55px 5%;
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));
+  gap:32px;
+  text-align:center;
+}
+.trust-col .t-icon { font-size:36px; margin-bottom:14px; }
+.trust-col h3 { font-family:'Baloo 2', sans-serif; font-size:20px; font-weight:800; margin-bottom:8px; }
+.trust-col p { color:#aaa; font-size:14px; line-height:1.7; font-weight:500; }
+
+/* ===== FOOTER ===== */
+footer {
+  background:#0a0a0a;
+  color:white;
+  padding:64px 5% 32px;
+  margin-top:72px;
+}
+.footer-top {
+  display:grid;
+  grid-template-columns:1.5fr 1fr 1fr;
+  gap:48px;
+  margin-bottom:48px;
+}
+.footer-brand .f-logo { font-family:'Baloo 2', sans-serif; font-size:30px; font-weight:900; margin-bottom:12px; }
+.footer-brand .f-logo span { color:var(--orange); }
+.footer-brand p { color:#888; font-size:14px; line-height:1.8; font-weight:500; margin-bottom:20px; }
+.footer-socials { display:flex; gap:10px; }
+.footer-socials a {
+  width:40px; height:40px;
+  background:#1a1a1a;
+  border-radius:10px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:18px;
+  transition:all 0.2s;
+  border:1px solid #2a2a2a;
+}
+.footer-socials a:hover { background:var(--orange); border-color:var(--orange); }
+.footer-col h4 { font-size:14px; font-weight:800; color:white; margin-bottom:18px; letter-spacing:0.05em; text-transform:uppercase; }
+.footer-col p { color:#777; font-size:14px; line-height:2; font-weight:500; }
+.footer-bottom {
+  border-top:1px solid #1e1e1e;
+  padding-top:24px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:10px;
+}
+.footer-bottom p { color:#555; font-size:13px; font-weight:500; }
+
+/* ===== FLOATING WA ===== */
+.float-wa {
+  position:fixed;
+  bottom:24px;
+  right:24px;
+  width:60px;
+  height:60px;
+  background:var(--green);
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:28px;
+  z-index:8999;
+  box-shadow:0 6px 28px rgba(37,211,102,0.4);
+  transition:all 0.3s;
+  animation:pulse-wa 2.5s infinite;
+}
+.float-wa:hover { transform:scale(1.12); box-shadow:0 12px 40px rgba(37,211,102,0.5); }
+@keyframes pulse-wa {
+  0%, 100% { box-shadow: 0 6px 28px rgba(37,211,102,0.4); }
+  50% { box-shadow: 0 6px 40px rgba(37,211,102,0.6), 0 0 0 10px rgba(37,211,102,0.06); }
+}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:900px) {
+  .hero { grid-template-columns:1fr; padding-bottom:0; }
+  .hero h1 { font-size:38px; }
+  .hero-sub { font-size:15px; }
+  .slider-wrap { height:300px; border-radius:var(--radius-xl); margin-top:32px; }
+  .trust-strip { padding:18px 4%; }
+  .trust-item { min-width:150px; padding:0 16px; }
+  .footer-top { grid-template-columns:1fr 1fr; }
+  .modal { grid-template-columns:1fr; max-height:85vh; }
+  .modal-left { border-radius:30px 30px 0 0; }
+  .trust-full { padding:40px 5%; }
+  .sec-head h2 { font-size:32px; }
+}
+@media(max-width:600px) {
+  nav { padding:0 4%; height:64px; }
+  .logo-text { font-size:24px; }
+  .logo-wrap img { width:44px; height:44px; }
+  .wa-nav-btn span { display:none; }
+  .hero h1 { font-size:32px; }
+  .filter-bar { flex-direction:column; }
+  .search-wrap { min-width:100%; }
+  .footer-top { grid-template-columns:1fr; gap:32px; }
+  .trust-full { margin:0 4%; }
+  .footer-bottom { flex-direction:column; text-align:center; }
+  .announce-sep { display:none; }
+}
+
+@media (max-width:768px){
+  .modal{
+    grid-template-columns:1fr !important;
+    width:95% !important;
+    max-height:95vh !important;
+    overflow-y:auto !important;
+  }
+  .modal-left{
+    max-height:none !important;
+    overflow:visible !important;
+  }
+  .modal-right{
+    max-height:none !important;
+    overflow:visible !important;
+    padding-bottom:80px !important;
+  }
+  .modal-main-img{
+    height:220px !important;
+  }
+}
+
+</style>
+
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '4471022639844958');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=4471022639844958&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+
+</head>
+<body>
+
+<!-- ANNOUNCE BAR -->
+<div class="announce-bar">
+  <span>🎁 FREE Personalized Birthday Card | 🚚 ලංකාවේ ඕනෑම තැනකට Delivery</span>
+  <span class="announce-sep">|</span>
+  <span>💵 Cash On Delivery Available</span>
+  <span class="announce-sep">|</span>
+  <span>📞 0768665158</span>
+</div>
+
+<!-- NAV -->
+<nav id="mainNav">
+  <div class="logo-wrap">
+    <img src="https://i.imgur.com/qqbXqsJ.png" alt="11Cart Logo">
+    <div class="logo-text">11<span>Cart</span></div>
+  </div>
+  <div class="nav-right">
+    <a class="wa-nav-btn" href="https://wa.me/94768665158" target="_blank">
+      💬 <span>WhatsApp</span>
+    </a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div>
+    <div class="hero-badge">🇱🇰 Sri Lanka's #1 Kids Store</div>
+    <h1>Make Every Child Smile<br><em>Happy Kids</em></h1>
+    <p class="hero-sub">
+      ළමා toys, ride on jeeps, swimming pools, baby products
+      සහ තවත් ගොඩක් දේවල් දැන් ලංකාවේ ඕනෑම තැනකට delivery 🚚<br><br>
+      <strong>💵 Cash On Delivery Available</strong>
+    </p>
+    <div class="hero-actions">
+      <a class="btn-primary" href="https://wa.me/94768665158" target="_blank">💬 Order on WhatsApp</a>
+      <a class="btn-outline" href="#products">Explore Products ↓</a>
+    </div>
+  </div>
+  <div class="slider-wrap">
+    <img id="sliderImg" src="https://i.imgur.com/PQKPCCD.jpeg" alt="11Cart Products">
+    <div class="slider-dots" id="sliderDots"></div>
+  </div>
+</section>
+
+<!-- TRUST STRIP -->
+<div class="trust-strip">
+  <div class="trust-item">
+    <div class="trust-icon-box">🚚</div>
+    <div class="trust-item-text"><h4>Islandwide Delivery</h4><p>Anywhere in Sri Lanka</p></div>
+  </div>
+  <div class="trust-item">
+    <div class="trust-icon-box">💵</div>
+    <div class="trust-item-text"><h4>Cash On Delivery</h4><p>Pay when you receive</p></div>
+  </div>
+  <div class="trust-item">
+    <div class="trust-icon-box">⭐</div>
+    <div class="trust-item-text"><h4>Trusted Seller</h4><p>Premium quality only</p></div>
+  </div>
+  <div class="trust-item">
+    <div class="trust-icon-box">💬</div>
+    <div class="trust-item-text"><h4>WhatsApp Support</h4><p>Fast & friendly help</p></div>
+  </div>
+</div>
+
+<!-- CATEGORIES -->
+<section class="categories">
+  <div class="sec-head">
+    <div class="sec-label">Browse All</div>
+    <h2>Shop by Category</h2>
+    <p>Find the perfect product for your little one</p>
+  </div>
+  <div class="category-grid" id="categoryGrid">
+    <div class="category-card" onclick="filterCategory('Inflatables & Pools',this)">
+      <span class="cat-emoji">🏊</span><span class="cat-name">Pools</span>
+    </div>
+    <div class="category-card" onclick="filterCategory('Ride On',this)">
+      <span class="cat-emoji">🚗</span><span class="cat-name">Ride On</span>
+    </div>
+    <div class="category-card" onclick="filterCategory('Scooters',this)">
+      <span class="cat-emoji">🛴</span><span class="cat-name">Scooters</span>
+    </div>
+    <div class="category-card" onclick="filterCategory('Baby Gear',this)">
+      <span class="cat-emoji">🍼</span><span class="cat-name">Baby Gear</span>
+    </div>
+    <div class="category-card" onclick="filterCategory('Play Equipment',this)">
+      <span class="cat-emoji">🧸</span><span class="cat-name">Play</span>
+    </div>
+    <div class="category-card" onclick="filterCategory('Smart & Electronic Toys',this)">
+      <span class="cat-emoji">🤖</span><span class="cat-name">Smart Toys</span>
+    </div>
+    <div class="category-card" onclick="filterCategory('Safety & Accessories',this)">
+      <span class="cat-emoji">🛡️</span><span class="cat-name">Safety</span>
+    </div>
+    <div class="category-card" onclick="filterCategory('Furniture & Storage',this)">
+      <span class="cat-emoji">🪑</span><span class="cat-name">Furniture</span>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section class="products-section" id="products">
+  <div class="sec-head">
+    <div class="sec-label">All Products</div>
+    <h2>Trending Products</h2>
+    <p>Latest arrivals from 11Cart</p>
+  </div>
+
+  <div class="filter-bar">
+    <div class="search-wrap">
+      <svg width="18" height="18" fill="none" stroke="#333" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+      <input type="text" id="searchInput" placeholder="Search products...">
+    </div>
+    <select class="sort-select" id="sortSelect">
+      <option value="">Sort By</option>
+      <option value="low">Price: Low to High</option>
+      <option value="high">Price: High to Low</option>
+      <option value="name">Name: A–Z</option>
+    </select>
+    <button class="reset-btn" onclick="resetFilters()">✕ Show All</button>
+    <span class="prod-count" id="productCount"></span>
+  </div>
+
+  <div class="product-grid" id="productsContainer">
+    <div class="skeleton"><div class="skel-img"></div><div class="skel-body"><div class="skel-line"></div><div class="skel-line w60"></div><div class="skel-line w40"></div></div></div>
+    <div class="skeleton"><div class="skel-img"></div><div class="skel-body"><div class="skel-line"></div><div class="skel-line w60"></div><div class="skel-line w40"></div></div></div>
+    <div class="skeleton"><div class="skel-img"></div><div class="skel-body"><div class="skel-line"></div><div class="skel-line w60"></div><div class="skel-line w40"></div></div></div>
+    <div class="skeleton"><div class="skel-img"></div><div class="skel-body"><div class="skel-line"></div><div class="skel-line w60"></div><div class="skel-line w40"></div></div></div>
+  </div>
+</section>
+
+
+<section style="padding:60px 5%;background:#fff;">
+<div style="max-width:1100px;margin:auto">
+<h2 style="font-size:36px;margin-bottom:15px">🎁 Personalized Surprise Gift Packages</h2>
+<p style="margin-bottom:20px">Birthday surprises, photo greeting cards, framed gifts, chocolate parcels and custom event gifts.</p>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:15px">
+<div style="background:#fff3ec;padding:20px;border-radius:16px">📸 Photo Greeting Cards</div>
+<div style="background:#fff3ec;padding:20px;border-radius:16px">🖼️ Framed Memories</div>
+<div style="background:#fff3ec;padding:20px;border-radius:16px">🍫 Chocolate Parcels</div>
+<div style="background:#fff3ec;padding:20px;border-radius:16px">🎉 Birthday Surprise Packages</div>
+</div>
+</div>
+</section>
+<!-- TRUST FULL -->
+<section style="padding:0 0 72px;">
+  <div class="trust-full">
+    <div class="trust-col">
+      <div class="t-icon">🚚</div>
+      <h3>Islandwide Delivery</h3>
+      <p>Fast & reliable delivery to every corner of Sri Lanka, no matter where you are.</p>
+    </div>
+    <div class="trust-col">
+      <div class="t-icon">💬</div>
+      <h3>WhatsApp Support</h3>
+      <p>Instant customer support on WhatsApp. We respond fast and we're always here to help.</p>
+    </div>
+    <div class="trust-col">
+      <div class="t-icon">⭐</div>
+      <h3>Trusted by Parents</h3>
+      <p>Hundreds of happy customers across Sri Lanka trust 11Cart for premium kids products.</p>
+    </div>
+    <div class="trust-col">
+      <div class="t-icon">💵</div>
+      <h3>Cash On Delivery</h3>
+      <p>No need to pay upfront. Pay cash when your order arrives at your doorstep.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="f-logo">11<span>Cart</span></div>
+      <p>Premium toys, baby products, hoverboards and ride-on jeeps in Sri Lanka. Trusted by parents island-wide.</p>
+      <div class="footer-socials">
+        <a href="https://wa.me/94768665158" target="_blank">💬</a>
+        <a href="https://www.facebook.com/profile.php?id=61588464962818" target="_blank">📘</a>
+        <a href="#" target="_blank">📸</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <p>📱 0768665158</p>
+      <p>🚚 Islandwide Delivery</p>
+      <p>📍 Sri Lanka</p>
+    </div>
+    <div class="footer-col">
+      <h4>Policy</h4>
+      <p>🔄 Easy Returns</p>
+      <p>✅ Authentic Products</p>
+      <p>🔒 Safe & Secure</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 11Cart Sri Lanka. All Rights Reserved.</p>
+    <p>Made with ❤️ for Sri Lankan families</p>
+  </div>
+</footer>
+
+<!-- FLOATING WA -->
+<a href="https://wa.me/94768665158" class="float-wa" target="_blank">💬</a>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modalOverlay" onclick="closeModalBg(event)">
+  <div class="modal" id="modal">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div class="modal-left">
+      <img id="modalMainImg" class="modal-main-img" src="" alt="">
+      <div class="modal-thumbs" id="modalThumbs"></div>
+    </div>
+    <div class="modal-right">
+      <div class="modal-cat-badge" id="modalCat"></div>
+      <h2 id="modalName"></h2>
+      <div class="modal-price-area">
+        <span class="modal-price" id="modalPrice"></span>
+        <span class="modal-old-price" id="modalOldPrice" style="display:none"></span>
+      </div>
+      <span class="modal-savings" id="modalSavings" style="display:none"></span>
+      <div class="modal-tags" id="modalTags"></div>
+      <div class="modal-desc" id="modalDesc"></div>
+      <div class="modal-actions" id="modalActions"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ===== NAV SCROLL ===== */
+window.addEventListener('scroll', () => {
+  document.getElementById('mainNav').classList.toggle('scrolled', window.scrollY > 10);
+});
+
+/* ===== SLIDER ===== */
+const sliderImages = [
+  "https://i.imgur.com/PQKPCCD.jpeg",
+  "https://i.imgur.com/ZYDxAHW.jpeg",
+  "https://i.imgur.com/Su5vwCL.jpeg",
+  "https://i.imgur.com/eBkDsFt.jpeg"
+];
+let currentSlide = 0;
+const sliderImgEl = document.getElementById('sliderImg');
+const dotsEl = document.getElementById('sliderDots');
+
+// Build dots
+sliderImages.forEach((_, i) => {
+  const d = document.createElement('div');
+  d.className = 'slider-dot' + (i === 0 ? ' active' : '');
+  d.onclick = () => goToSlide(i);
+  dotsEl.appendChild(d);
+});
+
+function goToSlide(n) {
+  currentSlide = n;
+  sliderImgEl.style.opacity = '0';
+  setTimeout(() => {
+    sliderImgEl.src = sliderImages[n];
+    sliderImgEl.style.opacity = '1';
+    document.querySelectorAll('.slider-dot').forEach((d, i) => d.classList.toggle('active', i === n));
+  }, 350);
+}
+
+setInterval(() => { goToSlide((currentSlide + 1) % sliderImages.length); }, 3800);
+
+/* ===== SHEET & DATA ===== */
+const sheetURL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vReVFFfTdnBOMgVF15qLDxBxyqbUKedALbb1_tFHpIEKWTD61_cVGqmuSY1Tn20VoqNd1nCyEp-Y1ur/pub?output=csv";
+let allProducts = [];
+let renderedProducts = [];
+let activeCategory = null;
+let searchVal = "";
+
+function parsePrice(str) {
+  if (!str) return 0;
+  return parseFloat(str.toString().replace(/,/g,"").replace(/[^\d.]/g,"").trim()) || 0;
+}
+function formatPrice(num) {
+  if (!num) return "0.00";
+  return num.toLocaleString("en-LK", {minimumFractionDigits:2, maximumFractionDigits:2});
+}
+function col(item, name) {
+  if (item[name] !== undefined) return item[name] || "";
+  const low = name.toLowerCase().replace(/\s+/g," ").trim();
+  for (const k of Object.keys(item)) {
+    const kc = k.replace(/^\uFEFF/,"").toLowerCase().replace(/\s+/g," ").trim();
+    if (kc === low) return item[k] || "";
+  }
+  return "";
+}
+
+async function loadProducts() {
+  const container = document.getElementById('productsContainer');
+  try {
+    const res = await fetch(sheetURL);
+    if (!res.ok) throw new Error("HTTP " + res.status);
+    const csv = await res.text();
+    Papa.parse(csv, {
+      header:true, skipEmptyLines:true,
+      complete(results) {
+        allProducts = [];
+        results.data.forEach(item => {
+          const name = col(item,"Name").trim();
+          const avail = col(item,"Availability").trim().toLowerCase();
+          if (!name || avail === "hide") return;
+          allProducts.push({
+            name,
+            category: col(item,"Category").trim() || "General",
+            price: parsePrice(col(item,"Price")),
+            discountedPrice: parsePrice(col(item,"Discounted Price")),
+            description: col(item,"Description").trim(),
+            brand: col(item,"Brand").trim(),
+            stock: parseInt(col(item,"Stock")) || 0,
+            thumbnail: col(item,"Thumbnail").trim(),
+            image1: col(item,"Image1").trim(),
+            image2: col(item,"Image2").trim(),
+            ageRange: col(item,"Age Range").trim(),
+            material: col(item,"Material").trim(),
+            theme: col(item,"Theme").trim(),
+          });
+        });
+        if (!allProducts.length) {
+          container.innerHTML = "<div style='grid-column:1/-1;text-align:center;padding:60px;font-size:18px;font-weight:700;color:#888'>Products sheet empty or all hidden.</div>";
+          return;
+        }
+        renderProducts(allProducts);
+      },
+      error(err) {
+        container.innerHTML = `<div style='grid-column:1/-1;text-align:center;padding:60px;font-weight:700;color:#c00'>CSV parse error: ${err}</div>`;
+      }
+    });
+  } catch(err) {
+    container.innerHTML = `<div style='grid-column:1/-1;text-align:center;padding:60px'>
+      <div style='font-size:48px'>⚠️</div>
+      <p style='font-size:19px;font-weight:800;margin-top:14px'>Products load කරන්න බැරිඋනා</p>
+      <p style='font-size:15px;color:#888;margin-top:8px'>${err.message}</p>
+      <p style='font-size:14px;color:#aaa;margin-top:8px'>Google Sheet publicly published ද check කරන්න</p>
+    </div>`;
+  }
+}
+
+function renderProducts(products) {
+  renderedProducts = products;
+  const container = document.getElementById('productsContainer');
+  const countEl = document.getElementById('productCount');
+  if (countEl) countEl.textContent = products.length + " items found";
+
+  if (!products.length) {
+    container.innerHTML = "<div style='grid-column:1/-1;text-align:center;padding:60px;font-size:36px'>😕<p style=\"font-size:17px;font-weight:700;color:#888;margin-top:14px\">No products found.</p></div>";
+    return;
+  }
+
+  let html = "";
+  for (let i = 0; i < products.length; i++) {
+    const p = products[i];
+    const hasDis = p.discountedPrice > 0 && p.discountedPrice < p.price;
+    const showPrice = hasDis ? p.discountedPrice : p.price;
+    const discPct = hasDis ? Math.round(((p.price - p.discountedPrice) / p.price) * 100) : 0;
+    const lowStock = p.stock > 0 && p.stock <= 5;
+    const thumb = p.thumbnail || p.image1 || "https://via.placeholder.com/400x400?text=11Cart";
+    const safeName = p.name.replace(/"/g,"&quot;");
+
+    html += `<div class="product-card" onclick="openModal(${i})">`;
+    html += `<div class="badge-row">`;
+    html += lowStock ? `<span class="badge-stock">⚡ Only ${p.stock} left!</span>` : `<span></span>`;
+    html += hasDis ? `<span class="badge-discount">-${discPct}%</span>` : '';
+    html += `</div>`;
+    html += `<div class="card-img-wrap"><img loading="lazy" src="${thumb}" alt="${safeName}" onerror="this.src='https://via.placeholder.com/400x400?text=11Cart'"></div>`;
+    html += `<div class="card-body">`;
+    html += `<span class="card-cat">${p.category}</span>`;
+    html += `<h3>${p.name}</h3>`;
+    html += `<div class="card-price-row"><span class="card-price">Rs ${formatPrice(showPrice)}</span>`;
+    if (hasDis) html += `<span class="card-old-price">Rs ${formatPrice(p.price)}</span>`;
+    html += `</div>`;
+    html += `<div class="card-actions">`;
+    html += `<button class="card-details-btn" onclick="event.stopPropagation();openModal(${i})">Details</button>`;
+    html += `<a class="card-wa-btn" href="https://wa.me/94768665158?text=I+want+to+order+${encodeURIComponent(p.name)}" target="_blank" onclick="event.stopPropagation()">💬 Order</a>`;
+    html += `</div></div></div>`;
+  }
+  container.innerHTML = html;
+}
+
+/* ===== FILTER & SORT ===== */
+function applyAndRender() {
+  let list = [...allProducts];
+  if (activeCategory) list = list.filter(p => p.category.toLowerCase().includes(activeCategory.toLowerCase()));
+  if (searchVal) list = list.filter(p => p.name.toLowerCase().includes(searchVal) || p.category.toLowerCase().includes(searchVal));
+  const sort = document.getElementById('sortSelect').value;
+  if (sort === "low") list.sort((a,b) => (a.discountedPrice||a.price)-(b.discountedPrice||b.price));
+  else if (sort === "high") list.sort((a,b) => (b.discountedPrice||b.price)-(a.discountedPrice||a.price));
+  else if (sort === "name") list.sort((a,b) => a.name.localeCompare(b.name));
+  renderProducts(list);
+}
+
+function filterCategory(cat, el) {
+  activeCategory = cat;
+  document.querySelectorAll('.category-card').forEach(c => c.classList.remove('active'));
+  if (el) el.classList.add('active');
+  applyAndRender();
+  document.getElementById('products').scrollIntoView({behavior:'smooth'});
+}
+
+function resetFilters() {
+  activeCategory = null;
+  searchVal = "";
+  document.getElementById('searchInput').value = "";
+  document.getElementById('sortSelect').value = "";
+  document.querySelectorAll('.category-card').forEach(c => c.classList.remove('active'));
+  renderProducts(allProducts);
+}
+
+document.getElementById('searchInput').addEventListener('input', function() {
+  searchVal = this.value.toLowerCase();
+  applyAndRender();
+});
+document.getElementById('sortSelect').addEventListener('change', applyAndRender);
+
+/* ===== MODAL ===== */
+function openModal(i) {
+  const p = renderedProducts[i];
+  if (!p) return;
+
+  const hasDis = p.discountedPrice > 0 && p.discountedPrice < p.price;
+  const showPrice = hasDis ? p.discountedPrice : p.price;
+  const savings = hasDis ? (p.price - p.discountedPrice) : 0;
+  const images = [p.thumbnail, p.image1, p.image2].filter(x => x && x.trim() !== "");
+  const mainSrc = images[0] || "https://via.placeholder.com/400x400?text=11Cart";
+
+  document.getElementById('modalMainImg').src = mainSrc;
+  document.getElementById('modalName').textContent = p.name;
+  document.getElementById('modalCat').textContent = p.category;
+  document.getElementById('modalPrice').textContent = "Rs " + formatPrice(showPrice);
+
+  const oldEl = document.getElementById('modalOldPrice');
+  oldEl.style.display = hasDis ? "inline" : "none";
+  if (hasDis) oldEl.textContent = "Rs " + formatPrice(p.price);
+
+  const savEl = document.getElementById('modalSavings');
+  savEl.style.display = hasDis ? "inline-flex" : "none";
+  if (hasDis) savEl.textContent = "💰 You save Rs " + formatPrice(savings) + "!";
+
+  const tags = [];
+  if (p.ageRange) tags.push("👶 " + p.ageRange);
+  if (p.material) tags.push("🧱 " + p.material);
+  if (p.theme) tags.push("🎯 " + p.theme);
+  if (p.brand && p.brand !== "11 Cart") tags.push("🏷️ " + p.brand);
+  if (p.stock > 0 && p.stock <= 5) tags.push("⚡ Only " + p.stock + " left!");
+  document.getElementById('modalTags').innerHTML = tags.map(t => `<span class="modal-tag">${t}</span>`).join("");
+
+  document.getElementById('modalDesc').textContent = p.description || "Contact us on WhatsApp for more details.";
+
+  const thumbsEl = document.getElementById('modalThumbs');
+  thumbsEl.innerHTML = images.length > 1
+    ? images.map((img, idx) => `<img class="modal-thumb ${idx===0?'active':''}" src="${img}" onclick="switchImg(this,'${img}')" onerror="this.style.display='none'">`).join("")
+    : "";
+
+  const waLink = "https://wa.me/94768665158?text=I+want+to+order+" + encodeURIComponent(p.name);
+  const detLink = "https://wa.me/94768665158?text=I+want+details+about+" + encodeURIComponent(p.name);
+  document.getElementById('modalActions').innerHTML =
+    `<a class="m-wa" href="${waLink}" target="_blank">💬 Order Now</a>` +
+    `<a class="m-det" href="${detLink}" target="_blank">ℹ️ Get Details</a>`;
+
+  document.getElementById('modalOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function switchImg(el, src) {
+  document.getElementById('modalMainImg').src = src;
+  document.querySelectorAll('.modal-thumb').forEach(t => t.classList.remove('active'));
+  el.classList.add('active');
+}
+
+function closeModal() {
+  document.getElementById('modalOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function closeModalBg(e) {
+  if (e.target === document.getElementById('modalOverlay')) closeModal();
+}
+
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+/* ===== INIT ===== */
+if (window.location.protocol === 'file:') {
+  document.getElementById('productsContainer').innerHTML =
+    "<div style='grid-column:1/-1;text-align:center;padding:50px 20px'>" +
+    "<div style='font-size:50px'>💻</div>" +
+    "<p style='font-size:20px;font-weight:800;margin-top:14px'>GitHub Pages upload කරන්න!</p>" +
+    "<p style='font-size:15px;color:#888;margin-top:10px'>File locally open කළාම products load නොවේ.<br>Code එක GitHub repository එකට push කරලා<br><strong>GitHub Pages</strong> වල test කරන්න.</p>" +
+    "</div>";
+  document.getElementById('productCount').textContent = "";
+} else {
+  loadProducts();
+}
+</script>
+</body>
+</html>
